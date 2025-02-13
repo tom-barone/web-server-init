@@ -1,0 +1,8 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd\[[0-9]+\]: .*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ \(systemd\)\[[0-9]+\]: .*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd-logind\[[0-9]+\]: Session [0-9]+ logged out. Waiting for processes to exit
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd-logind\[[0-9]+\]: .*tbone.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd-logind\[[0-9]+\]: .*gtrain.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd-logind\[[0-9]+\]: Removed session [0-9]+.
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd-journald\[[0-9]+\]: .*suggesting rotation.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd-journald\[[0-9]+\]: .*out-of-date, rotating.*$

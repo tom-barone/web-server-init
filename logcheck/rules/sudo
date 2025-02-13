@@ -1,0 +1,11 @@
+\w{3} [ :0-9]{11} [._[:alnum:]-]+ sudo\[[0-9]+\]:    tbone : .*$
+\w{3} [ :0-9]{11} [._[:alnum:]-]+ sudo\[[0-9]+\]:    dokku : .*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sudo\[[0-9]+\]: pam_unix.*logcheck.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sudo\[[0-9]+\]: pam_unix.*tbone.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sudo\[[0-9]+\]: .*session closed for user root.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sudo\[[0-9]+\]: .*session opened for user root.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ su\[[0-9]+\]: \(to root\) root on pts/[0-9]+
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ su\[[0-9]+\]: pam_unix.*tbone.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ su\[[0-9]+\]: .*session closed for user root.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sudo\[[0-9]+\]: .*root.*logcheck.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sudo\[[0-9]+\]: .*sudo:auth.*conversation failed.*

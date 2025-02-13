@@ -1,0 +1,593 @@
+I should always show up
+Nov 04 19:43:19 us-west sshd[371381]: error: kex_exchange_identification: Connection closed by remote host
+Nov 04 19:43:19 us-west sshd[371381]: Connection closed by 182.43.214.47 port 45388
+Nov 04 19:46:01 us-west sshd[371688]: Connection closed by 117.50.50.106 port 57758 [preauth]
+Nov 04 19:53:32 us-west (systemd)[372137]: pam_unix(systemd-user:session): session opened for user dokku(uid=1001) by (uid=0)
+Nov 04 19:53:32 us-west systemd[372137]: Queued start job for default target default.target.
+Nov 04 19:53:32 us-west systemd[372137]: Created slice app.slice - User Application Slice.
+Nov 04 19:53:32 us-west systemd[372137]: Reached target paths.target - Paths.
+Nov 04 19:53:32 us-west systemd[372137]: Reached target timers.target - Timers.
+Nov 04 19:53:32 us-west systemd[372137]: Starting dbus.socket - D-Bus User Message Bus Socket...
+Nov 04 19:53:32 us-west systemd[372137]: Listening on dirmngr.socket - GnuPG network certificate management daemon.
+Nov 04 19:53:32 us-west systemd[372137]: Listening on gpg-agent-browser.socket - GnuPG cryptographic agent and passphrase cache (access for web browsers).
+Nov 04 19:53:32 us-west systemd[372137]: Listening on gpg-agent-extra.socket - GnuPG cryptographic agent and passphrase cache (restricted).
+Nov 04 19:53:32 us-west systemd[372137]: Listening on gpg-agent-ssh.socket - GnuPG cryptographic agent (ssh-agent emulation).
+Nov 04 19:53:32 us-west systemd[372137]: Listening on gpg-agent.socket - GnuPG cryptographic agent and passphrase cache.
+Nov 04 19:53:32 us-west systemd[372137]: Listening on pk-debconf-helper.socket - debconf communication socket.
+Nov 04 19:53:32 us-west systemd[372137]: Listening on dbus.socket - D-Bus User Message Bus Socket.
+Nov 04 19:53:32 us-west systemd[372137]: Reached target sockets.target - Sockets.
+Nov 04 19:53:32 us-west systemd[372137]: Reached target basic.target - Basic System.
+Nov 04 19:53:32 us-west systemd[372137]: Reached target default.target - Main User Target.
+Nov 04 19:53:32 us-west systemd[1]: Started user@1001.service - User Manager for UID 1001.
+Nov 04 19:53:32 us-west systemd[1]: Started session-2504.scope - Session 2504 of User dokku.
+Nov 04 19:53:35 us-west systemd[1]: var-lib-docker-overlay2-t9lrti0b6iawpvnbixiv1d1bg-merged.mount: Deactivated successfully.
+Nov 04 19:53:35 us-west systemd[1]: var-lib-docker-overlay2-cwdf4198rt3jb5wq3qm8h177i-merged.mount: Deactivated successfully.
+Nov 04 19:53:35 us-west systemd[1]: var-lib-docker-tmp-buildkit\x2dmount884826923.mount: Deactivated successfully.
+Nov 04 19:53:35 us-west dockerd[18095]: 2024/11/04 19:53:35 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 04 19:53:36 us-west kernel: docker0: port 5(veth7f2d6ad) entered blocking state
+Nov 04 19:53:36 us-west kernel: docker0: port 5(veth7f2d6ad) entered disabled state
+Nov 04 19:53:36 us-west kernel: device veth7f2d6ad entered promiscuous mode
+Nov 04 19:53:36 us-west containerd[18012]: time="2024-11-04T19:53:36.423825175Z" level=info msg="loading plugin \"io.containerd.event.v1.publisher\"..." runtime=io.containerd.runc.v2 type=io.containerd.event.v1
+Nov 04 19:53:36 us-west containerd[18012]: time="2024-11-04T19:53:36.424389134Z" level=info msg="loading plugin \"io.containerd.internal.v1.shutdown\"..." runtime=io.containerd.runc.v2 type=io.containerd.internal.v1
+Nov 04 19:53:36 us-west containerd[18012]: time="2024-11-04T19:53:36.424449838Z" level=info msg="loading plugin \"io.containerd.ttrpc.v1.task\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
+Nov 04 19:53:36 us-west containerd[18012]: time="2024-11-04T19:53:36.424591854Z" level=info msg="loading plugin \"io.containerd.ttrpc.v1.pause\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
+Nov 04 19:53:36 us-west systemd[1]: Started docker-060707d2457d517785e20ca2a0e9eaf4b9ed58c8b4d4e9ca0680c3ce8ce61b49.scope - libcontainer container 060707d2457d517785e20ca2a0e9eaf4b9ed58c8b4d4e9ca0680c3ce8ce61b49.
+Nov 04 19:53:36 us-west kernel: eth0: renamed from vethcea05ed
+Nov 04 19:53:36 us-west kernel: IPv6: ADDRCONF(NETDEV_CHANGE): veth7f2d6ad: link becomes ready
+Nov 04 19:53:36 us-west kernel: docker0: port 5(veth7f2d6ad) entered blocking state
+Nov 04 19:53:36 us-west kernel: docker0: port 5(veth7f2d6ad) entered forwarding state
+Nov 04 19:54:18 us-west sshd[377550]: error: kex_exchange_identification: read: Connection reset by peer
+Nov 04 19:54:18 us-west sshd[377550]: Connection reset by 102.44.105.207 port 42652
+Nov 04 19:54:25 us-west sshd[377568]: fatal: userauth_pubkey: parse publickey packet: incomplete message [preauth]
+Nov 04 19:54:36 us-west systemd[1]: docker-060707d2457d517785e20ca2a0e9eaf4b9ed58c8b4d4e9ca0680c3ce8ce61b49.scope: Deactivated successfully.
+Nov 04 19:54:36 us-west systemd[1]: docker-060707d2457d517785e20ca2a0e9eaf4b9ed58c8b4d4e9ca0680c3ce8ce61b49.scope: Consumed 45.994s CPU time.
+Nov 04 19:54:36 us-west dockerd[18095]: time="2024-11-04T19:54:36.249351817Z" level=info msg="ignoring event" container=060707d2457d517785e20ca2a0e9eaf4b9ed58c8b4d4e9ca0680c3ce8ce61b49 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 19:54:36 us-west containerd[18012]: time="2024-11-04T19:54:36.249319164Z" level=info msg="shim disconnected" id=060707d2457d517785e20ca2a0e9eaf4b9ed58c8b4d4e9ca0680c3ce8ce61b49 namespace=moby
+Nov 04 19:54:36 us-west containerd[18012]: time="2024-11-04T19:54:36.249413032Z" level=warning msg="cleaning up after shim disconnected" id=060707d2457d517785e20ca2a0e9eaf4b9ed58c8b4d4e9ca0680c3ce8ce61b49 namespace=moby
+Nov 04 19:54:36 us-west containerd[18012]: time="2024-11-04T19:54:36.249422900Z" level=info msg="cleaning up dead shim" namespace=moby
+Nov 04 19:54:36 us-west kernel: docker0: port 5(veth7f2d6ad) entered disabled state
+Nov 04 19:54:36 us-west kernel: vethcea05ed: renamed from eth0
+Nov 04 19:54:36 us-west kernel: docker0: port 5(veth7f2d6ad) entered disabled state
+Nov 04 19:54:36 us-west kernel: device veth7f2d6ad left promiscuous mode
+Nov 04 19:54:36 us-west kernel: docker0: port 5(veth7f2d6ad) entered disabled state
+Nov 04 19:54:36 us-west systemd[1]: run-docker-netns-13d031195b90.mount: Deactivated successfully.
+Nov 04 19:54:36 us-west systemd[1]: var-lib-docker-overlay2-27d3f3623d638fd3675d773ac17e4b357353f307f59c4da5eef3ad22fa6cccc9-merged.mount: Deactivated successfully.
+Nov 04 19:54:45 us-west systemd[1]: var-lib-docker-overlay2-27d3f3623d638fd3675d773ac17e4b357353f307f59c4da5eef3ad22fa6cccc9-merged.mount: Deactivated successfully.
+Nov 04 19:54:46 us-west dockerd[18095]: 2024/11/04 19:54:46 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 04 19:54:46 us-west kernel: docker0: port 5(vethd2d7db0) entered blocking state
+Nov 04 19:54:46 us-west kernel: docker0: port 5(vethd2d7db0) entered disabled state
+Nov 04 19:54:46 us-west kernel: device vethd2d7db0 entered promiscuous mode
+Nov 04 19:54:46 us-west kernel: eth0: renamed from vethe533497
+Nov 04 19:54:46 us-west kernel: IPv6: ADDRCONF(NETDEV_CHANGE): vethd2d7db0: link becomes ready
+Nov 04 19:54:46 us-west kernel: docker0: port 5(vethd2d7db0) entered blocking state
+Nov 04 19:54:46 us-west kernel: docker0: port 5(vethd2d7db0) entered forwarding state
+Nov 04 19:54:47 us-west kernel: docker0: port 5(vethd2d7db0) entered disabled state
+Nov 04 19:54:47 us-west kernel: vethe533497: renamed from eth0
+Nov 04 19:54:47 us-west kernel: docker0: port 5(vethd2d7db0) entered disabled state
+Nov 04 19:54:47 us-west kernel: device vethd2d7db0 left promiscuous mode
+Nov 04 19:54:47 us-west kernel: docker0: port 5(vethd2d7db0) entered disabled state
+Nov 04 19:54:47 us-west systemd[1]: var-lib-docker-overlay2-ualtzoi58sf5u0br0s123w0tm-merged.mount: Deactivated successfully.
+Nov 04 19:54:47 us-west systemd[1]: var-lib-docker-tmp-buildkit\x2dmount4092292498.mount: Deactivated successfully.
+Nov 04 19:54:47 us-west systemd[1]: var-lib-docker-overlay2-03e0bb39bb2a5e14fdec9a733bc00f7f67dc6db3c819360e821475c538be44fd\x2dinit-merged.mount: Deactivated successfully.
+Nov 04 19:54:47 us-west systemd[1]: var-lib-docker-overlay2-03e0bb39bb2a5e14fdec9a733bc00f7f67dc6db3c819360e821475c538be44fd-merged.mount: Deactivated successfully.
+Nov 04 19:54:47 us-west kernel: docker0: port 5(veth697bf46) entered blocking state
+Nov 04 19:54:47 us-west kernel: docker0: port 5(veth697bf46) entered disabled state
+Nov 04 19:54:47 us-west kernel: device veth697bf46 entered promiscuous mode
+Nov 04 19:54:47 us-west kernel: docker0: port 5(veth697bf46) entered blocking state
+Nov 04 19:54:47 us-west kernel: docker0: port 5(veth697bf46) entered forwarding state
+Nov 04 19:54:47 us-west kernel: docker0: port 5(veth697bf46) entered disabled state
+Nov 04 19:54:47 us-west containerd[18012]: time="2024-11-04T19:54:47.707375039Z" level=info msg="loading plugin \"io.containerd.event.v1.publisher\"..." runtime=io.containerd.runc.v2 type=io.containerd.event.v1
+Nov 04 19:54:47 us-west containerd[18012]: time="2024-11-04T19:54:47.707417057Z" level=info msg="loading plugin \"io.containerd.internal.v1.shutdown\"..." runtime=io.containerd.runc.v2 type=io.containerd.internal.v1
+Nov 04 19:54:47 us-west containerd[18012]: time="2024-11-04T19:54:47.707426456Z" level=info msg="loading plugin \"io.containerd.ttrpc.v1.task\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
+Nov 04 19:54:47 us-west containerd[18012]: time="2024-11-04T19:54:47.707485917Z" level=info msg="loading plugin \"io.containerd.ttrpc.v1.pause\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
+Nov 04 19:54:47 us-west systemd[1]: Started docker-f79e04f667cafbade7fac90cf702eacc8edddfc1c690ecdb8b8b82ce3683a8ca.scope - libcontainer container f79e04f667cafbade7fac90cf702eacc8edddfc1c690ecdb8b8b82ce3683a8ca.
+Nov 04 19:54:47 us-west kernel: eth0: renamed from veth0618376
+Nov 04 19:54:47 us-west kernel: IPv6: ADDRCONF(NETDEV_CHANGE): veth697bf46: link becomes ready
+Nov 04 19:54:47 us-west kernel: docker0: port 5(veth697bf46) entered blocking state
+Nov 04 19:54:47 us-west kernel: docker0: port 5(veth697bf46) entered forwarding state
+Nov 04 19:54:52 us-west systemd[1]: docker-f79e04f667cafbade7fac90cf702eacc8edddfc1c690ecdb8b8b82ce3683a8ca.scope: Deactivated successfully.
+Nov 04 19:54:52 us-west systemd[1]: docker-f79e04f667cafbade7fac90cf702eacc8edddfc1c690ecdb8b8b82ce3683a8ca.scope: Consumed 4.856s CPU time.
+Nov 04 19:54:52 us-west dockerd[18095]: time="2024-11-04T19:54:52.776191216Z" level=info msg="ignoring event" container=f79e04f667cafbade7fac90cf702eacc8edddfc1c690ecdb8b8b82ce3683a8ca module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 19:54:52 us-west containerd[18012]: time="2024-11-04T19:54:52.776454040Z" level=info msg="shim disconnected" id=f79e04f667cafbade7fac90cf702eacc8edddfc1c690ecdb8b8b82ce3683a8ca namespace=moby
+Nov 04 19:54:52 us-west containerd[18012]: time="2024-11-04T19:54:52.776493293Z" level=warning msg="cleaning up after shim disconnected" id=f79e04f667cafbade7fac90cf702eacc8edddfc1c690ecdb8b8b82ce3683a8ca namespace=moby
+Nov 04 19:54:52 us-west containerd[18012]: time="2024-11-04T19:54:52.776499665Z" level=info msg="cleaning up dead shim" namespace=moby
+Nov 04 19:54:52 us-west kernel: docker0: port 5(veth697bf46) entered disabled state
+Nov 04 19:54:52 us-west kernel: veth0618376: renamed from eth0
+Nov 04 19:54:52 us-west kernel: docker0: port 5(veth697bf46) entered disabled state
+Nov 04 19:54:52 us-west kernel: device veth697bf46 left promiscuous mode
+Nov 04 19:54:52 us-west kernel: docker0: port 5(veth697bf46) entered disabled state
+Nov 04 19:54:52 us-west systemd[1]: run-docker-netns-4f4110a45e72.mount: Deactivated successfully.
+Nov 04 19:54:52 us-west systemd[1]: var-lib-docker-overlay2-03e0bb39bb2a5e14fdec9a733bc00f7f67dc6db3c819360e821475c538be44fd-merged.mount: Deactivated successfully.
+Nov 04 19:54:56 us-west systemd[1]: var-lib-docker-overlay2-840a7242d00d9976848cade984054c5b148e19210066596eca9351bab98a0316\x2dinit-merged.mount: Deactivated successfully.
+Nov 04 19:54:57 us-west kernel: docker0: port 5(veth52bcac2) entered blocking state
+Nov 04 19:54:57 us-west kernel: docker0: port 5(veth52bcac2) entered disabled state
+Nov 04 19:54:57 us-west kernel: device veth52bcac2 entered promiscuous mode
+Nov 04 19:54:57 us-west containerd[18012]: time="2024-11-04T19:54:57.059874533Z" level=info msg="loading plugin \"io.containerd.event.v1.publisher\"..." runtime=io.containerd.runc.v2 type=io.containerd.event.v1
+Nov 04 19:54:57 us-west containerd[18012]: time="2024-11-04T19:54:57.060742693Z" level=info msg="loading plugin \"io.containerd.internal.v1.shutdown\"..." runtime=io.containerd.runc.v2 type=io.containerd.internal.v1
+Nov 04 19:54:57 us-west containerd[18012]: time="2024-11-04T19:54:57.060847950Z" level=info msg="loading plugin \"io.containerd.ttrpc.v1.task\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
+Nov 04 19:54:57 us-west containerd[18012]: time="2024-11-04T19:54:57.061046843Z" level=info msg="loading plugin \"io.containerd.ttrpc.v1.pause\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
+Nov 04 19:54:57 us-west systemd[1]: Started docker-a0bd3c94eddc56d9c942117713669e44a8e847ac8818deb61b6ff24a558d52ee.scope - libcontainer container a0bd3c94eddc56d9c942117713669e44a8e847ac8818deb61b6ff24a558d52ee.
+Nov 04 19:54:57 us-west kernel: eth0: renamed from veth45c081e
+Nov 04 19:54:57 us-west kernel: IPv6: ADDRCONF(NETDEV_CHANGE): veth52bcac2: link becomes ready
+Nov 04 19:54:57 us-west kernel: docker0: port 5(veth52bcac2) entered blocking state
+Nov 04 19:54:57 us-west kernel: docker0: port 5(veth52bcac2) entered forwarding state
+Nov 04 19:54:57 us-west sudo[390218]:    dokku : PWD=/tmp/dokku-372159-git_build_app_repo.AMOgcP ; USER=root ; COMMAND=/usr/bin/docker-container-healthchecker check a0bd3c94eddc56d9c942117713669e44a8e847ac8818deb61b6ff24a558d52ee --app-json /tmp/dokku-372159-trigger-scheduler-docker-local-check-deploy.yO9M1m --process-type web --header 'X-Forwarded-Proto: https' --ip-address 172.17.0.6 --port 5000
+Nov 04 19:54:57 us-west sudo[390218]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1001)
+Nov 04 19:55:10 us-west sudo[395796]:    dokku : PWD=/tmp/dokku-372159-git_build_app_repo.AMOgcP ; USER=root ; COMMAND=/usr/sbin/nginx -t
+Nov 04 19:55:10 us-west sudo[395796]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1001)
+Nov 04 19:55:10 us-west sudo[396029]:    dokku : PWD=/tmp/dokku-372159-git_build_app_repo.AMOgcP ; USER=root ; COMMAND=/usr/bin/systemctl reload nginx
+Nov 04 19:55:10 us-west sudo[396029]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1001)
+Nov 04 19:55:10 us-west systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+Nov 04 19:55:10 us-west nginx[396031]: 2024/11/04 19:55:10 [notice] 396031#396031: signal process started
+Nov 04 19:55:10 us-west systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+Nov 04 19:55:11 us-west systemd[1]: var-lib-docker-overlay2-f417925acbe1b9f80eec8c3f1ab6706c1bee42572a113afa79a62ffa78ef2fed\x2dinit-merged.mount: Deactivated successfully.
+Nov 04 19:55:11 us-west kernel: docker0: port 7(vethff92d56) entered blocking state
+Nov 04 19:55:11 us-west kernel: docker0: port 7(vethff92d56) entered disabled state
+Nov 04 19:55:11 us-west kernel: device vethff92d56 entered promiscuous mode
+Nov 04 19:55:11 us-west containerd[18012]: time="2024-11-04T19:55:11.827369346Z" level=info msg="loading plugin \"io.containerd.event.v1.publisher\"..." runtime=io.containerd.runc.v2 type=io.containerd.event.v1
+Nov 04 19:55:11 us-west containerd[18012]: time="2024-11-04T19:55:11.827415142Z" level=info msg="loading plugin \"io.containerd.internal.v1.shutdown\"..." runtime=io.containerd.runc.v2 type=io.containerd.internal.v1
+Nov 04 19:55:11 us-west containerd[18012]: time="2024-11-04T19:55:11.827424600Z" level=info msg="loading plugin \"io.containerd.ttrpc.v1.task\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
+Nov 04 19:55:11 us-west containerd[18012]: time="2024-11-04T19:55:11.827827606Z" level=info msg="loading plugin \"io.containerd.ttrpc.v1.pause\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
+Nov 04 19:55:11 us-west systemd[1]: Started docker-9e6783e6a11a6ec3af13875a0bb8ef64e366e904aa46046531e6136494d47023.scope - libcontainer container 9e6783e6a11a6ec3af13875a0bb8ef64e366e904aa46046531e6136494d47023.
+Nov 04 19:55:11 us-west kernel: eth0: renamed from veth1fa113d
+Nov 04 19:55:11 us-west kernel: IPv6: ADDRCONF(NETDEV_CHANGE): vethff92d56: link becomes ready
+Nov 04 19:55:11 us-west kernel: docker0: port 7(vethff92d56) entered blocking state
+Nov 04 19:55:11 us-west kernel: docker0: port 7(vethff92d56) entered forwarding state
+Nov 04 19:55:12 us-west sudo[399307]:    dokku : PWD=/tmp/dokku-372159-git_build_app_repo.AMOgcP ; USER=root ; COMMAND=/usr/bin/docker-container-healthchecker check 9e6783e6a11a6ec3af13875a0bb8ef64e366e904aa46046531e6136494d47023 --app-json /tmp/dokku-372159-trigger-scheduler-docker-local-check-deploy.u6Qo4g --process-type worker --header 'X-Forwarded-Proto: https' --ip-address 172.17.0.8
+Nov 04 19:55:12 us-west sudo[399307]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1001)
+Nov 04 19:55:25 us-west sudo[405028]:    dokku : PWD=/tmp/dokku-372159-git_build_app_repo.AMOgcP ; USER=root ; COMMAND=/usr/sbin/nginx -t
+Nov 04 19:55:25 us-west sudo[405028]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1001)
+Nov 04 19:55:25 us-west sudo[405260]:    dokku : PWD=/tmp/dokku-372159-git_build_app_repo.AMOgcP ; USER=root ; COMMAND=/usr/bin/systemctl reload nginx
+Nov 04 19:55:25 us-west sudo[405260]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1001)
+Nov 04 19:55:25 us-west systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+Nov 04 19:55:25 us-west nginx[405262]: 2024/11/04 19:55:25 [notice] 405262#405262: signal process started
+Nov 04 19:55:25 us-west systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+Nov 04 19:55:26 us-west crontab[407440]: (dokku) REPLACE (dokku)
+Nov 04 19:55:27 us-west sshd[372158]: Received disconnect from 31.207.125.231 port 54294:11: disconnected by user
+Nov 04 19:55:27 us-west sshd[372158]: Disconnected from user dokku 31.207.125.231 port 54294
+Nov 04 19:55:27 us-west sshd[372134]: pam_unix(sshd:session): session closed for user dokku
+Nov 04 19:55:27 us-west systemd-logind[878]: Session 2504 logged out. Waiting for processes to exit.
+Nov 04 19:55:28 us-west systemd[1]: Started session-2507.scope - Session 2507 of User dokku.
+Nov 04 19:55:28 us-west sshd[408821]: Received disconnect from 31.207.125.231 port 54448:11: disconnected by user
+Nov 04 19:55:28 us-west sshd[408821]: Disconnected from user dokku 31.207.125.231 port 54448
+Nov 04 19:55:28 us-west sshd[408814]: pam_unix(sshd:session): session closed for user dokku
+Nov 04 19:55:28 us-west systemd[1]: session-2507.scope: Deactivated successfully.
+Nov 04 19:55:28 us-west systemd-logind[878]: Session 2507 logged out. Waiting for processes to exit.
+Nov 04 19:55:29 us-west systemd[1]: Started session-2508.scope - Session 2508 of User dokku.
+Nov 04 19:55:29 us-west sshd[409603]: Received disconnect from 31.207.125.231 port 54452:11: disconnected by user
+Nov 04 19:55:29 us-west sshd[409603]: Disconnected from user dokku 31.207.125.231 port 54452
+Nov 04 19:55:29 us-west sshd[409596]: pam_unix(sshd:session): session closed for user dokku
+Nov 04 19:55:29 us-west systemd[1]: session-2508.scope: Deactivated successfully.
+Nov 04 19:55:29 us-west systemd-logind[878]: Session 2508 logged out. Waiting for processes to exit.
+Nov 04 19:55:58 us-west systemd[1]: Started session-2509.scope - Session 2509 of User dokku.
+Nov 04 19:55:59 us-west systemd[1]: var-lib-docker-overlay2-17edd3531f666eefe40d8e407816e549d0f099f16eb974be124bd602deb292cf\x2dinit-merged.mount: Deactivated successfully.
+Nov 04 19:55:59 us-west kernel: docker0: port 8(vethb8c6357) entered blocking state
+Nov 04 19:55:59 us-west kernel: docker0: port 8(vethb8c6357) entered disabled state
+Nov 04 19:55:59 us-west kernel: device vethb8c6357 entered promiscuous mode
+Nov 04 19:55:59 us-west containerd[18012]: time="2024-11-04T19:55:59.735294785Z" level=info msg="loading plugin \"io.containerd.event.v1.publisher\"..." runtime=io.containerd.runc.v2 type=io.containerd.event.v1
+Nov 04 19:55:59 us-west containerd[18012]: time="2024-11-04T19:55:59.735977326Z" level=info msg="loading plugin \"io.containerd.internal.v1.shutdown\"..." runtime=io.containerd.runc.v2 type=io.containerd.internal.v1
+Nov 04 19:55:59 us-west containerd[18012]: time="2024-11-04T19:55:59.736001763Z" level=info msg="loading plugin \"io.containerd.ttrpc.v1.task\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
+Nov 04 19:55:59 us-west containerd[18012]: time="2024-11-04T19:55:59.736099526Z" level=info msg="loading plugin \"io.containerd.ttrpc.v1.pause\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
+Nov 04 19:55:59 us-west systemd[1]: Started docker-9f3b6561d499cce4330f97b9dcde22a59c0a48dc7d1fa3a38a1229cd0456e00c.scope - libcontainer container 9f3b6561d499cce4330f97b9dcde22a59c0a48dc7d1fa3a38a1229cd0456e00c.
+Nov 04 19:55:59 us-west kernel: eth0: renamed from vethec8a183
+Nov 04 19:55:59 us-west kernel: IPv6: ADDRCONF(NETDEV_CHANGE): vethb8c6357: link becomes ready
+Nov 04 19:55:59 us-west kernel: docker0: port 8(vethb8c6357) entered blocking state
+Nov 04 19:55:59 us-west kernel: docker0: port 8(vethb8c6357) entered forwarding state
+Nov 04 19:56:01 us-west cron[870]: (dokku) RELOAD (crontabs/dokku)
+Nov 04 19:56:23 us-west systemd[1]: docker-9f3b6561d499cce4330f97b9dcde22a59c0a48dc7d1fa3a38a1229cd0456e00c.scope: Deactivated successfully.
+Nov 04 19:56:23 us-west systemd[1]: docker-9f3b6561d499cce4330f97b9dcde22a59c0a48dc7d1fa3a38a1229cd0456e00c.scope: Consumed 5.642s CPU time.
+Nov 04 19:56:23 us-west dockerd[18095]: time="2024-11-04T19:56:23.060415640Z" level=info msg="ignoring event" container=9f3b6561d499cce4330f97b9dcde22a59c0a48dc7d1fa3a38a1229cd0456e00c module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 19:56:23 us-west containerd[18012]: time="2024-11-04T19:56:23.060581551Z" level=info msg="shim disconnected" id=9f3b6561d499cce4330f97b9dcde22a59c0a48dc7d1fa3a38a1229cd0456e00c namespace=moby
+Nov 04 19:56:23 us-west containerd[18012]: time="2024-11-04T19:56:23.060630152Z" level=warning msg="cleaning up after shim disconnected" id=9f3b6561d499cce4330f97b9dcde22a59c0a48dc7d1fa3a38a1229cd0456e00c namespace=moby
+Nov 04 19:56:23 us-west containerd[18012]: time="2024-11-04T19:56:23.060638247Z" level=info msg="cleaning up dead shim" namespace=moby
+Nov 04 19:56:23 us-west dockerd[18095]: time="2024-11-04T19:56:23.071491895Z" level=warning msg="failed to close stdin: NotFound: task 9f3b6561d499cce4330f97b9dcde22a59c0a48dc7d1fa3a38a1229cd0456e00c not found: not found"
+Nov 04 19:56:23 us-west kernel: docker0: port 8(vethb8c6357) entered disabled state
+Nov 04 19:56:23 us-west kernel: vethec8a183: renamed from eth0
+Nov 04 19:56:23 us-west kernel: docker0: port 8(vethb8c6357) entered disabled state
+Nov 04 19:56:23 us-west kernel: device vethb8c6357 left promiscuous mode
+Nov 04 19:56:23 us-west kernel: docker0: port 8(vethb8c6357) entered disabled state
+Nov 04 19:56:23 us-west systemd[1]: run-docker-netns-4a6e1903b016.mount: Deactivated successfully.
+Nov 04 19:56:23 us-west systemd[1]: var-lib-docker-overlay2-17edd3531f666eefe40d8e407816e549d0f099f16eb974be124bd602deb292cf-merged.mount: Deactivated successfully.
+Nov 04 19:56:23 us-west sshd[409880]: Received disconnect from 31.207.125.231 port 54517:11: disconnected by user
+Nov 04 19:56:23 us-west sshd[409880]: Disconnected from user dokku 31.207.125.231 port 54517
+Nov 04 19:56:23 us-west sshd[409873]: pam_unix(sshd:session): session closed for user dokku
+Nov 04 19:56:23 us-west systemd[1]: session-2509.scope: Deactivated successfully.
+Nov 04 19:56:23 us-west systemd[1]: session-2509.scope: Consumed 1.347s CPU time.
+Nov 04 19:56:23 us-west systemd-logind[878]: Session 2509 logged out. Waiting for processes to exit.
+Nov 04 19:56:26 us-west systemd[1]: docker-d20fc0e822cbe7163f071711e6e3ccf2af0be7615db0f13c0dcb76c014c4c923.scope: Deactivated successfully.
+Nov 04 19:56:26 us-west systemd[1]: docker-d20fc0e822cbe7163f071711e6e3ccf2af0be7615db0f13c0dcb76c014c4c923.scope: Consumed 5.814s CPU time.
+Nov 04 19:56:26 us-west containerd[18012]: time="2024-11-04T19:56:26.803686019Z" level=info msg="shim disconnected" id=d20fc0e822cbe7163f071711e6e3ccf2af0be7615db0f13c0dcb76c014c4c923 namespace=moby
+Nov 04 19:56:26 us-west dockerd[18095]: time="2024-11-04T19:56:26.803794322Z" level=info msg="ignoring event" container=d20fc0e822cbe7163f071711e6e3ccf2af0be7615db0f13c0dcb76c014c4c923 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 19:56:26 us-west containerd[18012]: time="2024-11-04T19:56:26.804386063Z" level=warning msg="cleaning up after shim disconnected" id=d20fc0e822cbe7163f071711e6e3ccf2af0be7615db0f13c0dcb76c014c4c923 namespace=moby
+Nov 04 19:56:26 us-west containerd[18012]: time="2024-11-04T19:56:26.804409467Z" level=info msg="cleaning up dead shim" namespace=moby
+Nov 04 19:56:26 us-west kernel: docker0: port 3(veth38bbb57) entered disabled state
+Nov 04 19:56:26 us-west kernel: vethd69d472: renamed from eth0
+Nov 04 19:56:26 us-west kernel: docker0: port 3(veth38bbb57) entered disabled state
+Nov 04 19:56:26 us-west kernel: device veth38bbb57 left promiscuous mode
+Nov 04 19:56:26 us-west kernel: docker0: port 3(veth38bbb57) entered disabled state
+Nov 04 19:56:26 us-west systemd[1]: run-docker-netns-1fec30aad208.mount: Deactivated successfully.
+Nov 04 19:56:26 us-west systemd[1]: var-lib-docker-overlay2-9bc619131d23c480fca4532df28747afbc4b0120e920d309bab0f672abc171c6-merged.mount: Deactivated successfully.
+Nov 04 19:56:27 us-west systemd[1]: docker-2d501afec979eec0c5043011458edba77b589cea2336ead0436117eebd8a296b.scope: Deactivated successfully.
+Nov 04 19:56:27 us-west systemd[1]: docker-2d501afec979eec0c5043011458edba77b589cea2336ead0436117eebd8a296b.scope: Consumed 6.260s CPU time.
+Nov 04 19:56:27 us-west dockerd[18095]: time="2024-11-04T19:56:27.122070263Z" level=info msg="ignoring event" container=2d501afec979eec0c5043011458edba77b589cea2336ead0436117eebd8a296b module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 19:56:27 us-west containerd[18012]: time="2024-11-04T19:56:27.122673856Z" level=info msg="shim disconnected" id=2d501afec979eec0c5043011458edba77b589cea2336ead0436117eebd8a296b namespace=moby
+Nov 04 19:56:27 us-west containerd[18012]: time="2024-11-04T19:56:27.122746782Z" level=warning msg="cleaning up after shim disconnected" id=2d501afec979eec0c5043011458edba77b589cea2336ead0436117eebd8a296b namespace=moby
+Nov 04 19:56:27 us-west containerd[18012]: time="2024-11-04T19:56:27.122757493Z" level=info msg="cleaning up dead shim" namespace=moby
+Nov 04 19:56:27 us-west kernel: docker0: port 6(vethd7daaee) entered disabled state
+Nov 04 19:56:27 us-west kernel: veth469eb1b: renamed from eth0
+Nov 04 19:56:27 us-west kernel: docker0: port 6(vethd7daaee) entered disabled state
+Nov 04 19:56:27 us-west kernel: device vethd7daaee left promiscuous mode
+Nov 04 19:56:27 us-west kernel: docker0: port 6(vethd7daaee) entered disabled state
+Nov 04 19:56:27 us-west systemd[1]: run-docker-netns-3fe5dec5e313.mount: Deactivated successfully.
+Nov 04 19:56:27 us-west systemd[1]: var-lib-docker-overlay2-100af15d8d3e45a551c0ec61b990d213081734aa2193f25b7ab100b42f3cd49e-merged.mount: Deactivated successfully.
+Nov 04 19:56:27 us-west systemd[1]: session-2504.scope: Deactivated successfully.
+Nov 04 19:56:27 us-west systemd[1]: session-2504.scope: Consumed 26.006s CPU time.
+Nov 04 19:56:37 us-west systemd[1]: Stopping user@1001.service - User Manager for UID 1001...
+Nov 04 19:56:37 us-west systemd[372137]: Activating special unit exit.target...
+Nov 04 19:56:37 us-west systemd[372137]: Stopped target default.target - Main User Target.
+Nov 04 19:56:37 us-west systemd[372137]: Stopped target basic.target - Basic System.
+Nov 04 19:56:37 us-west systemd[372137]: Stopped target paths.target - Paths.
+Nov 04 19:56:37 us-west systemd[372137]: Stopped target sockets.target - Sockets.
+Nov 04 19:56:37 us-west systemd[372137]: Stopped target timers.target - Timers.
+Nov 04 19:56:37 us-west systemd[372137]: Closed dbus.socket - D-Bus User Message Bus Socket.
+Nov 04 19:56:37 us-west systemd[372137]: Closed dirmngr.socket - GnuPG network certificate management daemon.
+Nov 04 19:56:37 us-west systemd[372137]: Closed gpg-agent-browser.socket - GnuPG cryptographic agent and passphrase cache (access for web browsers).
+Nov 04 19:56:37 us-west systemd[372137]: Closed gpg-agent-extra.socket - GnuPG cryptographic agent and passphrase cache (restricted).
+Nov 04 19:56:37 us-west systemd[372137]: Closed gpg-agent-ssh.socket - GnuPG cryptographic agent (ssh-agent emulation).
+Nov 04 19:56:37 us-west systemd[372137]: Closed gpg-agent.socket - GnuPG cryptographic agent and passphrase cache.
+Nov 04 19:56:37 us-west systemd[372137]: Closed pk-debconf-helper.socket - debconf communication socket.
+Nov 04 19:56:37 us-west systemd[372137]: Removed slice app.slice - User Application Slice.
+Nov 04 19:56:37 us-west systemd[372137]: Reached target shutdown.target - Shutdown.
+Nov 04 19:56:37 us-west systemd[372137]: Finished systemd-exit.service - Exit the Session.
+Nov 04 19:56:37 us-west systemd[372137]: Reached target exit.target - Exit the Session.
+Nov 04 19:56:37 us-west systemd[1]: user@1001.service: Deactivated successfully.
+Nov 04 19:56:37 us-west systemd[1]: Stopped user@1001.service - User Manager for UID 1001.
+Nov 04 19:56:37 us-west systemd[1]: Stopping user-runtime-dir@1001.service - User Runtime Directory /run/user/1001...
+Nov 04 19:56:37 us-west systemd[1]: run-user-1001.mount: Deactivated successfully.
+Nov 04 19:56:37 us-west systemd[1]: user-runtime-dir@1001.service: Deactivated successfully.
+Nov 04 19:56:37 us-west systemd[1]: Stopped user-runtime-dir@1001.service - User Runtime Directory /run/user/1001.
+Nov 04 19:56:37 us-west systemd[1]: Removed slice user-1001.slice - User Slice of UID 1001.
+Nov 04 19:56:37 us-west systemd[1]: user-1001.slice: Consumed 28.380s CPU time.
+Nov 04 20:00:24 us-west dokku[412282]:  !     Image a1738718e4adf5900aabc64a4f50e26dc9a16812e744409c3d082886f8cbd623 has children images and is untagged, skipping rm and marking dead
+Nov 04 20:01:25 us-west sshd[412248]: Connection closed by 27.128.229.223 port 56512 [preauth]
+Nov 04 20:02:02 us-west postfix/pickup[326960]: 2510E233A27: uid=103 from=<logcheck>
+Nov 04 20:02:02 us-west postfix/cleanup[412921]: 2510E233A27: message-id=<20241104200202.2510E233A27@eu-central>
+Nov 04 20:02:02 us-west postfix/qmgr[133831]: 2510E233A27: from=<logcheck@bellus-ai.com>, size=39353, nrcpt=1 (queue active)
+Nov 04 20:02:03 us-west postfix/smtp[412925]: 2510E233A27: to=<mail@tombarone.net>, relay=smtp.gmail.com[2a00:1450:4013:c07::6d]:587, delay=1.2, delays=0.01/0.03/0.31/0.87, dsn=2.0.0, status=sent (250 2.0.0 OK  1730750523 a640c23a62f3a-a9eb17f9726sm23340666b.161 - gsmtp)
+Nov 04 20:02:03 us-west postfix/qmgr[133831]: 2510E233A27: removed
+Nov 04 20:02:21 us-west postfix/pickup[326960]: 82DBC233A27: uid=0 from=<eu-central@bellus-ai.com>
+Nov 04 20:02:21 us-west postfix/cleanup[412921]: 82DBC233A27: message-id=<20241104200221.82DBC233A27@eu-central>
+Nov 04 20:02:21 us-west postfix/qmgr[133831]: 82DBC233A27: from=<eu-central@bellus-ai.com>, size=5491, nrcpt=1 (queue active)
+Nov 04 20:02:23 us-west postfix/smtp[412925]: 82DBC233A27: to=<mail@tombarone.net>, relay=smtp.gmail.com[74.125.143.108]:587, delay=2, delays=0.04/0/0.32/1.7, dsn=2.0.0, status=sent (250 2.0.0 OK  1730750543 a640c23a62f3a-a9eb151c478sm25767566b.0 - gsmtp)
+Nov 04 20:02:23 us-west postfix/qmgr[133831]: 82DBC233A27: removed
+Nov 04 20:11:09 us-west sshd[413575]: error: kex_protocol_error: type 20 seq 2 [preauth]
+Nov 04 20:11:09 us-west sshd[413575]: error: kex_protocol_error: type 30 seq 3 [preauth]
+Nov 04 20:11:11 us-west sshd[413575]: error: kex_protocol_error: type 20 seq 4 [preauth]
+Nov 04 20:11:11 us-west sshd[413575]: error: kex_protocol_error: type 30 seq 5 [preauth]
+Nov 04 20:11:13 us-west sshd[413575]: error: kex_protocol_error: type 20 seq 6 [preauth]
+Nov 04 20:11:13 us-west sshd[413575]: error: kex_protocol_error: type 30 seq 7 [preauth]
+Nov 04 20:11:37 us-west sshd[413575]: Connection reset by 139.59.36.72 port 6116 [preauth]
+Nov 04 20:12:04 us-west sshd[413589]: Connection closed by authenticating user root 37.44.238.68 port 47054 [preauth]
+Nov 04 20:12:04 us-west postfix/pickup[326960]: EA853233A27: uid=0 from=<eu-central@bellus-ai.com>
+Nov 04 20:12:04 us-west postfix/cleanup[413611]: EA853233A27: message-id=<20241104201204.EA853233A27@eu-central>
+Nov 04 20:12:04 us-west postfix/qmgr[133831]: EA853233A27: from=<eu-central@bellus-ai.com>, size=84356, nrcpt=1 (queue active)
+Nov 04 20:12:06 us-west postfix/smtp[413613]: EA853233A27: to=<mail@tombarone.net>, relay=smtp.gmail.com[108.177.127.108]:587, delay=1.4, delays=0.04/0.04/0.33/0.99, dsn=2.0.0, status=sent (250 2.0.0 OK  1730751126 a640c23a62f3a-a9eb17f8626sm24775966b.143 - gsmtp)
+Nov 04 20:12:06 us-west postfix/qmgr[133831]: EA853233A27: removed
+Nov 04 20:28:45 us-west sudo[414582]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/su
+Nov 04 20:28:45 us-west su[414584]: (to root) root on pts/1
+Nov 04 20:28:45 us-west su[414584]: pam_unix(su:session): session opened for user root(uid=0) by tbone(uid=0)
+Nov 04 20:30:01 us-west sshd[414595]: Connection closed by 146.190.241.56 port 33152 [preauth]
+Nov 04 20:31:57 us-west sshd[414885]: Connection closed by 121.15.4.92 port 35127 [preauth]
+Nov 04 20:32:45 us-west sshd[414901]: Connection closed by 164.92.86.252 port 43338 [preauth]
+Nov 04 20:39:22 us-west sshd[415223]: error: kex_exchange_identification: Connection closed by remote host
+Nov 04 20:39:22 us-west sshd[415223]: Connection closed by 85.31.47.40 port 51824
+Nov 04 20:40:49 us-west sshd[415514]: Accepted publickey for tbone from 31.207.125.231 port 59157 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:40:49 us-west sshd[415514]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:40:49 us-west systemd[1]: Started session-2516.scope - Session 2516 of User tbone.
+Nov 04 20:40:50 us-west sshd[415521]: Received disconnect from 31.207.125.231 port 59157:11: disconnected by user
+Nov 04 20:40:50 us-west sshd[415521]: Disconnected from user tbone 31.207.125.231 port 59157
+Nov 04 20:40:50 us-west sshd[415514]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:40:50 us-west systemd-logind[878]: Session 2516 logged out. Waiting for processes to exit.
+Nov 04 20:40:50 us-west systemd[1]: session-2516.scope: Deactivated successfully.
+Nov 04 20:41:04 us-west sshd[415228]: Connection closed by 121.15.4.92 port 40077 [preauth]
+Nov 04 20:41:10 us-west sshd[415525]: Accepted publickey for tbone from 31.207.125.231 port 59195 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:41:10 us-west sshd[415525]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:41:10 us-west systemd[1]: Started session-2517.scope - Session 2517 of User tbone.
+Nov 04 20:41:12 us-west sshd[415532]: Received disconnect from 31.207.125.231 port 59195:11: disconnected by user
+Nov 04 20:41:12 us-west sshd[415532]: Disconnected from user tbone 31.207.125.231 port 59195
+Nov 04 20:41:12 us-west sshd[415525]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:41:12 us-west systemd[1]: session-2517.scope: Deactivated successfully.
+Nov 04 20:41:12 us-west systemd-logind[878]: Session 2517 logged out. Waiting for processes to exit.
+Nov 04 20:41:14 us-west su[414584]: pam_unix(su:session): session closed for user root
+Nov 04 20:41:57 us-west sudo[415552]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/rm /etc/logcheck/ignore.d.server/dokku
+Nov 04 20:42:10 us-west sudo[415558]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts../logcheck/ignore_files/* /etc/logcheck/ignore.d.server
+Nov 04 20:42:29 us-west sudo[415565]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts../logcheck/ignore_files/* /etc/logcheck/ignore.d.server
+Nov 04 20:42:58 us-west sshd[415573]: Accepted publickey for tbone from 31.207.125.231 port 59383 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:42:58 us-west sshd[415573]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:42:58 us-west systemd[1]: Started session-2518.scope - Session 2518 of User tbone.
+Nov 04 20:42:59 us-west sshd[415580]: Received disconnect from 31.207.125.231 port 59383:11: disconnected by user
+Nov 04 20:42:59 us-west sshd[415580]: Disconnected from user tbone 31.207.125.231 port 59383
+Nov 04 20:42:59 us-west sshd[415573]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:42:59 us-west systemd[1]: session-2518.scope: Deactivated successfully.
+Nov 04 20:42:59 us-west systemd-logind[878]: Session 2518 logged out. Waiting for processes to exit.
+Nov 04 20:43:00 us-west sshd[415582]: Accepted publickey for tbone from 31.207.125.231 port 59387 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:43:00 us-west sshd[415582]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:43:00 us-west systemd[1]: Started session-2519.scope - Session 2519 of User tbone.
+Nov 04 20:43:01 us-west sshd[415591]: Received disconnect from 31.207.125.231 port 59387:11: disconnected by user
+Nov 04 20:43:01 us-west sshd[415591]: Disconnected from user tbone 31.207.125.231 port 59387
+Nov 04 20:43:01 us-west sshd[415582]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:43:01 us-west systemd[1]: session-2519.scope: Deactivated successfully.
+Nov 04 20:43:01 us-west systemd-logind[878]: Session 2519 logged out. Waiting for processes to exit.
+Nov 04 20:43:03 us-west sudo[415598]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/cron /etc/logcheck/ignore.d.server
+Nov 04 20:43:03 us-west sudo[415601]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/dokku /etc/logcheck/ignore.d.server
+Nov 04 20:43:03 us-west sudo[415604]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/sshd /etc/logcheck/ignore.d.server
+Nov 04 20:43:03 us-west sudo[415607]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/sudo /etc/logcheck/ignore.d.server
+Nov 04 20:43:03 us-west sudo[415610]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/systemd /etc/logcheck/ignore.d.server
+Nov 04 20:43:11 us-west sudo[415613]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/su
+Nov 04 20:43:11 us-west su[415615]: (to root) root on pts/1
+Nov 04 20:43:11 us-west su[415615]: pam_unix(su:session): session opened for user root(uid=0) by tbone(uid=0)
+Nov 04 20:43:58 us-west sshd[415629]: Accepted publickey for tbone from 31.207.125.231 port 59492 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:43:58 us-west sshd[415629]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:43:58 us-west systemd[1]: Started session-2520.scope - Session 2520 of User tbone.
+Nov 04 20:43:59 us-west sshd[415636]: Received disconnect from 31.207.125.231 port 59492:11: disconnected by user
+Nov 04 20:43:59 us-west sshd[415636]: Disconnected from user tbone 31.207.125.231 port 59492
+Nov 04 20:43:59 us-west sshd[415629]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:43:59 us-west systemd[1]: session-2520.scope: Deactivated successfully.
+Nov 04 20:43:59 us-west systemd-logind[878]: Session 2520 logged out. Waiting for processes to exit.
+Nov 04 20:43:59 us-west sshd[415638]: Accepted publickey for tbone from 31.207.125.231 port 59495 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:43:59 us-west sshd[415638]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:43:59 us-west systemd[1]: Started session-2521.scope - Session 2521 of User tbone.
+Nov 04 20:44:01 us-west sshd[415645]: Received disconnect from 31.207.125.231 port 59495:11: disconnected by user
+Nov 04 20:44:01 us-west sshd[415645]: Disconnected from user tbone 31.207.125.231 port 59495
+Nov 04 20:44:01 us-west sshd[415638]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:44:01 us-west systemd[1]: session-2521.scope: Deactivated successfully.
+Nov 04 20:44:01 us-west systemd-logind[878]: Session 2521 logged out. Waiting for processes to exit.
+Nov 04 20:44:05 us-west su[415615]: pam_unix(su:session): session closed for user root
+Nov 04 20:44:06 us-west sudo[415650]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/cron /etc/logcheck/ignore.d.server
+Nov 04 20:44:06 us-west sudo[415653]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/dokku /etc/logcheck/ignore.d.server
+Nov 04 20:44:06 us-west sudo[415656]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/sshd /etc/logcheck/ignore.d.server
+Nov 04 20:44:06 us-west sudo[415659]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/sudo /etc/logcheck/ignore.d.server
+Nov 04 20:44:06 us-west sudo[415662]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/systemd /etc/logcheck/ignore.d.server
+Nov 04 20:44:08 us-west sudo[415665]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/su
+Nov 04 20:44:08 us-west su[415667]: (to root) root on pts/1
+Nov 04 20:44:08 us-west su[415667]: pam_unix(su:session): session opened for user root(uid=0) by tbone(uid=0)
+Nov 04 20:44:20 us-west sshd[415671]: Accepted publickey for tbone from 31.207.125.231 port 59531 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:44:20 us-west sshd[415671]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:44:20 us-west systemd[1]: Started session-2522.scope - Session 2522 of User tbone.
+Nov 04 20:44:21 us-west sshd[415678]: Received disconnect from 31.207.125.231 port 59531:11: disconnected by user
+Nov 04 20:44:21 us-west sshd[415678]: Disconnected from user tbone 31.207.125.231 port 59531
+Nov 04 20:44:21 us-west sshd[415671]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:44:21 us-west systemd[1]: session-2522.scope: Deactivated successfully.
+Nov 04 20:44:21 us-west systemd-logind[878]: Session 2522 logged out. Waiting for processes to exit.
+Nov 04 20:44:21 us-west sshd[415680]: Accepted publickey for tbone from 31.207.125.231 port 59536 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:44:21 us-west sshd[415680]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:44:21 us-west systemd[1]: Started session-2523.scope - Session 2523 of User tbone.
+Nov 04 20:44:23 us-west sshd[415688]: Received disconnect from 31.207.125.231 port 59536:11: disconnected by user
+Nov 04 20:44:23 us-west sshd[415688]: Disconnected from user tbone 31.207.125.231 port 59536
+Nov 04 20:44:23 us-west sshd[415680]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:44:23 us-west systemd[1]: session-2523.scope: Deactivated successfully.
+Nov 04 20:44:23 us-west systemd-logind[878]: Session 2523 logged out. Waiting for processes to exit.
+Nov 04 20:44:33 us-west su[415667]: pam_unix(su:session): session closed for user root
+Nov 04 20:44:46 us-west sshd[415691]: Accepted publickey for tbone from 31.207.125.231 port 59589 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:44:46 us-west sshd[415691]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:44:46 us-west systemd[1]: Started session-2524.scope - Session 2524 of User tbone.
+Nov 04 20:44:48 us-west sudo[415702]:    tbone : TTY=pts/1 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/cron /etc/logcheck/ignore.d.server
+Nov 04 20:44:48 us-west sudo[415705]:    tbone : TTY=pts/1 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/dokku /etc/logcheck/ignore.d.server
+Nov 04 20:44:48 us-west sudo[415708]:    tbone : TTY=pts/1 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/sshd /etc/logcheck/ignore.d.server
+Nov 04 20:44:48 us-west sudo[415711]:    tbone : TTY=pts/1 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/sudo /etc/logcheck/ignore.d.server
+Nov 04 20:44:48 us-west sudo[415714]:    tbone : TTY=pts/1 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/systemd /etc/logcheck/ignore.d.server
+Nov 04 20:44:48 us-west sshd[415698]: Received disconnect from 31.207.125.231 port 59589:11: disconnected by user
+Nov 04 20:44:48 us-west sshd[415698]: Disconnected from user tbone 31.207.125.231 port 59589
+Nov 04 20:44:48 us-west sshd[415691]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:44:48 us-west systemd[1]: session-2524.scope: Deactivated successfully.
+Nov 04 20:44:48 us-west systemd-logind[878]: Session 2524 logged out. Waiting for processes to exit.
+Nov 04 20:44:54 us-west sudo[415718]:    tbone : TTY=pts/0 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/su
+Nov 04 20:44:54 us-west su[415720]: (to root) root on pts/1
+Nov 04 20:44:54 us-west su[415720]: pam_unix(su:session): session opened for user root(uid=0) by tbone(uid=0)
+Nov 04 20:45:08 us-west sshd[415728]: Accepted publickey for tbone from 31.207.125.231 port 59632 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:45:08 us-west sshd[415728]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:45:08 us-west systemd[1]: Started session-2526.scope - Session 2526 of User tbone.
+Nov 04 20:45:09 us-west sshd[415746]: Received disconnect from 31.207.125.231 port 59632:11: disconnected by user
+Nov 04 20:45:09 us-west sshd[415746]: Disconnected from user tbone 31.207.125.231 port 59632
+Nov 04 20:45:09 us-west sshd[415728]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:45:09 us-west systemd[1]: session-2526.scope: Deactivated successfully.
+Nov 04 20:45:09 us-west systemd-logind[878]: Session 2526 logged out. Waiting for processes to exit.
+Nov 04 20:45:09 us-west sshd[416020]: Accepted publickey for tbone from 31.207.125.231 port 59634 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:45:09 us-west sshd[416020]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:45:09 us-west systemd[1]: Started session-2527.scope - Session 2527 of User tbone.
+Nov 04 20:45:11 us-west sshd[416027]: Received disconnect from 31.207.125.231 port 59634:11: disconnected by user
+Nov 04 20:45:11 us-west sshd[416027]: Disconnected from user tbone 31.207.125.231 port 59634
+Nov 04 20:45:11 us-west sshd[416020]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:45:11 us-west systemd[1]: session-2527.scope: Deactivated successfully.
+Nov 04 20:45:11 us-west systemd-logind[878]: Session 2527 logged out. Waiting for processes to exit.
+Nov 04 20:45:11 us-west sshd[416029]: Accepted publickey for tbone from 31.207.125.231 port 59643 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Nov 04 20:45:11 us-west sshd[416029]: pam_unix(sshd:session): session opened for user tbone(uid=1000) by (uid=0)
+Nov 04 20:45:11 us-west systemd[1]: Started session-2528.scope - Session 2528 of User tbone.
+Nov 04 20:45:13 us-west sudo[416040]:    tbone : TTY=pts/2 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/cron /etc/logcheck/ignore.d.server
+Nov 04 20:45:13 us-west sudo[416043]:    tbone : TTY=pts/2 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/dokku /etc/logcheck/ignore.d.server
+Nov 04 20:45:13 us-west sudo[416046]:    tbone : TTY=pts/2 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/sshd /etc/logcheck/ignore.d.server
+Nov 04 20:45:13 us-west sudo[416049]:    tbone : TTY=pts/2 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/sudo /etc/logcheck/ignore.d.server
+Nov 04 20:45:13 us-west sudo[416052]:    tbone : TTY=pts/2 ; PWD=/home/tbone ; USER=root ; COMMAND=/usr/bin/cp /home/tbone/scripts/../logcheck/ignore_files/systemd /etc/logcheck/ignore.d.server
+Nov 04 20:45:13 us-west sshd[416036]: Received disconnect from 31.207.125.231 port 59643:11: disconnected by user
+Nov 04 20:45:13 us-west sshd[416036]: Disconnected from user tbone 31.207.125.231 port 59643
+Nov 04 20:45:13 us-west sshd[416029]: pam_unix(sshd:session): session closed for user tbone
+Nov 04 20:45:13 us-west systemd[1]: session-2528.scope: Deactivated successfully.
+Nov 04 20:45:13 us-west systemd-logind[878]: Session 2528 logged out. Waiting for processes to exit.
+Nov 04 20:50:24 us-west sshd[416091]: Connection closed by 121.15.4.92 port 45019 [preauth]
+Nov 04 20:53:56 us-west sshd[416390]: Connection closed by authenticating user root 103.77.173.101 port 49094 [preauth]
+Nov 04 20:55:00 us-west sshd[416406]: Connection closed by authenticating user root 103.77.173.101 port 48126 [preauth]
+Nov 04 20:56:00 us-west sshd[416699]: Connection closed by authenticating user daemon 103.77.173.101 port 35416 [preauth]
+Nov 04 20:57:21 us-west postfix/pickup[413620]: 07AD6233A27: uid=0 from=<eu-central@bellus-ai.com>
+Nov 04 20:57:21 us-west postfix/cleanup[416719]: 07AD6233A27: message-id=<20241104205721.07AD6233A27@eu-central>
+Nov 04 20:57:21 us-west postfix/qmgr[133831]: 07AD6233A27: from=<eu-central@bellus-ai.com>, size=3854, nrcpt=1 (queue active)
+Nov 04 20:57:22 us-west postfix/smtp[416721]: 07AD6233A27: to=<mail@tombarone.net>, relay=smtp.gmail.com[2a00:1450:4013:c06::6d]:587, delay=1.3, delays=0.06/0.06/0.34/0.8, dsn=2.0.0, status=sent (250 2.0.0 OK  1730753842 a640c23a62f3a-a9eb16aecbasm29903566b.32 - gsmtp)
+Nov 04 20:57:22 us-west postfix/qmgr[133831]: 07AD6233A27: removed
+Nov 04 21:22:52 us-west sshd[418553]: error: Protocol major versions differ: 2 vs. 1
+Nov 04 21:22:52 us-west sshd[418553]: banner exchange: Connection from 128.14.239.38 port 53914: could not read protocol version
+Nov 04 21:22:54 us-west systemd-logind[878]: New session 2534 of user tbone.
+Nov 04 21:22:55 us-west systemd-logind[878]: Removed session 2534.
+Nov 04 21:22:55 us-west systemd-logind[878]: New session 2535 of user tbone.
+Nov 04 21:22:57 us-west systemd-logind[878]: Removed session 2535.
+Nov 04 21:22:57 us-west systemd-logind[878]: New session 2536 of user tbone.
+Nov 04 21:23:13 us-west systemd-logind[878]: Removed session 2536.
+Nov 04 21:33:51 us-west dockerd[18095]: 2024/11/04 21:33:51 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 04 21:34:43 us-west dockerd[18095]: time="2024-11-04T21:34:43.639029542Z" level=info msg="ignoring event" container=834b3ca85f5d1380ff22661eb400bd0066ca9e459d207cf5b276c4590620f7fc module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 21:34:54 us-west dockerd[18095]: 2024/11/04 21:34:54 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 04 21:35:00 us-west dockerd[18095]: time="2024-11-04T21:35:00.860822923Z" level=info msg="ignoring event" container=79976ca7f3054efab2b8fbbafc0572133999041906ab5a520287930ec2f3a9e5 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 21:35:19 us-west nginx[443961]: 2024/11/04 21:35:19 [notice] 443961#443961: signal process started
+Nov 04 21:35:34 us-west nginx[453217]: 2024/11/04 21:35:34 [notice] 453217#453217: signal process started
+Nov 04 21:36:35 us-west dockerd[18095]: time="2024-11-04T21:36:35.128316951Z" level=info msg="ignoring event" container=a0bd3c94eddc56d9c942117713669e44a8e847ac8818deb61b6ff24a558d52ee module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 21:36:36 us-west dockerd[18095]: time="2024-11-04T21:36:36.077095033Z" level=info msg="ignoring event" container=9e6783e6a11a6ec3af13875a0bb8ef64e366e904aa46046531e6136494d47023 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 21:44:02 us-west sshd[458662]: error: maximum authentication attempts exceeded for root from 218.35.226.244 port 53020 ssh2 [preauth]
+Nov 04 21:44:02 us-west sshd[458662]: Disconnecting authenticating user root 218.35.226.244 port 53020: Too many authentication failures [preauth]
+Nov 04 21:44:06 us-west sshd[458664]: error: maximum authentication attempts exceeded for root from 218.35.226.244 port 53602 ssh2 [preauth]
+Nov 04 21:44:06 us-west sshd[458664]: Disconnecting authenticating user root 218.35.226.244 port 53602: Too many authentication failures [preauth]
+Nov 04 21:44:09 us-west sshd[458666]: error: maximum authentication attempts exceeded for root from 218.35.226.244 port 54282 ssh2 [preauth]
+Nov 04 21:44:09 us-west sshd[458666]: Disconnecting authenticating user root 218.35.226.244 port 54282: Too many authentication failures [preauth]
+Nov 04 21:44:11 us-west sshd[458668]: Disconnected from authenticating user root 218.35.226.244 port 54906 [preauth]
+Nov 04 21:44:14 us-west sshd[458670]: error: maximum authentication attempts exceeded for invalid user admin from 218.35.226.244 port 55320 ssh2 [preauth]
+Nov 04 21:44:14 us-west sshd[458670]: Disconnecting invalid user admin 218.35.226.244 port 55320: Too many authentication failures [preauth]
+Nov 04 22:09:54 us-west sshd[460748]: Invalid user  from 47.250.80.158 port 54928
+Nov 04 22:09:54 us-west sshd[460748]: Connection closed by invalid user  47.250.80.158 port 54928 [preauth]
+Nov 04 22:30:03 us-west systemd-journald[443]: Data hash table of /var/log/journal/f8af937fa54f4364a6f00e0aab508e2b/system.journal has a fill level at 75.0 (53365 of 71153 items, 16777216 file size, 314 bytes per hash table item), suggesting rotation.
+Nov 04 22:30:03 us-west systemd-journald[443]: /var/log/journal/f8af937fa54f4364a6f00e0aab508e2b/system.journal: Journal header limits reached or header out-of-date, rotating.
+Nov 04 22:32:52 us-west dockerd[18095]: 2024/11/04 22:32:52 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 04 22:33:43 us-west dockerd[18095]: time="2024-11-04T22:33:43.279338606Z" level=info msg="ignoring event" container=6605dcc833b4da38e3acd782e8a606bf230924ce1404266cd0c1c4196769ae0c module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 22:33:52 us-west dockerd[18095]: 2024/11/04 22:33:52 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 04 22:33:58 us-west dockerd[18095]: time="2024-11-04T22:33:58.590769401Z" level=info msg="ignoring event" container=b4e737f524908932f602b77c17ac4bc3c08d47eb43f65eb47b1576724c3d9d69 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 22:34:16 us-west nginx[486099]: 2024/11/04 22:34:16 [notice] 486099#486099: signal process started
+Nov 04 22:34:31 us-west nginx[495342]: 2024/11/04 22:34:31 [notice] 495342#495342: signal process started
+Nov 04 22:35:32 us-west dockerd[18095]: time="2024-11-04T22:35:32.743343348Z" level=info msg="ignoring event" container=081530b77ed4258fcd63498ad5499636582fe842ec37f356dfb8fe106240d3a4 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 04 22:35:33 us-west dockerd[18095]: time="2024-11-04T22:35:33.590016284Z" level=info msg="ignoring event" container=f6a4be0c61ceb06f6a7bfad069b5ec71e0e8a8cc48f0b2053c920e64c3796c50 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 05 00:00:12 us-west rsyslogd[132786]: [origin software="rsyslogd" swVersion="8.2302.0" x-pid="132786" x-info="https://www.rsyslog.com"] rsyslogd was HUPed
+Nov 05 02:48:36 us-west sshd[556631]: Received disconnect from 60.8.218.42 port 54279:11:  [preauth]
+Nov 05 04:05:02 us-west dockerd[18095]: 2024/11/05 04:05:02 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 05 04:05:02 us-west dockerd[18095]: 2024/11/05 04:05:02 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 05 04:05:02 us-west docker[562102]: ID                                                RECLAIMABLE        SIZE                LAST ACCESSED
+Nov 05 04:05:02 us-west docker[562102]: zehw93ff3kg3kffpxxwerukrz*                      true                 153B              9 days ago
+Nov 05 04:06:21 us-west docker[562102]: boy89gggtu2e46ckihycn2xaw                       true         0B                30 hours ago
+Nov 05 04:06:22 us-west docker[562102]: Total:        45.45MB
+Nov 05 07:27:42 us-west sshd[576425]: Unable to negotiate with 118.41.128.150 port 52458: no matching host key type found. Their offer: ssh-rsa,ssh-dss [preauth]
+Nov 05 08:06:02 us-west sshd[579147]: Received disconnect from 180.100.74.196 port 51178:11:  [preauth]
+Nov 05 08:21:40 us-west sshd[580123]: error: kex_exchange_identification: client sent invalid protocol identifier "MGLNDD_116.203.138.113_22"
+Nov 05 08:41:41 us-west sshd[581562]: Received disconnect from 180.100.74.196 port 34831:11:  [preauth]
+Nov 05 09:15:22 us-west sudo[584265]: pam_unix(sudo:auth): conversation failed
+Nov 05 09:15:22 us-west postfix/local[584592]: B99B9233A27: to=<root@bellus-ai.com>, orig_to=<root>, relay=local, delay=0.01, delays=0/0.01/0/0, dsn=2.0.0, status=sent (delivered to mailbox)
+Nov 05 09:36:13 us-west dhclient[637]: DHCPREQUEST for 116.203.138.113 on eth0 to 172.31.1.1 port 67
+Nov 05 09:36:13 us-west dhclient[637]: DHCPACK of 116.203.138.113 from 172.31.1.1
+Nov 05 09:36:13 us-west dhclient[637]: bound to 116.203.138.113 -- renewal in 38005 seconds.
+Nov 05 09:46:28 us-west dockerd[18095]: 2024/11/05 09:46:28 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 05 09:46:28 us-west dockerd[18095]: 2024/11/05 09:46:28 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 05 09:47:20 us-west dockerd[18095]: time="2024-11-05T09:47:20.432703083Z" level=info msg="ignoring event" container=1d70dd57a29498a8bb999ff42c70361a4809df0e921184fec59b25d3d503bb2f module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 05 09:47:29 us-west dockerd[18095]: 2024/11/05 09:47:29 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 05 09:47:36 us-west dockerd[18095]: time="2024-11-05T09:47:36.116870273Z" level=info msg="ignoring event" container=10332f1b9ef0d189dad9ea4004b0c4c76259f11bdbb537f06f503b531bc93d24 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 05 09:47:54 us-west nginx[611646]: 2024/11/05 09:47:54 [notice] 611646#611646: signal process started
+Nov 05 09:48:09 us-west nginx[620886]: 2024/11/05 09:48:09 [notice] 620886#620886: signal process started
+Nov 05 09:49:10 us-west dockerd[18095]: time="2024-11-05T09:49:10.147806986Z" level=info msg="ignoring event" container=958a78ba95e0dede5e303f2b4242de3028121a351d462f8d7dafb31a24c6f333 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 05 09:49:10 us-west dockerd[18095]: time="2024-11-05T09:49:10.442570434Z" level=info msg="ignoring event" container=7e7b7c90e0a3ee7044c697b202982235f94a0b205e97b49b9341bdf3938e82d9 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 05 11:06:01 us-west dockerd[18095]: time="2024-11-05T11:06:01.547290322Z" level=info msg="ignoring event" container=8862fdee0222d48c068d71279ef6755400f22b275ca877715291f06bc6b1d4d2 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 05 11:06:01 us-west dockerd[18095]: time="2024-11-05T11:06:01.559997262Z" level=warning msg="failed to close stdin: NotFound: task 8862fdee0222d48c068d71279ef6755400f22b275ca877715291f06bc6b1d4d2 not found: not found"
+Nov 05 11:07:04 us-west sshd[634482]: Connection reset by authenticating user root 92.255.85.107 port 24373 [preauth]
+Nov 05 10:20:19 us-west sshd[628411]: Connection reset by invalid user admin 92.255.85.253 port 62412 [preauth]
+Nov 05 20:09:38 us-west dhclient[637]: DHCPREQUEST for 116.203.138.113 on eth0 to 172.31.1.1 port 67
+Nov 05 20:09:38 us-west dhclient[637]: DHCPACK of 116.203.138.113 from 172.31.1.1
+Nov 05 20:09:38 us-west dhclient[637]: bound to 116.203.138.113 -- renewal in 41020 seconds
+Nov 05 22:52:39 us-west sshd[685234]: Disconnected from 8.142.78.103 port 36166 [preauth]
+Nov 05 23:13:03 us-west dockerd[18095]: 2024/11/05 23:13:03 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 05 23:13:52 us-west dockerd[18095]: time="2024-11-05T23:13:52.506822056Z" level=info msg="ignoring event" container=922554f780fa8b0553827820a1d8fe289356c532721647171de1d31f48dc6e6d module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 05 23:14:03 us-west dockerd[18095]: 2024/11/05 23:14:03 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 05 23:14:03 us-west dockerd[18095]: 2024/11/05 23:14:03 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 05 23:14:03 us-west dockerd[18095]: 2024/11/05 23:14:03 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+Nov 05 23:14:09 us-west dockerd[18095]: time="2024-11-05T23:14:09.921703718Z" level=info msg="ignoring event" container=dbbca38daa050f19d61e4f254be597eb2127a406e75c6571ee46970bec1cb51f module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 05 23:14:27 us-west nginx[710286]: 2024/11/05 23:14:27 [notice] 710286#710286: signal process started
+Nov 05 23:14:42 us-west nginx[719517]: 2024/11/05 23:14:42 [notice] 719517#719517: signal process started
+Nov 05 23:15:33 us-west dockerd[18095]: time="2024-11-05T23:15:33.827573290Z" level=info msg="ignoring event" container=161fd125528b1bfb0f51e640ec44d58f9f6ae1b2afade78ca1f99a311d64e6a1 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 05 23:15:33 us-west dockerd[18095]: time="2024-11-05T23:15:33.836127919Z" level=warning msg="ShouldRestart failed, container will not be restarted" container=161fd125528b1bfb0f51e640ec44d58f9f6ae1b2afade78ca1f99a311d64e6a1 daemonShuttingDown=false error="restart canceled" execDuration=13h27m53.173748189s exitStatus="{1 2024-11-05 23:15:33.818569075 +0000 UTC}" hasBeenManuallyStopped=true restartCount=0
+Nov 05 23:15:33 us-west dokku[724144]: 161fd125528b1bfb0f51e640ec44d58f9f6ae1b2afade78ca1f99a311d64e6a1
+Nov 05 23:15:43 us-west dockerd[18095]: time="2024-11-05T23:15:43.975829897Z" level=info msg="ignoring event" container=9ad39ccfa7b3c3f69c8854b8671a4181d884845227cb9c53dbde18456ae2aea0 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 06 04:05:02 us-west docker[746479]: ID                                                RECLAIMABLE        SIZE                LAST ACCESSED
+Nov 06 04:05:02 us-west docker[746479]: vxmagmutrkll2wymkxvs52x8f*                      true                 896B              18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: ysmv9teqeth6qypr1wzj57qr6*                      true         639B              18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: wxz5uciscr6b6y4buyp88djvx*                      true         205B              18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: l6bi1o6cf1ykwua6pugrj08pc*                      true         0B                18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: ya0a7byl7ujokp1e1c1cgukfb*                      true         335B              5 hours ago
+Nov 06 04:05:02 us-west docker[746479]: i1f5gzfe2rw0ddw25c2w24s25*                      true         947.3kB           18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: 039aqv0fklx6sb6f4kj1yseuc*                      true         896B              5 hours ago
+Nov 06 04:05:02 us-west docker[746479]: lc18c776z8ga8e8l7u6rs1isg*                      true         0B                5 hours ago
+Nov 06 04:05:02 us-west docker[746479]: mxyivpw7i88ioe92c1wspw5r6*                      true         335B              18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: 3txa6x1tnv47coy9wzn4be4w1*                      true         205B              5 hours ago
+Nov 06 04:05:02 us-west docker[746479]: 7fga27dnwcoi9rsw46yrsr09y*                      true         0B                5 hours ago
+Nov 06 04:05:02 us-west docker[746479]: ulg3l001o0veannujf13zey70                       true         0B                29 hours ago
+Nov 06 04:05:02 us-west docker[746479]: ge7u8fd9rsu1l5o1djnh2ibfo*                      true         947.6kB           5 hours ago
+Nov 06 04:05:02 us-west docker[746479]: zlo7o3uz1tc81eyc30x653but                       true         556B              29 hours ago
+Nov 06 04:05:02 us-west docker[746479]: zom8ceq031wpjgk3hg1l63mwb                       true         556B              18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: ll4cx5nxq39bnm0s3d1edr4qd                       true         0B                18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: wxxvz7r6ytoju8mn9n0i16rc7*                      true         0B                18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: lidxzpks51pecrxo2efbeozng*                      true         0B                18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: csvwh9cdia0t0lviim2beu28i*                      true         639B              5 hours ago
+Nov 06 04:05:02 us-west docker[746479]: lfg9l0gzfgpmy4ikrsbd5lguw*                      true         153B              5 hours ago
+Nov 06 04:05:02 us-west docker[746479]: p2bpa2l40qo80v21j07sadi0t                       true         340B              18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: nt7lohejv9oe4d2zngq7d415c*                      true         153B              18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: vdbhs7mw5e6hnlk8w8kpsdkg1*                      true         0B                5 hours ago
+Nov 06 04:05:02 us-west docker[746479]: poucx78jnbmxazap6x6sn6k4g                       true         639B              18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: gc1k2yvfza1e943yj6qpxxxkq                       true         639B              29 hours ago
+Nov 06 04:05:02 us-west docker[746479]: zo9rhfpvx8hx1kd7zx8sso7h3                       true         639B              29 hours ago
+Nov 06 04:05:02 us-west docker[746479]: 4l1y2no7q5u0kcy5zohh25e80                       true         639B              18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: ovrpb3toa6coushaoiulxiwiy                       true         340B              29 hours ago
+Nov 06 04:05:02 us-west docker[746479]: l1wo460atf4unzj9rkrtk5i57                       true         0B                29 hours ago
+Nov 06 04:05:02 us-west docker[746479]: v8njqkaqqvmzgpb5nf0zen3v9                       true         0B                18 hours ago
+Nov 06 04:05:02 us-west docker[746479]: 8sfs5k46pxxy687p4ueua0nqy                       true         0B                29 hours ago
+Nov 06 04:05:03 us-west docker[746479]: xhc3g2v21ets98m50pz0k4jnt                       true         0B                18 hours ago
+Nov 06 04:05:03 us-west docker[746479]: q80c22h881ehrstlt88x2p2y9                       true         0B                29 hours ago
+Nov 06 04:05:03 us-west docker[746479]: lj9yzkuppwhvj53ul4avwg1mj                       true         0B                18 hours ago
+Nov 06 04:05:03 us-west docker[746479]: ap7y6csrgmbnuifqut21b8y94                       true         0B                18 hours ago
+Nov 06 04:05:03 us-west docker[746479]: 8ctebjuyq3rwjxoguf3icjd59                       true         0B                29 hours ago
+Nov 06 04:05:03 us-west docker[746479]: Total:        1.904MB
+Nov 07 00:00:42 us-west postfix/scache[976725]: statistics: start interval Nov  6 23:58:57
+Nov 07 00:00:42 us-west postfix/scache[976725]: statistics: domain lookup hits=0 miss=1 success=0%
+Nov 07 00:00:42 us-west postfix/scache[976725]: statistics: address lookup hits=0 miss=2 success=0%
+Nov 07 18:02:16 us-west sshd[1167655]: Accepted publickey for gtrain from 31.207.125.231 port 38226 ssh2: ED25519 SHA256:u3Musw6dicn6EKyOZzsemWzMjl29p4EVBIyfbN9FdNA
+Nov 07 18:02:16 us-west sshd[1167655]: pam_unix(sshd:session): session opened for user gtrain(uid=1003) by (uid=0)
+Nov 07 18:02:16 us-west systemd-logind[878]: New session 3209 of user gtrain.
+Nov 07 18:06:10 us-west sshd[1168018]: Accepted publickey for gtrain from 31.207.125.231 port 56512 ssh2: ED25519 SHA256:u3Musw6dicn6EKyOZzsemWzMjl29p4EVBIyfbN9FdNA
+Nov 07 18:06:10 us-west sshd[1168018]: pam_unix(sshd:session): session opened for user gtrain(uid=1003) by (uid=0)
+Nov 07 18:06:10 us-west systemd-logind[878]: New session 3212 of user gtrain.
+Nov 07 18:06:29 us-west sshd[1167680]: Disconnected from user gtrain 31.207.125.231 port 38226
+Nov 07 18:06:29 us-west sshd[1167655]: pam_unix(sshd:session): session closed for user gtrain
+Nov 07 18:06:31 us-west sshd[1168443]: Accepted publickey for gtrain from 31.207.125.231 port 45992 ssh2: ED25519 SHA256:u3Musw6dicn6EKyOZzsemWzMjl29p4EVBIyfbN9FdNA
+Nov 07 18:06:31 us-west sshd[1168443]: pam_unix(sshd:session): session opened for user gtrain(uid=1003) by (uid=0)
+Nov 07 18:06:31 us-west systemd-logind[878]: New session 3213 of user gtrain.
+Nov 07 18:07:59 us-west sshd[1168025]: Disconnected from user gtrain 31.207.125.231 port 56512
+Nov 07 18:07:59 us-west sshd[1168018]: pam_unix(sshd:session): session closed for user gtrain
+Nov 07 18:09:13 us-west sshd[1168450]: Disconnected from user gtrain 31.207.125.231 port 45992
+Nov 07 18:09:13 us-west sshd[1168443]: pam_unix(sshd:session): session closed for user gtrain
+Nov 07 18:21:17 us-west sshd[1170051]: Accepted publickey for gtrain from 31.207.125.231 port 56914 ssh2: ED25519 SHA256:u3Musw6dicn6EKyOZzsemWzMjl29p4EVBIyfbN9FdNA
+Nov 07 18:21:17 us-west sshd[1170051]: pam_unix(sshd:session): session opened for user gtrain(uid=1003) by (uid=0)
+Nov 07 18:21:17 us-west systemd-logind[878]: New session 3216 of user gtrain.
+Nov 07 18:22:25 us-west sshd[1170075]: Disconnected from user gtrain 31.207.125.231 port 56914
+Nov 07 18:22:25 us-west sshd[1170051]: pam_unix(sshd:session): session closed for user gtrain
+Nov 07 18:28:42 us-west sshd[1170860]: Accepted publickey for gtrain from 31.207.125.231 port 41964 ssh2: ED25519 SHA256:u3Musw6dicn6EKyOZzsemWzMjl29p4EVBIyfbN9FdNA
+Nov 07 18:28:42 us-west sshd[1170860]: pam_unix(sshd:session): session opened for user gtrain(uid=1003) by (uid=0)
+Nov 07 18:28:42 us-west systemd-logind[878]: New session 3219 of user gtrain.
+Nov 11 15:27:10 us-west sshd[556764]: userauth_pubkey: signature algorithm ssh-rsa not in PubkeyAcceptedAlgorithms [preauth]
+Nov 12 22:42:31 us-west (sd-pam)[885133]: pam_unix(systemd-user:session): session closed for user dokku
+Nov 13 22:15:03 us-west sshd[1266333]: error: Bad remote protocol version identification: 'SSH-2.0_CoreLab-1.0'
+Nov 18 00:42:40 us-west fstrim[2434269]: /boot/efi: 240.1 MiB (251731456 bytes) trimmed on /dev/sda15
+Nov 18 00:42:40 us-west fstrim[2434269]: /: 18.7 GiB (20052234240 bytes) trimmed on /dev/sda1
+Nov 18 10:36:46 us-west sshd[2479702]: error: connect_to 127.0.0.4 port 16686: failed.
+Nov 18 15:24:57 us-west dockerd[481724]: time="2024-11-18T15:24:57.431611913Z" level=error msg="[resolver] failed to query external DNS server" client-addr="udp:[2a01:4f8:c2c:411e::1]:35179" dns-server="udp:[2a01:4ff:ff00::add:1]:53" error="read udp [2a01:4f8:c2c:411e::1]:35179->[2a01:4ff:ff00::add:1]:53: i/o timeout" question=";api.ipify.org.\tIN\t A" spanID=ad0c404c912fdf9c traceID=97c77256ba7dbfe3a0b726259c656656
+Nov 19 03:18:45 us-west dockerd[481724]: time="2024-11-19T03:18:45.336696711Z" level=error msg="stream copy error: read /proc/self/fd/170: file already closed"
+Nov 19 16:04:14 us-west sshd[894]: error: beginning MaxStartups throttling
+Nov 19 16:04:14 us-west sshd[894]: drop connection #10 from [77.37.136.47]:36920 on [116.203.138.113]:22 past MaxStartups
+Nov 19 16:04:27 us-west sshd[894]: exited MaxStartups throttling after 00:00:14, 2 connections dropped
+Nov 27 13:23:02 us-west dockerd[481724]: time="2024-11-27T13:23:02.340825805Z" level=error msg="[resolver] failed to query external DNS server" client-addr="udp:[2a01:4f8:c2c:411e::1]:41776" dns-server="udp:[2a01:4ff:ff00::add:1]:53" error="read udp [2a01:4f8:c2c:411e::1]:41776->[2a01:4ff:ff00::add:1]:53: i/o timeout" question=";stats.grafana.org.\tIN\t AAAA" spanID=c2af12036716e02d traceID=f2df896c8913ef58e8b167a8a2822421
+Nov 27 14:18:35 us-west dockerd[481724]: time="2024-11-27T14:18:35.306469533Z" level=error msg="[resolver] failed to query external DNS server" client-addr="udp:[2a01:4f8:c2c:411e::1]:34905" dns-server="udp:[2a01:4ff:ff00::add:1]:53" error="read udp [2a01:4f8:c2c:411e::1]:34905->[2a01:4ff:ff00::add:1]:53: i/o timeout" question=";_grpc_config.localhost.\tIN\t TXT" spanID=0e9eacb3baea0b0d traceID=dca91dac9c03b083953e2b07a6101d30
+Nov 30 18:51:59 us-west sshd[1224926]: error: send_error: write: Connection reset by peer
+Dec 06 23:47:56 us-west sudo[66962]: pam_unix(sudo:session): session closed for user dokku
+Dec 06 23:38:15 us-west PackageKit[17015]: daemon quit
+Dec 16 18:26:13 eu-central sshd[1495842]: Disconnected from invalid user  80.94.95.81 port 54643 [preauth]
+Dec 18 07:31:25 us-west sshd[1644675]: error: channel 0: chan_read_failed for istate 1
+Dec 23 11:58:48 us-west sshd[2166392]: ssh_dispatch_run_fatal: Connection from 164.52.24.187 port 56936: DH GEX group out of range [preauth]
+Dec 25 04:33:29 us-west sshd[2412250]: dispatch_protocol_error: type 90 seq 5 [preauth]
+Jan 05 10:10:58 us-west sshd[3593030]: Bad packet length 1593233191. [preauth]
+Jan 05 10:10:58 us-west sshd[3593030]: ssh_dispatch_run_fatal: Connection from 218.159.36.70 port 42649: message authentication code incorrect [preauth]

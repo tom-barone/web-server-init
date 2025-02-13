@@ -1,0 +1,3 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dhclient\[[0-9]+\]: DHCPREQUEST .*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dhclient\[[0-9]+\]: DHCPACK .*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dhclient\[[0-9]+\]: bound to.*renewal in.*$

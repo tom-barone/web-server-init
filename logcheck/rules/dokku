@@ -1,0 +1,16 @@
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd\[1\]: Starting dokku-retire.service - Dokku retire service...
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd\[1\]: dokku-retire.service: Deactivated successfully.
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd\[1\]: Finished dokku-retire.service - Dokku retire service.
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dokku\[[0-9]+\]: -----> Retiring old containers and images
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dokku\[[0-9]+\]:        Attempting to retire .+
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dokku\[[0-9]+\]:  !     Image .+ has running containers, skipping rm
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sshd\[[0-9]+\]: Accepted publickey for dokku from .+$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ sshd\[[0-9]+\]: pam_unix\(sshd:session\): session opened for user dokku\(uid=[0-9]+\).*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ systemd-logind\[[0-9]+\]: New session .+ of user dokku\.
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dokku\[[0-9]+\]: .*skipping rm and marking dead$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ crontab\[[0-9]+\]: .*dokku.*REPLACE.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ crontab\[[0-9]+\]: .*dokku.*RELOAD.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ cron\[[0-9]+\]: .*dokku.*RELOAD.*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dokku\[[0-9]+\]: [a-z0-9]+$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ .+[[0-9]+\]: pam_unix.* session closed for user dokku$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ .+[[0-9]+\]: pam_unix.* session closed for user dokku$

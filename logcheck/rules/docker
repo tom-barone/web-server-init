@@ -1,10 +1,10 @@
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=info.*$
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*connection reset by.*$
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=warning.*$
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ docker\[[0-9]+\]: .*ID.*RECLAIMABLE.*$
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ docker\[[0-9]+\]: [a-z0-9]+\** .*$
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ docker\[[0-9]+\]: Total: .*$
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=error .+ failed to query external DNS server.+api\.ipify\.org.+$
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=error .+stream copy error.+ file already closed.*$
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=error .+ failed to query external DNS server.+stats\.grafana\.org.+$
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=error .+ failed to query external DNS server.+_grpc_config\.localhost.+$
+.* [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=info.*$
+.* [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*connection reset by.*$
+.* [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=warning.*$
+.* [._[:alnum:]-]+ docker\[[0-9]+\]: .*ID.*RECLAIMABLE.*$
+.* [._[:alnum:]-]+ docker\[[0-9]+\]: [a-z0-9]+\** .*$
+.* [._[:alnum:]-]+ docker\[[0-9]+\]: Total: .*$
+.* [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=error .+ failed to query external DNS server.+api\.ipify\.org.+$
+.* [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=error .+stream copy error.+ file already closed.*$
+.* [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=error .+ failed to query external DNS server.+stats\.grafana\.org.+$
+.* [._[:alnum:]-]+ dockerd\[[0-9]+\]: .*level\=error .+ failed to query external DNS server.+_grpc_config\.localhost.+$

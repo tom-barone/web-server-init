@@ -33,6 +33,10 @@ sudo sed -i 's/^\[sshd\]/\[sshd\]\nenabled = true/g' /etc/fail2ban/jail.local
 # Set ban length to 48 hours
 sudo sed -i 's/^bantime  = 10m/bantime = 48h/g' /etc/fail2ban/jail.local
 sudo service fail2ban restart
+# Check status with
+# $ sudo fail2ban-client status sshd
+# $ sudo tail -n 100 /var/log/auth.log
+# $ sudo tail -n 100 /var/log/fail2ban.log
 
 ## Unattended Upgrades
 
@@ -41,6 +45,12 @@ sudo echo unattended-upgrades unattended-upgrades/enable_auto_updates boolean tr
 sudo dpkg-reconfigure -f noninteractive unattended-upgrades
 sudo systemctl enable unattended-upgrades
 sudo systemctl start unattended-upgrades
+# Check recent upgrades with
+# $ sudo tail -n 100 /var/log/dpkg.log
+# Confirm the next upgrade with
+# $ sudo unattended-upgrades --dry-run --debug
+# Check the settings are set
+# $ sudo cat /etc/apt/apt.conf.d/20auto-upgrades
 
 ## Dokku
 
@@ -95,8 +105,6 @@ sudo apt -y install iftop
 ## Postfix
 
 # Install silently with pre-configured options
-sudo debconf-set-selections <<<"postfix postfix/main_mailer_type select Internet"
-sudo debconf-set-selections <<<"postfix postfix/mailname string $DOMAIN"
 sudo apt install -y libsasl2-modules postfix
 # Add the Gmail credentials
 sudo tee /etc/postfix/sasl/sasl_passwd <<EOF
@@ -106,6 +114,7 @@ sudo postmap /etc/postfix/sasl/sasl_passwd
 sudo chown root:root /etc/postfix/sasl/sasl_passwd /etc/postfix/sasl/sasl_passwd.db
 sudo chmod 0600 /etc/postfix/sasl/sasl_passwd /etc/postfix/sasl/sasl_passwd.db
 sudo cp /etc/postfix/main.cf /etc/postfix/main.cf.bak
+sudo sed -i "s/^myhostname.*/myhostname = $DOMAIN/g" /etc/postfix/main.cf
 sudo sed -i 's/^relayhost = $/relayhost = [smtp.gmail.com]:587/g' /etc/postfix/main.cf
 # Disable smtp_tls_security_level=may
 sudo sed -i 's/^smtp_tls_security_level=may/#smtp_tls_security_level=may/g' /etc/postfix/main.cf
@@ -121,16 +130,36 @@ smtp_tls_security_level = encrypt
 # Location of CA certificates
 smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
 EOF
+sudo apt install -y mailutils
+# Set email address forwarding for root emails
+sudo tee -a /etc/aliases <<EOF
+root: $EMAIL
+EOF
+postconf -e "alias_maps = hash:/etc/aliases"
+sudo newaliases
 sudo systemctl restart postfix
-## Use the following to test
-#sudo sendmail <TO_ADDRESS>
-#From: <FROM_ADDRESS>
-#Subject: Test mail
-#This is a test email
-#.
+# Test we can send mail from postfix
+# $ sudo sendmail <TO_ADDRESS>
+# $ From: <FROM_ADDRESS>
+# $ Subject: Test mail
+# $ This is a test email
+# $ .
+# Test we can send mail to the root user
+# $ sudo sendmail root
+# $ From: <FROM_ADDRESS>
+# $ Subject: Test root mail
+# $ This is a test email to the root user
+# $ .
 
 ## Logcheck
 
 sudo apt install -y logcheck
+# The default logcheck should send emails to root, which we've aliased to our email address
 sudo cp /etc/logcheck/logcheck.conf /etc/logcheck/logcheck.conf.bak
-sudo sed -i "s/^SENDMAILTO=\"logcheck\"/SENDMAILTO=\"$EMAIL\"/g" /etc/logcheck/logcheck.conf
+# Print recent logs to stdout with and don't update the pointer
+# $ sudo -u logcheck logcheck -o -t
+# Send email to root user (and therefore us) with:
+# $ sudo -u logcheck logcheck
+# To add some random logs that will flag, you can do
+# $ sudo -k && sudo doesnotexist
+# 	- and fail the password prompt

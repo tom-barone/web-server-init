@@ -1,2 +1,2 @@
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ kernel: .*docker.*$
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ kernel: .*$
+.* [._[:alnum:]-]+ kernel: .*docker.*$
+.* [._[:alnum:]-]+ kernel: .*$

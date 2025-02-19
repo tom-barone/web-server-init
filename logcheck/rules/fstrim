@@ -1,1 +1,1 @@
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ fstrim\[[0-9]+\]: .+ trimmed on .+$
+.* [._[:alnum:]-]+ fstrim\[[0-9]+\]: .+ trimmed on .+$

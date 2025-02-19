@@ -1,5 +1,6 @@
 .* .*systemd.*: pam_unix.*dokku.*$
 .* .*sd-pam.*: pam_unix.*dokku.*$
+.* .*sshd.*: Accepted publickey for dokku
 .* .*dokku.*: .*Retiring old containers.*$
 .* .*dokku.*: .*Attempting to retire.*$
 .* .*crontab.*: .*dokku.*REPLACE.*$

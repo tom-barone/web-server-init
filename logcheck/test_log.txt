@@ -12,6 +12,8 @@ Feb 19 05:45:54 jqc-production crontab[905092]: (dokku) REPLACE (dokku)
 2025-02-19T05:50:41.770849+00:00 jqc-production dokku[906603]:  !     Image 5b0ca5a465b76f9d639c08a091b8d086a0383e8d2747982186a97dd585384efa has children images and is untagged, skipping rm and marking dead
 2025-02-19T06:25:02.853489+00:00 jqc-production dokku[947019]: 8b58c18d2a98dcc60c5c70844f0066e633bfed44e11482ba3f1991fd71cce394
 2025-02-19T06:25:03.267914+00:00 jqc-production dokku[947019]:  !     Image 647b71ca7859440d31b7c047366f1ea9e373869e6b924ece0fa2611e08ba642f has running containers, skipping rm
+2025-02-19T13:08:06.559622+00:00 jqc-production sshd[980260]: Accepted publickey for dokku from 144.6.17.85 port 52285 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
+Feb 19 13:08:06 jqc-production sshd[980260]: Accepted publickey for dokku from 144.6.17.85 port 52285 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
 
 # Docker
 2025-02-19T04:05:40.377451+00:00 jqc-production docker[791697]: Total:#0111.079MB

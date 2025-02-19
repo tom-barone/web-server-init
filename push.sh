@@ -16,6 +16,7 @@ ssh -t "$SSH_CONNECTION_STRING" <<'EOF'
 for logfile in "$HOME"/logcheck/rules/*; do
 	sudo cp "$logfile" /etc/logcheck/ignore.d.server
 done
+sudo -u logcheck logcheck
 EOF
 
 # Run manually with

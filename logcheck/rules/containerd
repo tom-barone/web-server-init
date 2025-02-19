@@ -1,2 +1,2 @@
-.* [._[:alnum:]-]+ .*containerd.*: .*level=info.*$
-.* [._[:alnum:]-]+ .*containerd.*: .*level=warning.*$
+.* .*containerd.*: .*level=info.*$
+.* .*containerd.*: .*level=warning.*$

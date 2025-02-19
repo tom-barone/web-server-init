@@ -1,4 +1,5 @@
-.* [._[:alnum:]-]+ .*docker.*: Total.*$
-.* [._[:alnum:]-]+ .*kernel.*: .*docker0: port.*$
-.* [._[:alnum:]-]+ .*dockerd.*: .*level=info.*$
-.* [._[:alnum:]-]+ .*dockerd.*: .*level=warning.*$
+.* .*docker.*: Total.*$
+.* .*kernel.*: .*docker0: port.*$
+.* .*dockerd.*: .*level=info.*$
+.* .*dockerd.*: .*level=warning.*$
+.* .*dockerd.*: .*connection reset by peer$

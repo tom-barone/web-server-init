@@ -1,4 +1,4 @@
-.* [._[:alnum:]-]+ .*kernel.*: .*entered promiscuous mode.*$
-.* [._[:alnum:]-]+ .*kernel.*: .*left promiscuous mode.*$
-.* [._[:alnum:]-]+ .*kernel.*: .*renamed from.*$
-.* [._[:alnum:]-]+ .*kernel.*: .*becomes ready.*$
+.* .*kernel.*: .*entered promiscuous mode.*$
+.* .*kernel.*: .*left promiscuous mode.*$
+.* .*kernel.*: .*renamed from.*$
+.* .*kernel.*: .*becomes ready.*$

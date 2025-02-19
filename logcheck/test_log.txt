@@ -10,12 +10,15 @@ I should always show up
 2025-02-19T05:45:54.153797+00:00 jqc-production crontab[905092]: (dokku) REPLACE (dokku)
 Feb 19 05:45:54 jqc-production crontab[905092]: (dokku) REPLACE (dokku)
 2025-02-19T05:50:41.770849+00:00 jqc-production dokku[906603]:  !     Image 5b0ca5a465b76f9d639c08a091b8d086a0383e8d2747982186a97dd585384efa has children images and is untagged, skipping rm and marking dead
+2025-02-19T06:25:02.853489+00:00 jqc-production dokku[947019]: 8b58c18d2a98dcc60c5c70844f0066e633bfed44e11482ba3f1991fd71cce394
+2025-02-19T06:25:03.267914+00:00 jqc-production dokku[947019]:  !     Image 647b71ca7859440d31b7c047366f1ea9e373869e6b924ece0fa2611e08ba642f has running containers, skipping rm
 
 # Docker
 2025-02-19T04:05:40.377451+00:00 jqc-production docker[791697]: Total:#0111.079MB
 2025-02-19T05:04:41.662333+00:00 jqc-production kernel: [526407.286555] docker0: port 3(veth301e9c6) entered blocking state
 Feb 19 05:04:41 jqc-production kernel: docker0: port 3(veth301e9c6) entered blocking state
 2025-02-19T05:04:43.418402+00:00 jqc-production dockerd[16165]: time="2025-02-19T05:04:43.418050567Z" level=info msg="ignoring event" container=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+2025-02-19T06:22:33.200698+00:00 jqc-production dockerd[16165]: 2025/02/19 06:22:33 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
 
 # Postfix
 2025-02-19T05:02:08.422772+00:00 jqc-production postfix/qmgr[639199]: 77C2465FE1: removed
@@ -31,6 +34,15 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 # Containerd
 2025-02-19T05:04:43.419981+00:00 jqc-production containerd[16080]: time="2025-02-19T05:04:43.419578510Z" level=info msg="shim disconnected" id=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db namespace=moby
 2025-02-19T05:04:43.420054+00:00 jqc-production containerd[16080]: time="2025-02-19T05:04:43.419636700Z" level=warning msg="cleaning up after shim disconnected" id=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db namespace=moby
+
+# SSH
+2025-02-19T06:16:44.315529+00:00 jqc-production sshd[52563]: Received signal 15; terminating.
+
+# PackageKit
+ 2025-02-19T06:16:45.742606+00:00 jqc-production dbus-daemon[557]: [system] Activating via systemd: service name='org.freedesktop.PackageKit' unit='packagekit.service' requested by ':1.656' (uid=0 pid=912195 comm="/usr/bin/gdbus call --system --dest org.freedeskto")
+2025-02-19T06:16:45.760481+00:00 jqc-production PackageKit: daemon start
+2025-02-19T06:16:45.797789+00:00 jqc-production dbus-daemon[557]: [system] Successfully activated service 'org.freedesktop.PackageKit'
+2025-02-19T06:21:55.734637+00:00 jqc-production PackageKit: daemon quit
 
 # Put in bulk output from the last report below to double check it filters everything
 

@@ -1,1 +1,1 @@
-.* [._[:alnum:]-]+ .*nginx.*: .*signal process start.*$
+.* .*nginx.*: .*signal process start.*$

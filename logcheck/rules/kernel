@@ -1,1 +1,3 @@
-AAAAAA.* [._[:alnum:]-]+ kernel: .*docker.*$
+.* [._[:alnum:]-]+ .*kernel.*: .*entered promiscuous mode.*$
+.* [._[:alnum:]-]+ .*kernel.*: .*renamed from.*$
+.* [._[:alnum:]-]+ .*kernel.*: .*becomes ready.*$

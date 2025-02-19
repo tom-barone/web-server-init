@@ -1,4 +1,28 @@
 I should always show up
+# Lines with a leading '#' are ignored
+# Empty lines are ignored
+
+# Dokku
 2025-02-19T03:24:09.808383+00:00 jqc-production (systemd): pam_unix(systemd-user:session): session opened for user dokku(uid=1002) by (uid=0)
 2025-02-19T03:25:09.664759+00:00 jqc-production (sd-pam): pam_unix(systemd-user:session): session closed for user dokku
+2025-02-19T05:05:40.266159+00:00 jqc-production dokku[867655]: -----> Retiring old containers and images
+
+# Docker
 2025-02-19T04:05:40.377451+00:00 jqc-production docker[791697]: Total:#0111.079MB
+2025-02-19T05:04:41.662333+00:00 jqc-production kernel: [526407.286555] docker0: port 3(veth301e9c6) entered blocking state
+Feb 19 05:04:41 jqc-production kernel: docker0: port 3(veth301e9c6) entered blocking state
+2025-02-19T05:04:43.418402+00:00 jqc-production dockerd[16165]: time="2025-02-19T05:04:43.418050567Z" level=info msg="ignoring event" container=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+
+# Postfix
+2025-02-19T05:02:08.422772+00:00 jqc-production postfix/qmgr[639199]: 77C2465FE1: removed
+Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
+
+# Kernel
+2025-02-19T05:04:41.662344+00:00 jqc-production kernel: [526407.289681] device veth301e9c6 entered promiscuous mode
+2025-02-19T05:04:41.809138+00:00 jqc-production kernel: [526407.434910] eth0: renamed from veth6da1c53
+2025-02-19T05:04:43.446062+00:00 jqc-production kernel: [526409.073607] veth6da1c53: renamed from eth0
+2025-02-19T05:04:41.826017+00:00 jqc-production kernel: [526407.450523] IPv6: ADDRCONF(NETDEV_CHANGE): veth301e9c6: link becomes ready
+
+# Containerd
+2025-02-19T05:04:43.419981+00:00 jqc-production containerd[16080]: time="2025-02-19T05:04:43.419578510Z" level=info msg="shim disconnected" id=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db namespace=moby
+2025-02-19T05:04:43.420054+00:00 jqc-production containerd[16080]: time="2025-02-19T05:04:43.419636700Z" level=warning msg="cleaning up after shim disconnected" id=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db namespace=moby

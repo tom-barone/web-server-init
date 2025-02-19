@@ -1,3 +1,0 @@
-AAAAAA.* [._[:alnum:]-]+ dbus-daemon\[[0-9]*\]: .*PackageKit.*$
-AAAAAA.* [._[:alnum:]-]+ PackageKit\[[0-9]*\]: daemon.*$
-AAAAAA.* [._[:alnum:]-]+ PackageKit: daemon.*$

@@ -1,16 +1,15 @@
-.* [._[:alnum:]-]+ systemd\[1\]: Starting dokku-retire.service - Dokku retire service...
-.* [._[:alnum:]-]+ systemd\[1\]: dokku-retire.service: Deactivated successfully.
-.* [._[:alnum:]-]+ systemd\[1\]: Finished dokku-retire.service - Dokku retire service.
-.* [._[:alnum:]-]+ dokku\[[0-9]+\]: -----> Retiring old containers and images
-.* [._[:alnum:]-]+ dokku\[[0-9]+\]:        Attempting to retire .+
-.* [._[:alnum:]-]+ dokku\[[0-9]+\]:  !     Image .+ has running containers, skipping rm
-.* [._[:alnum:]-]+ sshd\[[0-9]+\]: Accepted publickey for dokku from .+$
-.* [._[:alnum:]-]+ sshd\[[0-9]+\]: pam_unix\(sshd:session\): session opened for user dokku\(uid=[0-9]+\).*$
-.* [._[:alnum:]-]+ systemd-logind\[[0-9]+\]: New session .+ of user dokku\.
-.* [._[:alnum:]-]+ dokku\[[0-9]+\]: .*skipping rm and marking dead$
-.* [._[:alnum:]-]+ crontab\[[0-9]+\]: .*dokku.*REPLACE.*$
-.* [._[:alnum:]-]+ crontab\[[0-9]+\]: .*dokku.*RELOAD.*$
-.* [._[:alnum:]-]+ cron\[[0-9]+\]: .*dokku.*RELOAD.*$
-.* [._[:alnum:]-]+ dokku\[[0-9]+\]: [a-z0-9]+$
-.* [._[:alnum:]-]+ .+[[0-9]+\]: pam_unix.* session closed for user dokku$
-.* [._[:alnum:]-]+ .+[[0-9]+\]: pam_unix.* session closed for user dokku$
+AAA.* [._[:alnum:]-]+ systemd\[1\]: Starting dokku-retire.service - Dokku retire service...
+AAA.* [._[:alnum:]-]+ systemd\[1\]: dokku-retire.service: Deactivated successfully.
+AAA.* [._[:alnum:]-]+ systemd\[1\]: Finished dokku-retire.service - Dokku retire service.
+AAA.* [._[:alnum:]-]+ dokku\[[0-9]+\]: -----> Retiring old containers and images
+AAA.* [._[:alnum:]-]+ dokku\[[0-9]+\]:        Attempting to retire .+
+AAA.* [._[:alnum:]-]+ dokku\[[0-9]+\]:  !     Image .+ has running containers, skipping rm
+AAA.* [._[:alnum:]-]+ sshd\[[0-9]+\]: Accepted publickey for dokku from .+$
+AAA.* [._[:alnum:]-]+ systemd-logind\[[0-9]+\]: New session .+ of user dokku\.
+AAA.* [._[:alnum:]-]+ dokku\[[0-9]+\]: .*skipping rm and marking dead$
+AAA.* [._[:alnum:]-]+ crontab\[[0-9]+\]: .*dokku.*REPLACE.*$
+AAA.* [._[:alnum:]-]+ crontab\[[0-9]+\]: .*dokku.*RELOAD.*$
+AAA.* [._[:alnum:]-]+ cron\[[0-9]+\]: .*dokku.*RELOAD.*$
+AAA.* [._[:alnum:]-]+ dokku\[[0-9]+\]: [a-z0-9]+$
+.* [._[:alnum:]-]+ \(systemd\): pam_unix.*dokku.*$
+.* [._[:alnum:]-]+ \(sd-pam\): pam_unix.*dokku.*$

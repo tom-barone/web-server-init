@@ -1,1 +1,1 @@
-.* [._[:alnum:]-]+ rsyslogd\[[0-9]+\]: \[.*\] rsyslogd was HUPed$
+AAAAA.* [._[:alnum:]-]+ rsyslogd\[[0-9]+\]: \[.*\] rsyslogd was HUPed$

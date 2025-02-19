@@ -5,7 +5,11 @@ I should always show up
 # Dokku
 2025-02-19T03:24:09.808383+00:00 jqc-production (systemd): pam_unix(systemd-user:session): session opened for user dokku(uid=1002) by (uid=0)
 2025-02-19T03:25:09.664759+00:00 jqc-production (sd-pam): pam_unix(systemd-user:session): session closed for user dokku
+2025-02-19T05:50:40.371755+00:00 jqc-production dokku[906603]:        Attempting to retire jqc-kdcertifiers.au container 20b572f15b1dc4acfb243b5ae1722465e50e9c4d001a797f25fffe3f804937a8
 2025-02-19T05:05:40.266159+00:00 jqc-production dokku[867655]: -----> Retiring old containers and images
+2025-02-19T05:45:54.153797+00:00 jqc-production crontab[905092]: (dokku) REPLACE (dokku)
+Feb 19 05:45:54 jqc-production crontab[905092]: (dokku) REPLACE (dokku)
+2025-02-19T05:50:41.770849+00:00 jqc-production dokku[906603]:  !     Image 5b0ca5a465b76f9d639c08a091b8d086a0383e8d2747982186a97dd585384efa has children images and is untagged, skipping rm and marking dead
 
 # Docker
 2025-02-19T04:05:40.377451+00:00 jqc-production docker[791697]: Total:#0111.079MB
@@ -22,7 +26,11 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 2025-02-19T05:04:41.809138+00:00 jqc-production kernel: [526407.434910] eth0: renamed from veth6da1c53
 2025-02-19T05:04:43.446062+00:00 jqc-production kernel: [526409.073607] veth6da1c53: renamed from eth0
 2025-02-19T05:04:41.826017+00:00 jqc-production kernel: [526407.450523] IPv6: ADDRCONF(NETDEV_CHANGE): veth301e9c6: link becomes ready
+2025-02-19T05:44:59.069255+00:00 jqc-production kernel: [528824.671587] device veth8995f1b left promiscuous mode
 
 # Containerd
 2025-02-19T05:04:43.419981+00:00 jqc-production containerd[16080]: time="2025-02-19T05:04:43.419578510Z" level=info msg="shim disconnected" id=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db namespace=moby
 2025-02-19T05:04:43.420054+00:00 jqc-production containerd[16080]: time="2025-02-19T05:04:43.419636700Z" level=warning msg="cleaning up after shim disconnected" id=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db namespace=moby
+
+# Put in bulk output from the last report below to double check it filters everything
+

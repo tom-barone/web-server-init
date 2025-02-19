@@ -1,3 +1,6 @@
 .* [._[:alnum:]-]+ .*systemd.*: pam_unix.*dokku.*$
 .* [._[:alnum:]-]+ .*sd-pam.*: pam_unix.*dokku.*$
 .* [._[:alnum:]-]+ .*dokku.*: .*Retiring old containers.*$
+.* [._[:alnum:]-]+ .*dokku.*: .*Attempting to retire.*$
+.* [._[:alnum:]-]+ .*crontab.*: .*dokku.*REPLACE.*$
+.* [._[:alnum:]-]+ .*dokku.*: .*has children images and is untagged.*$

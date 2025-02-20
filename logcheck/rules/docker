@@ -3,3 +3,5 @@
 .* .*dockerd.*: .*level=info.*$
 .* .*dockerd.*: .*level=warning.*$
 .* .*dockerd.*: .*connection reset by peer$
+.* .*docker.*: ID.*RECLAIMABLE.*SIZE.*LAST ACCESSED$
+.* .*docker.*: [0-9A-Za-z].*true.* hours ago$

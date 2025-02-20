@@ -20,6 +20,10 @@ Feb 19 05:45:54 jqc-production crontab[905092]: (dokku) REPLACE (dokku)
 Feb 19 05:04:41 jqc-production kernel: docker0: port 3(veth301e9c6) entered blocking state
 2025-02-19T05:04:43.418402+00:00 jqc-production dockerd[16165]: time="2025-02-19T05:04:43.418050567Z" level=info msg="ignoring event" container=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
 2025-02-19T06:22:33.200698+00:00 jqc-production dockerd[16165]: 2025/02/19 06:22:33 http2: server: error reading preface from client @: read unix /run/docker.sock->@: read: connection reset by peer
+2025-02-20T04:05:40.356178+00:00 jqc-production docker[1119384]: ID#011#011#011#011#011#011RECLAIMABLE#011SIZE#011#011LAST ACCESSED
+2025-02-20T04:05:40.356279+00:00 jqc-production docker[1119384]: 5ozlyla4ohgy04x8aggllwq9c*              #011true #011#0110B        #01123 hours ago
+Feb 20 04:05:40 jqc-production docker[1119384]: ID                                                RECLAIMABLE        SIZE                LAST ACCESSED
+Feb 20 04:05:40 jqc-production docker[1119384]: 5ozlyla4ohgy04x8aggllwq9c*                      true                 0B                23 hours ago
 
 # Postfix
 2025-02-19T05:02:08.422772+00:00 jqc-production postfix/qmgr[639199]: 77C2465FE1: removed

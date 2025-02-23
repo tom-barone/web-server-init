@@ -42,6 +42,7 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 
 # SSH
 2025-02-19T06:16:44.315529+00:00 jqc-production sshd[52563]: Received signal 15; terminating.
+Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
 
 # PackageKit
  2025-02-19T06:16:45.742606+00:00 jqc-production dbus-daemon[557]: [system] Activating via systemd: service name='org.freedesktop.PackageKit' unit='packagekit.service' requested by ':1.656' (uid=0 pid=912195 comm="/usr/bin/gdbus call --system --dest org.freedeskto")
@@ -51,6 +52,7 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 
 # General
 Feb 20 22:11:42 au-melbourne chronyd[550]: Source 112.213.32.219 replaced with 2606:4700:f1::1 (2.debian.pool.ntp.org)
+2025-02-23T00:00:09.290326+00:00 jqc-production rsyslogd: [origin software="rsyslogd" swVersion="8.2302.0" x-pid="637974" x-info="https://www.rsyslog.com"] rsyslogd was HUPed
 
 # Put in bulk output from the last report below to double check it filters everything
 

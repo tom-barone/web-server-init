@@ -49,5 +49,8 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 2025-02-19T06:16:45.797789+00:00 jqc-production dbus-daemon[557]: [system] Successfully activated service 'org.freedesktop.PackageKit'
 2025-02-19T06:21:55.734637+00:00 jqc-production PackageKit: daemon quit
 
+# General
+Feb 20 22:11:42 au-melbourne chronyd[550]: Source 112.213.32.219 replaced with 2606:4700:f1::1 (2.debian.pool.ntp.org)
+
 # Put in bulk output from the last report below to double check it filters everything
 

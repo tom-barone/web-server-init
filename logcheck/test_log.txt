@@ -53,6 +53,7 @@ Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
 # General
 Feb 20 22:11:42 au-melbourne chronyd[550]: Source 112.213.32.219 replaced with 2606:4700:f1::1 (2.debian.pool.ntp.org)
 2025-02-23T00:00:09.290326+00:00 jqc-production rsyslogd: [origin software="rsyslogd" swVersion="8.2302.0" x-pid="637974" x-info="https://www.rsyslog.com"] rsyslogd was HUPed
+2025-02-24T01:29:50.302800+00:00 jqc-production fstrim[1757955]: /: 8.9 GiB (9510797312 bytes) trimmed on /dev/sda
 
 # Put in bulk output from the last report below to double check it filters everything
 

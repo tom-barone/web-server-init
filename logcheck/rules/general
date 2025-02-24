@@ -1,2 +1,3 @@
 .* .*chronyd.*: Source .* replaced with .*$
 .* .*rsyslog.*: .*rsyslogd was HUPed$
+.* .*fstrim.*: .*\([0-9]+ bytes\) trimmed on.*$

@@ -26,6 +26,9 @@ Feb 20 04:05:40 jqc-production docker[1119384]: ID                              
 Feb 20 04:05:40 jqc-production docker[1119384]: 5ozlyla4ohgy04x8aggllwq9c*                      true                 0B                23 hours ago
 2025-02-24T04:05:43.034966+00:00 jqc-production docker[1806506]: n98hmnql1ixeacx97edc96ebx               #011true #0110B        #0113 days ago
 Feb 24 04:05:40 jqc-production docker[1806506]: sx33amszgfwp7wwlrxm4dn5xr*                      true                 600B              40 minutes ago
+2025-03-05T01:05:14.321012+00:00 au-melbourne systemd[1]: Starting dokku-retire.service - Dokku retire service...
+2025-03-05T01:05:14.447332+00:00 au-melbourne systemd[1]: dokku-retire.service: Deactivated successfully.
+2025-03-05T01:05:14.447545+00:00 au-melbourne systemd[1]: Finished dokku-retire.service - Dokku retire service.
 
 # Postfix
 2025-02-19T05:02:08.422772+00:00 jqc-production postfix/qmgr[639199]: 77C2465FE1: removed
@@ -46,6 +49,15 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 2025-02-19T06:16:44.315529+00:00 jqc-production sshd[52563]: Received signal 15; terminating.
 Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
 2025-03-04T21:28:19.748994+00:00 jqc-production sshd[2915253]: padding error: need 1580 block 8 mod 4 [preauth]
+2025-03-05T01:02:27.318069+00:00 au-melbourne sshd[2151289]: Received disconnect from 218.92.0.171 port 59225:11:  [preauth]
+2025-03-05T01:02:27.318308+00:00 au-melbourne sshd[2151289]: Disconnected from authenticating user root 218.92.0.171 port 59225 [preauth]
+2025-03-05T01:02:43.828520+00:00 au-melbourne sshd[2151292]: Unable to negotiate with 218.92.0.201 port 48650: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 [preauth]
+2025-03-05T01:03:54.598986+00:00 au-melbourne sshd[2151299]: userauth_pubkey: signature algorithm ssh-rsa not in PubkeyAcceptedAlgorithms [preauth]
+2025-03-05T01:03:55.257675+00:00 au-melbourne sshd[2151301]: Invalid user zabbix from 80.94.95.112 port 14272
+2025-03-05T01:04:03.285043+00:00 au-melbourne sshd[2151299]: Connection closed by authenticating user root 139.19.117.129 port 38716 [preauth]
+2025-03-05T01:03:56.818664+00:00 au-melbourne sshd[2151301]: Disconnected from invalid user zabbix 80.94.95.112 port 14272 [preauth]
+2025-03-05T01:06:01.440062+00:00 au-melbourne sshd[2151554]: Connection closed by invalid user admin 92.255.57.132 port 33262 [preauth]
+2025-03-05T01:21:38.110491+00:00 au-melbourne sshd[2152355]: error: kex_exchange_identification: Connection closed by remote host
 
 # PackageKit
  2025-02-19T06:16:45.742606+00:00 jqc-production dbus-daemon[557]: [system] Activating via systemd: service name='org.freedesktop.PackageKit' unit='packagekit.service' requested by ':1.656' (uid=0 pid=912195 comm="/usr/bin/gdbus call --system --dest org.freedeskto")
@@ -57,6 +69,11 @@ Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
 Feb 20 22:11:42 au-melbourne chronyd[550]: Source 112.213.32.219 replaced with 2606:4700:f1::1 (2.debian.pool.ntp.org)
 2025-02-23T00:00:09.290326+00:00 jqc-production rsyslogd: [origin software="rsyslogd" swVersion="8.2302.0" x-pid="637974" x-info="https://www.rsyslog.com"] rsyslogd was HUPed
 2025-02-24T01:29:50.302800+00:00 jqc-production fstrim[1757955]: /: 8.9 GiB (9510797312 bytes) trimmed on /dev/sda
+2025-03-05T01:10:12.825004+00:00 au-melbourne systemd[1]: Starting sysstat-collect.service - system activity accounting tool...
+2025-03-05T01:10:12.825154+00:00 au-melbourne systemd[1]: sysstat-collect.service: Deactivated successfully.
+2025-03-05T01:10:12.825323+00:00 au-melbourne systemd[1]: Finished sysstat-collect.service - system activity accounting tool.
+2025-03-05T00:45:21.324405+00:00 au-melbourne systemd[1]: session-11333.scope: Deactivated successfully.
+2025-03-05T00:45:21.324483+00:00 au-melbourne systemd[1]: session-11333.scope: Consumed 3.362s CPU time.
 
 # Put in bulk output from the last report below to double check it filters everything
 

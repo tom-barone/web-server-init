@@ -1,11 +1,10 @@
 .* .*sshd.*: Connection closed by authenticating user.*\[preauth\]$
 .* .*sshd.*: Connection closed by invalid user.*\[preauth\]$
 .* .*sshd.*: Connection closed by .* port .*$
-.* .*sshd.*: Disconnected from authenticating user.*\[preauth\]$
-.* .*sshd.*: Disconnected from invalid user.*\[preauth\]$
-.* .*sshd.*: Disconnected from .* port .*\[preauth\]$
+.* .*sshd.*: Connection reset by .* port .*$
+.* .*sshd.*: Disconnected from .*$
 .* .*sshd.*: Invalid user .* from .* port .*$
-.* .*sshd.*: Received disconnect from .*\[preauth\]$
+.* .*sshd.*: Received disconnect from .*$
 .* .*sshd.*: Received signal.*$
 .* .*sshd.*: Unable to negotiate with.*\[preauth\]$
 .* .*sshd.*: error: kex_exchange_identification: .*$
@@ -13,3 +12,26 @@
 .* .*sshd.*: banner exchange: Connection from .* port .*: invalid format$
 .* .*sshd.*: padding error: need.*block.*mod.*$
 .* .*sshd.*: userauth_pubkey: signature algorithm .* not in PubkeyAcceptedAlgorithms \[preauth\]$
+.* .*sshd.*: pam_env.*deprecated reading of user.*$
+.* .*: pam_unix.*session .* for user.*$
+.* .*systemd.*: .* user.*User Manager.*$
+.* .*systemd.*: .* user.*User Runtime Directory.*$
+.* .*systemd.*: Activating special unit.*$
+.* .*systemd.*: Stop.* target .*$
+.* .*systemd.*: Reac.* target.*$
+.* .*systemd.*: Close.* dbus\.socket.*$
+.* .*systemd.*: Start.* dbus\.socket.*$
+.* .*systemd.*: Liste.* dbus\.socket.*$
+.* .*systemd.*: Closed.* gpg-agent.*$
+.* .*systemd.*: Listen.* gpg-agent.*$
+.* .*systemd.*: Close.* pk-debconf.*$
+.* .*systemd.*: Listen.* pk-debconf.*$
+.* .*systemd.*: Removed slice.*$
+.* .*systemd.*: Reached target shutdown\.target.*$
+.* .*systemd.*: .*Exit the Session\.$
+.* .*systemd.*: .*user.*Deactivated successfully.*$
+.* .*systemd.*: Created slice.*$
+.* .*systemd.*: Queued start job.*$
+.* .*systemd.*: Reached target.*$
+.* .*systemd.*: Started .* Session .* of User.*$
+.* .*systemd.*: Startup finished in.*

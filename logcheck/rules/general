@@ -5,4 +5,4 @@
 .* .*systemd.*: sysstat-collect\.service: Deactivated successfully.*$
 .* .*systemd.*: Finished sysstat-collect\.service - system activity accounting tool.*$
 .* .*systemd.*: session-.*\.scope: Deactivated successfully.*$
-.* .*systemd.*: session-.*\.scope: Consumed.* CPU time.*$
+.* .*systemd.*: .*: Consumed.* CPU time.*$

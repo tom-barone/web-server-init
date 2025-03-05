@@ -30,6 +30,11 @@ Feb 24 04:05:40 jqc-production docker[1806506]: sx33amszgfwp7wwlrxm4dn5xr*      
 2025-03-05T01:05:14.447332+00:00 au-melbourne systemd[1]: dokku-retire.service: Deactivated successfully.
 2025-03-05T01:05:14.447545+00:00 au-melbourne systemd[1]: Finished dokku-retire.service - Dokku retire service.
 
+2025-03-05T13:00:02.904770+00:00 au-melbourne systemd[1]: var-lib-docker-overlay2-a8f548cb61b62baad08839e4fdf636776b29d64e2099a572f81e61b0acfba0c7\x2dinit-merged.mount: Deactivated successfully.
+2025-03-05T13:00:03.007841+00:00 au-melbourne systemd[1]: Started docker-3eefad8912d270364d45a7a6c111837203338161899b02986cdea50815d904e3.scope - libcontainer container 3eefad8912d270364d45a7a6c111837203338161899b02986cdea50815d904e3.
+2025-03-05T13:00:08.941065+00:00 au-melbourne systemd[1]: docker-3eefad8912d270364d45a7a6c111837203338161899b02986cdea50815d904e3.scope: Deactivated successfully.
+2025-03-05T13:00:09.041842+00:00 au-melbourne systemd[1]: run-docker-netns-63e3fc07fccc.mount: Deactivated successfully.
+
 # Postfix
 2025-02-19T05:02:08.422772+00:00 jqc-production postfix/qmgr[639199]: 77C2465FE1: removed
 Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
@@ -54,6 +59,7 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 2025-03-05T01:06:01.440062+00:00 au-melbourne sshd[2151554]: Connection closed by invalid user admin 92.255.57.132 port 33262 [preauth]
 2025-03-05T03:02:26.514853+00:00 au-melbourne sshd[2160976]: Connection closed by 205.210.31.200 port 55613
 2025-03-05T03:12:29.836080+00:00 au-melbourne sshd[2161669]: Connection closed by 14.103.120.75 port 47146 [preauth]
+2025-03-05T12:08:37.752142+00:00 au-melbourne sshd[2228758]: Connection reset by 8.221.136.6 port 55728
 2025-03-05T01:02:43.828520+00:00 au-melbourne sshd[2151292]: Unable to negotiate with 218.92.0.201 port 48650: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 [preauth]
 2025-03-05T01:03:54.598986+00:00 au-melbourne sshd[2151299]: userauth_pubkey: signature algorithm ssh-rsa not in PubkeyAcceptedAlgorithms [preauth]
 2025-03-05T01:03:55.257675+00:00 au-melbourne sshd[2151301]: Invalid user zabbix from 80.94.95.112 port 14272
@@ -63,6 +69,60 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 2025-02-19T06:16:44.315529+00:00 jqc-production sshd[52563]: Received signal 15; terminating.
 Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
 2025-03-04T21:28:19.748994+00:00 jqc-production sshd[2915253]: padding error: need 1580 block 8 mod 4 [preauth]
+2025-03-05T13:53:53.973832+00:00 jqc-production sshd[3067839]: Disconnected from user root 144.6.17.85 port 53685
+2025-03-05T13:54:04.151142+00:00 jqc-production (sd-pam): pam_unix(systemd-user:session): session closed for user root
+2025-03-05T13:53:49.869038+00:00 au-melbourne sshd[2239092]: Received disconnect from 144.6.17.85 port 53677:11: disconnected by user
+2025-03-06T00:43:17.306483+10:30 au-adelaide sshd[409166]: pam_env(sshd:session): deprecated reading of user environment enabled
+
+# Systemd
+2025-03-05T13:54:00.087664+00:00 au-melbourne systemd[1]: Stopping user@0.service - User Manager for UID 0...
+2025-03-05T13:54:00.088115+00:00 au-melbourne systemd[2239057]: Activating special unit exit.target...
+2025-03-05T13:54:00.088180+00:00 au-melbourne systemd[2239057]: Stopped target default.target - Main User Target.
+2025-03-05T13:54:00.088346+00:00 au-melbourne systemd[2239057]: Stopped target basic.target - Basic System.
+2025-03-05T13:54:00.088398+00:00 au-melbourne systemd[2239057]: Stopped target paths.target - Paths.
+2025-03-05T13:54:00.088443+00:00 au-melbourne systemd[2239057]: Stopped target sockets.target - Sockets.
+2025-03-05T13:54:00.088488+00:00 au-melbourne systemd[2239057]: Stopped target timers.target - Timers.
+2025-03-05T13:54:00.088523+00:00 au-melbourne systemd[2239057]: Closed dbus.socket - D-Bus User Message Bus Socket.
+2025-03-05T13:54:00.088557+00:00 au-melbourne systemd[2239057]: Closed gpg-agent-browser.socket - GnuPG cryptographic agent and passphrase cache (access for web browsers).
+2025-03-05T13:54:00.088594+00:00 au-melbourne systemd[2239057]: Closed gpg-agent-extra.socket - GnuPG cryptographic agent and passphrase cache (restricted).
+2025-03-05T13:54:00.088624+00:00 au-melbourne systemd[2239057]: Closed gpg-agent-ssh.socket - GnuPG cryptographic agent (ssh-agent emulation).
+2025-03-05T13:54:00.088658+00:00 au-melbourne systemd[2239057]: Closed gpg-agent.socket - GnuPG cryptographic agent and passphrase cache.
+2025-03-05T13:54:00.088759+00:00 au-melbourne systemd[2239057]: Closed pk-debconf-helper.socket - debconf communication socket.
+2025-03-05T13:54:00.090180+00:00 au-melbourne systemd[2239057]: Removed slice app.slice - User Application Slice.
+2025-03-05T13:54:00.090242+00:00 au-melbourne systemd[2239057]: Reached target shutdown.target - Shutdown.
+2025-03-05T13:54:00.090289+00:00 au-melbourne systemd[2239057]: Finished systemd-exit.service - Exit the Session.
+2025-03-05T13:54:00.090324+00:00 au-melbourne systemd[2239057]: Reached target exit.target - Exit the Session.
+2025-03-05T13:54:00.097763+00:00 au-melbourne systemd[1]: user@0.service: Deactivated successfully.
+2025-03-05T13:54:00.098060+00:00 au-melbourne systemd[1]: Stopped user@0.service - User Manager for UID 0.
+2025-03-05T13:54:00.108569+00:00 au-melbourne systemd[1]: Stopping user-runtime-dir@0.service - User Runtime Directory /run/user/0...
+2025-03-05T13:54:00.114443+00:00 au-melbourne systemd[1]: run-user-0.mount: Deactivated successfully.
+2025-03-05T13:54:00.115085+00:00 au-melbourne systemd[1]: user-runtime-dir@0.service: Deactivated successfully.
+2025-03-05T13:54:00.115248+00:00 au-melbourne systemd[1]: Stopped user-runtime-dir@0.service - User Runtime Directory /run/user/0.
+2025-03-05T13:54:00.116172+00:00 au-melbourne systemd[1]: Removed slice user-0.slice - User Slice of UID 0.
+2025-03-05T13:54:00.116231+00:00 au-melbourne systemd[1]: user-0.slice: Consumed 2.068s CPU time.
+2025-03-06T00:43:17.157151+10:30 au-adelaide (systemd): pam_unix(systemd-user:session): session opened for user root(uid=0) by (uid=0)
+2025-03-05T14:13:55.076607+00:00 au-melbourne systemd[1]: Created slice user-0.slice - User Slice of UID 0.
+2025-03-05T14:13:55.100249+00:00 au-melbourne systemd[1]: Starting user-runtime-dir@0.service - User Runtime Directory /run/user/0...
+2025-03-05T14:13:55.106746+00:00 au-melbourne systemd[1]: Finished user-runtime-dir@0.service - User Runtime Directory /run/user/0.
+2025-03-05T14:13:55.108099+00:00 au-melbourne systemd[1]: Starting user@0.service - User Manager for UID 0...
+2025-03-05T14:13:55.110684+00:00 au-melbourne (systemd): pam_unix(systemd-user:session): session opened for user root(uid=0) by (uid=0)
+2025-03-05T14:13:55.174466+00:00 au-melbourne systemd[2243400]: Queued start job for default target default.target.
+2025-03-05T14:13:55.200709+00:00 au-melbourne systemd[2243400]: Created slice app.slice - User Application Slice.
+2025-03-05T14:13:55.200793+00:00 au-melbourne systemd[2243400]: Reached target paths.target - Paths.
+2025-03-05T14:13:55.200908+00:00 au-melbourne systemd[2243400]: Reached target timers.target - Timers.
+2025-03-05T14:13:55.201545+00:00 au-melbourne systemd[2243400]: Starting dbus.socket - D-Bus User Message Bus Socket...
+2025-03-05T14:13:55.201699+00:00 au-melbourne systemd[2243400]: Listening on gpg-agent-browser.socket - GnuPG cryptographic agent and passphrase cache (access for web browsers).
+2025-03-05T14:13:55.201800+00:00 au-melbourne systemd[2243400]: Listening on gpg-agent-extra.socket - GnuPG cryptographic agent and passphrase cache (restricted).
+2025-03-05T14:13:55.201901+00:00 au-melbourne systemd[2243400]: Listening on gpg-agent-ssh.socket - GnuPG cryptographic agent (ssh-agent emulation).
+2025-03-05T14:13:55.202022+00:00 au-melbourne systemd[2243400]: Listening on gpg-agent.socket - GnuPG cryptographic agent and passphrase cache.
+2025-03-05T14:13:55.202119+00:00 au-melbourne systemd[2243400]: Listening on pk-debconf-helper.socket - debconf communication socket.
+2025-03-05T14:13:55.207259+00:00 au-melbourne systemd[2243400]: Listening on dbus.socket - D-Bus User Message Bus Socket.
+2025-03-05T14:13:55.207316+00:00 au-melbourne systemd[2243400]: Reached target sockets.target - Sockets.
+2025-03-05T14:13:55.207365+00:00 au-melbourne systemd[2243400]: Reached target basic.target - Basic System.
+2025-03-05T14:13:55.207403+00:00 au-melbourne systemd[1]: Started user@0.service - User Manager for UID 0.
+2025-03-05T14:13:55.208018+00:00 au-melbourne systemd[2243400]: Reached target default.target - Main User Target.
+2025-03-05T14:13:55.208427+00:00 au-melbourne systemd[1]: Started session-11487.scope - Session 11487 of User root.
+2025-03-05T14:13:55.208634+00:00 au-melbourne systemd[2243400]: Startup finished in 92ms.
 
 # PackageKit
  2025-02-19T06:16:45.742606+00:00 jqc-production dbus-daemon[557]: [system] Activating via systemd: service name='org.freedesktop.PackageKit' unit='packagekit.service' requested by ':1.656' (uid=0 pid=912195 comm="/usr/bin/gdbus call --system --dest org.freedeskto")
@@ -79,6 +139,7 @@ Feb 20 22:11:42 au-melbourne chronyd[550]: Source 112.213.32.219 replaced with 2
 2025-03-05T01:10:12.825323+00:00 au-melbourne systemd[1]: Finished sysstat-collect.service - system activity accounting tool.
 2025-03-05T00:45:21.324405+00:00 au-melbourne systemd[1]: session-11333.scope: Deactivated successfully.
 2025-03-05T00:45:21.324483+00:00 au-melbourne systemd[1]: session-11333.scope: Consumed 3.362s CPU time.
+2025-03-05T13:00:08.941173+00:00 au-melbourne systemd[1]: docker-3eefad8912d270364d45a7a6c111837203338161899b02986cdea50815d904e3.scope: Consumed 1.860s CPU time.
 
 # Put in bulk output from the last report below to double check it filters everything
 

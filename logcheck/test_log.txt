@@ -45,6 +45,7 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 # SSH
 2025-02-19T06:16:44.315529+00:00 jqc-production sshd[52563]: Received signal 15; terminating.
 Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
+2025-03-04T21:28:19.748994+00:00 jqc-production sshd[2915253]: padding error: need 1580 block 8 mod 4 [preauth]
 
 # PackageKit
  2025-02-19T06:16:45.742606+00:00 jqc-production dbus-daemon[557]: [system] Activating via systemd: service name='org.freedesktop.PackageKit' unit='packagekit.service' requested by ':1.656' (uid=0 pid=912195 comm="/usr/bin/gdbus call --system --dest org.freedeskto")

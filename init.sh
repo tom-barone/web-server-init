@@ -37,6 +37,8 @@ sudo service fail2ban restart
 # $ sudo fail2ban-client status sshd
 # $ sudo tail -n 100 /var/log/auth.log
 # $ sudo tail -n 100 /var/log/fail2ban.log
+# Unban IP with
+# sudo fail2ban-client set sshd unbanip <ip-address>
 
 ## Unattended Upgrades
 
@@ -102,6 +104,19 @@ rm bottom_0.10.2-1_amd64.deb
 # iftop to see how much traffic is going through the network interfaces
 sudo apt -y install iftop
 
+## Logcheck
+
+sudo apt install -y logcheck
+# The default logcheck should send emails to root, which we've aliased to our email address
+sudo cp /etc/logcheck/logcheck.conf /etc/logcheck/logcheck.conf.bak
+# Print recent logs to stdout with and don't update the pointer
+# $ sudo -u logcheck logcheck -o -t
+# Send email to root user (and therefore us) with:
+# $ sudo -u logcheck logcheck
+# To add some random logs that will flag, you can do
+# $ sudo -k && sudo doesnotexist
+# 	- and fail the password prompt
+
 ## Postfix
 
 # Install silently with pre-configured options
@@ -135,7 +150,7 @@ sudo apt install -y mailutils
 sudo tee -a /etc/aliases <<EOF
 root: $EMAIL
 EOF
-postconf -e "alias_maps = hash:/etc/aliases"
+sudo postconf -e "alias_maps = hash:/etc/aliases"
 sudo newaliases
 sudo systemctl restart postfix
 # Test we can send mail from postfix
@@ -150,16 +165,3 @@ sudo systemctl restart postfix
 # $ Subject: Test root mail
 # $ This is a test email to the root user
 # $ .
-
-## Logcheck
-
-sudo apt install -y logcheck
-# The default logcheck should send emails to root, which we've aliased to our email address
-sudo cp /etc/logcheck/logcheck.conf /etc/logcheck/logcheck.conf.bak
-# Print recent logs to stdout with and don't update the pointer
-# $ sudo -u logcheck logcheck -o -t
-# Send email to root user (and therefore us) with:
-# $ sudo -u logcheck logcheck
-# To add some random logs that will flag, you can do
-# $ sudo -k && sudo doesnotexist
-# 	- and fail the password prompt

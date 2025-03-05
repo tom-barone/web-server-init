@@ -89,4 +89,30 @@ supersede domain-name-servers 1.1.1.1, 1.0.0.1, 8.8.8.8;
 
 Check `/etc/resolv.conf` to make sure the changes have taken effect.
 
+For a simple mini PC that has WiFi support, the `/etc/network/interfaces` file can be modified to connect via both Ethernet / WiFi:
+
+```bash
+# Example Ethernet config (double check the interface name with 'ip a')
+# metric: currently set to a higher priority value so that Ethernet is preferred
+# auto: Means the interface will be brought up automatically on boot
+# dhcp: Use DHCP from the router to get an IP address
+auto eno1
+iface eno1 inet dhcp
+    metric 100
+
+# Example WiFi config (double check the interface name with 'ip a')ip route get 8.8.8.8
+# allow-hotplug: Means the interface will be brought up when the system detects a hotplug event
+#                i.e. whenever the WiFi network becomes available
+allow-hotplug wlp0s20f3
+iface wlp0s20f3 inet dhcp
+    wpa-ssid <wifi_ssid>
+    wpa-psk  <wifi_password>
+    metric 200
+
+# Check which interface is being used with 'ip route get 8.8.8.8'
+# Or check routing table with 'ip route'
+# NOTE: If using with a stock home internet router, these are both given separate IP addresses.
+#       So any port forwarding (22, 80, 443 etc) needs to pick which interface to send traffic to.
+```
+
 Run the regular setup scripts as above.

@@ -23,7 +23,8 @@ sudo usermod -aG sudo tbone
 # Add their public key
 sudo su tbone
 mkdir ~/.ssh
-cat <your_ssh_public_key> | tee -a ~/.ssh/authorized_keys
+vi ~/.ssh/authorized_keys
+# Put in the public key
 
 # Add the docker group
 sudo groupadd docker
@@ -59,7 +60,7 @@ Boot from the USB drive and follow the prompts.
 
 - Choose `Install` instead of `Graphical install`.
 - I like to set the hostname to something like `au-adelaide`
-- The domain name should be the FQDN you'll use for SSH access, for example `au-adelaide.mydomain.com`
+- Leave the domain name blank
 - Don't set a root password
 - Don't install any desktop environments like GNOME
 
@@ -85,5 +86,7 @@ Modify the dhclient config `/etc/dhcp/dhclient.conf`, see [here](https://wiki.de
 # Put in some public DNS servers
 supersede domain-name-servers 1.1.1.1, 1.0.0.1, 8.8.8.8;
 ```
+
+Check `/etc/resolv.conf` to make sure the changes have taken effect.
 
 Run the regular setup scripts as above.

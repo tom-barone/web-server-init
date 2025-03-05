@@ -119,8 +119,11 @@ sudo cp /etc/logcheck/logcheck.conf /etc/logcheck/logcheck.conf.bak
 
 ## Postfix
 
-# Install silently with pre-configured options
+# Install Postfix and SASL
 sudo apt install -y libsasl2-modules postfix
+# Choose:
+# - Internet Site
+# - System mail name: <default>
 # Add the Gmail credentials
 sudo tee /etc/postfix/sasl/sasl_passwd <<EOF
 [smtp.gmail.com]:587 $GMAIL_USERNAME:$GMAIL_PASSWORD
@@ -129,7 +132,7 @@ sudo postmap /etc/postfix/sasl/sasl_passwd
 sudo chown root:root /etc/postfix/sasl/sasl_passwd /etc/postfix/sasl/sasl_passwd.db
 sudo chmod 0600 /etc/postfix/sasl/sasl_passwd /etc/postfix/sasl/sasl_passwd.db
 sudo cp /etc/postfix/main.cf /etc/postfix/main.cf.bak
-sudo sed -i "s/^myhostname.*/myhostname = $DOMAIN/g" /etc/postfix/main.cf
+sudo sed -i "s/^myhostname.*/myhostname = $HOSTNAME/g" /etc/postfix/main.cf
 sudo sed -i 's/^relayhost = $/relayhost = [smtp.gmail.com]:587/g' /etc/postfix/main.cf
 # Disable smtp_tls_security_level=may
 sudo sed -i 's/^smtp_tls_security_level=may/#smtp_tls_security_level=may/g' /etc/postfix/main.cf
@@ -146,6 +149,8 @@ smtp_tls_security_level = encrypt
 smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
 EOF
 sudo apt install -y mailutils
+# Comment out any existing root alias
+sudo sed -i 's/^root.*/#root/g' /etc/aliases
 # Set email address forwarding for root emails
 sudo tee -a /etc/aliases <<EOF
 root: $EMAIL

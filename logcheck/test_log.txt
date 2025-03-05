@@ -46,18 +46,23 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 2025-02-19T05:04:43.420054+00:00 jqc-production containerd[16080]: time="2025-02-19T05:04:43.419636700Z" level=warning msg="cleaning up after shim disconnected" id=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db namespace=moby
 
 # SSH
-2025-02-19T06:16:44.315529+00:00 jqc-production sshd[52563]: Received signal 15; terminating.
-Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
-2025-03-04T21:28:19.748994+00:00 jqc-production sshd[2915253]: padding error: need 1580 block 8 mod 4 [preauth]
 2025-03-05T01:02:27.318069+00:00 au-melbourne sshd[2151289]: Received disconnect from 218.92.0.171 port 59225:11:  [preauth]
 2025-03-05T01:02:27.318308+00:00 au-melbourne sshd[2151289]: Disconnected from authenticating user root 218.92.0.171 port 59225 [preauth]
+2025-03-05T01:03:56.818664+00:00 au-melbourne sshd[2151301]: Disconnected from invalid user zabbix 80.94.95.112 port 14272 [preauth]
+2025-03-05T03:16:12.352684+00:00 au-melbourne sshd[2161981]: Disconnected from 14.103.120.75 port 58708 [preauth]
+2025-03-05T01:04:03.285043+00:00 au-melbourne sshd[2151299]: Connection closed by authenticating user root 139.19.117.129 port 38716 [preauth]
+2025-03-05T01:06:01.440062+00:00 au-melbourne sshd[2151554]: Connection closed by invalid user admin 92.255.57.132 port 33262 [preauth]
+2025-03-05T03:02:26.514853+00:00 au-melbourne sshd[2160976]: Connection closed by 205.210.31.200 port 55613
+2025-03-05T03:12:29.836080+00:00 au-melbourne sshd[2161669]: Connection closed by 14.103.120.75 port 47146 [preauth]
 2025-03-05T01:02:43.828520+00:00 au-melbourne sshd[2151292]: Unable to negotiate with 218.92.0.201 port 48650: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 [preauth]
 2025-03-05T01:03:54.598986+00:00 au-melbourne sshd[2151299]: userauth_pubkey: signature algorithm ssh-rsa not in PubkeyAcceptedAlgorithms [preauth]
 2025-03-05T01:03:55.257675+00:00 au-melbourne sshd[2151301]: Invalid user zabbix from 80.94.95.112 port 14272
-2025-03-05T01:04:03.285043+00:00 au-melbourne sshd[2151299]: Connection closed by authenticating user root 139.19.117.129 port 38716 [preauth]
-2025-03-05T01:03:56.818664+00:00 au-melbourne sshd[2151301]: Disconnected from invalid user zabbix 80.94.95.112 port 14272 [preauth]
-2025-03-05T01:06:01.440062+00:00 au-melbourne sshd[2151554]: Connection closed by invalid user admin 92.255.57.132 port 33262 [preauth]
 2025-03-05T01:21:38.110491+00:00 au-melbourne sshd[2152355]: error: kex_exchange_identification: Connection closed by remote host
+2025-03-05T03:21:42.884136+00:00 au-melbourne sshd[2162357]: error: kex_exchange_identification: client sent invalid protocol identifier "GET / HTTP/1.1"
+2025-03-05T03:21:42.884372+00:00 au-melbourne sshd[2162357]: banner exchange: Connection from 65.49.1.111 port 42023: invalid format
+2025-02-19T06:16:44.315529+00:00 jqc-production sshd[52563]: Received signal 15; terminating.
+Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
+2025-03-04T21:28:19.748994+00:00 jqc-production sshd[2915253]: padding error: need 1580 block 8 mod 4 [preauth]
 
 # PackageKit
  2025-02-19T06:16:45.742606+00:00 jqc-production dbus-daemon[557]: [system] Activating via systemd: service name='org.freedesktop.PackageKit' unit='packagekit.service' requested by ':1.656' (uid=0 pid=912195 comm="/usr/bin/gdbus call --system --dest org.freedeskto")

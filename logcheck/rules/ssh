@@ -1,12 +1,15 @@
-.* .*sshd.*: Received signal.*$
-.* .*sshd.*: error: send_error: write: Broken pipe.*$
-.* .*sshd.*: padding error: need.*block.*mod.*$
-.* .*sshd.*: Received disconnect from .*\[preauth\]$
-.* .*sshd.*: Disconnected from authenticating user.*\[preauth\]$
-.* .*sshd.*: Unable to negotiate with.*\[preauth\]$
-.* .*sshd.*: userauth_pubkey: signature algorithm .* not in PubkeyAcceptedAlgorithms \[preauth\]$
-.* .*sshd.*: Invalid user .* from .* port .*$
-.* .*sshd.*: Disconnected from invalid user.*\[preauth\]$
 .* .*sshd.*: Connection closed by authenticating user.*\[preauth\]$
 .* .*sshd.*: Connection closed by invalid user.*\[preauth\]$
-.* .*sshd.*: error: kex_exchange_identification: Connection closed by remote host$
+.* .*sshd.*: Connection closed by .* port .*$
+.* .*sshd.*: Disconnected from authenticating user.*\[preauth\]$
+.* .*sshd.*: Disconnected from invalid user.*\[preauth\]$
+.* .*sshd.*: Disconnected from .* port .*\[preauth\]$
+.* .*sshd.*: Invalid user .* from .* port .*$
+.* .*sshd.*: Received disconnect from .*\[preauth\]$
+.* .*sshd.*: Received signal.*$
+.* .*sshd.*: Unable to negotiate with.*\[preauth\]$
+.* .*sshd.*: error: kex_exchange_identification: .*$
+.* .*sshd.*: error: send_error: write: Broken pipe.*$
+.* .*sshd.*: banner exchange: Connection from .* port .*: invalid format$
+.* .*sshd.*: padding error: need.*block.*mod.*$
+.* .*sshd.*: userauth_pubkey: signature algorithm .* not in PubkeyAcceptedAlgorithms \[preauth\]$

@@ -1,3 +1,6 @@
+# Run like `SSH_CONNECTION_STRING="root@<server>" ./push.sh`
+# Need to use root so we don't get asked for a sudo password
+
 # Environment variable checks
 for var in SSH_CONNECTION_STRING; do
 	if [ -z "${!var}" ]; then

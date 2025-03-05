@@ -1,13 +1,10 @@
 # Run like `SSH_CONNECTION_STRING="root@<server>" ./push.sh`
 # Need to use root so we don't get asked for a sudo password
 
-# Environment variable checks
-for var in SSH_CONNECTION_STRING; do
-	if [ -z "${!var}" ]; then
-		echo "$var environment variable must be set"
-		exit 1
-	fi
-done
+if [ -z "$SSH_CONNECTION_STRING" ]; then
+	echo "SSH_CONNECTION_STRING environment variable must be set"
+	exit 1
+fi
 
 # Update the init.sh script
 rsync -avz "init.sh" "$SSH_CONNECTION_STRING:~/init.sh"

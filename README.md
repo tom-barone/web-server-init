@@ -24,7 +24,12 @@ sudo usermod -aG sudo tbone
 sudo su tbone
 mkdir ~/.ssh
 vi ~/.ssh/authorized_keys
-# Put in the public key
+# ^ Put in the public key
+# Also if you want to let them ssh in as root
+#sudo cat ~/.ssh/authorized_keys >> /root/.ssh/authorized_keys
+sudo mkdir -p /root/.ssh
+sudo tee -a /root/.ssh/authorized_keys < ~/.ssh/authorized_keys
+```
 
 # Add the docker group
 sudo groupadd docker

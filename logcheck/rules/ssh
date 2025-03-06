@@ -9,8 +9,14 @@
 .* .*sshd.*: Received signal.*$
 .* .*sshd.*: Unable to negotiate with.*\[preauth\]$
 .* .*sshd.*: error: kex_exchange_identification: .*$
+.* .*sshd.*: error: kex_protocol_error.*$
 .* .*sshd.*: error: send_error: write: Broken pipe.*$
 .* .*sshd.*: error: maximum authentication attempts.*$
+.* .*sshd.*: error: maximum authentication attempts.*$
+.* .*sshd.*: error: Bad remote protocol version.*$
+.* .*sshd.*: error: beginning MaxStartups throttling.*$
+.* .*sshd.*: drop connection .* past MaxStartups.*$
+.* .*sshd.*: exited MaxStartups throttling.*$
 .* .*sshd.*: fatal: userauth_pubkey.*$
 .* .*sshd.*: banner exchange: Connection from .* port .*: invalid format$
 .* .*sshd.*: padding error: need.*block.*mod.*$

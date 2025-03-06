@@ -36,7 +36,7 @@ Feb 24 04:05:40 jqc-production docker[1806506]: sx33amszgfwp7wwlrxm4dn5xr*      
 2025-03-05T01:05:14.447332+00:00 au-melbourne systemd[1]: dokku-retire.service: Deactivated successfully.
 2025-03-05T01:05:14.447545+00:00 au-melbourne systemd[1]: Finished dokku-retire.service - Dokku retire service.
 Mar 06 02:57:42 eu-central dockerd[1053]: time="2025-03-06T02:57:42.785524143Z" level=error msg="[resolver] failed to query external DNS server" client-addr="udp:[2a01:4f8:c2c:411e::1]:39229" dns-server="udp:[2a01:4ff:ff00::add:1]:53" error="read udp [2a01:4f8:c2c:411e::1]:39229->[2a01:4ff:ff00::add:1]:53: i/o timeout" question=";grafana.com.\tIN\t A" spanID=853348240ec88829 traceID=20ce7dcb6987f11bf81d172d23f64c66
-
+Mar 06 12:54:30 eu-central dockerd[1053]: time="2025-03-06T12:54:30.846694363Z" level=error msg="[resolver] failed to query external DNS server" client-addr="udp:[2a01:4f8:c2c:411e::1]:42409" dns-server="udp:[2a01:4ff:ff00::add:1]:53" error="read udp [2a01:4f8:c2c:411e::1]:42409->[2a01:4ff:ff00::add:1]:53: i/o timeout" question=";api.ipify.org.\tIN\t A" spanID=3b0abea3e8618f6d traceID=35bcae32df1aa531024e87341bc06d5d
 2025-03-05T13:00:02.904770+00:00 au-melbourne systemd[1]: var-lib-docker-overlay2-a8f548cb61b62baad08839e4fdf636776b29d64e2099a572f81e61b0acfba0c7\x2dinit-merged.mount: Deactivated successfully.
 2025-03-05T13:00:03.007841+00:00 au-melbourne systemd[1]: Started docker-3eefad8912d270364d45a7a6c111837203338161899b02986cdea50815d904e3.scope - libcontainer container 3eefad8912d270364d45a7a6c111837203338161899b02986cdea50815d904e3.
 2025-03-05T13:00:08.941065+00:00 au-melbourne systemd[1]: docker-3eefad8912d270364d45a7a6c111837203338161899b02986cdea50815d904e3.scope: Deactivated successfully.
@@ -75,6 +75,7 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 2025-03-05T01:21:38.110491+00:00 au-melbourne sshd[2152355]: error: kex_exchange_identification: Connection closed by remote host
 2025-03-05T03:21:42.884136+00:00 au-melbourne sshd[2162357]: error: kex_exchange_identification: client sent invalid protocol identifier "GET / HTTP/1.1"
 2025-03-05T18:48:39.108962+00:00 au-melbourne sshd[2266668]: error: maximum authentication attempts exceeded for root from 180.225.193.142 port 38207 ssh2 [preauth]
+2025-03-06T12:26:03.126819+00:00 eu-central sshd[594927]: error: kex_protocol_error: type 20 seq 4 [preauth]
 2025-03-05T03:21:42.884372+00:00 au-melbourne sshd[2162357]: banner exchange: Connection from 65.49.1.111 port 42023: invalid format
 2025-02-19T06:16:44.315529+00:00 jqc-production sshd[52563]: Received signal 15; terminating.
 Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
@@ -83,6 +84,10 @@ Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
 2025-03-05T13:53:49.869038+00:00 au-melbourne sshd[2239092]: Received disconnect from 144.6.17.85 port 53677:11: disconnected by user
 2025-03-06T00:43:17.306483+10:30 au-adelaide sshd[409166]: pam_env(sshd:session): deprecated reading of user environment enabled
 2025-03-06T01:33:45.867143+10:30 au-adelaide sshd[417578]: fatal: userauth_pubkey: parse publickey packet: incomplete message [preauth]
+2025-03-07T01:27:52.920291+10:30 au-adelaide sshd[675669]: error: Bad remote protocol version identification: 'SSH-2.0_CoreLab-1.0'
+2025-03-07T06:08:25.825786+10:30 au-adelaide sshd[1811]: error: beginning MaxStartups throttling
+2025-03-07T06:08:25.826274+10:30 au-adelaide sshd[1811]: drop connection #11 from [128.14.227.10]:41130 on [192.168.0.12]:22 past MaxStartups
+2025-03-07T06:11:58.658440+10:30 au-adelaide sshd[1811]: exited MaxStartups throttling after 00:03:33, 116 connections dropped
 
 # Systemd
 2025-03-05T13:54:00.087664+00:00 au-melbourne systemd[1]: Stopping user@0.service - User Manager for UID 0...

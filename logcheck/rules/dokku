@@ -10,3 +10,4 @@
 .* .*systemd.*: Starting dokku-retire\.service - Dokku retire service.*$
 .* .*systemd.*: dokku-retire\.service: Deactivated successfully.*$
 .* .*systemd.*: Finished dokku-retire\.service - Dokku retire service.*$
+.* .*dokku.*: .*"level":"info".*$

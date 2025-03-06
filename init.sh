@@ -136,6 +136,8 @@ sudo sed -i "s/^myhostname.*/myhostname = $HOSTNAME/g" /etc/postfix/main.cf
 sudo sed -i 's/^relayhost = $/relayhost = [smtp.gmail.com]:587/g' /etc/postfix/main.cf
 # Disable smtp_tls_security_level=may
 sudo sed -i 's/^smtp_tls_security_level=may/#smtp_tls_security_level=may/g' /etc/postfix/main.cf
+# NOTE: You might need to set inet_protocols = ipv4 if the machine doesn't support ipv6
+# 			Can happen if running a server from a home network for example.
 sudo tee -a /etc/postfix/main.cf <<EOF
 # Enable SASL authentication
 smtp_sasl_auth_enable = yes

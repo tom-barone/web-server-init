@@ -6,3 +6,6 @@
 .* .*systemd.*: Finished sysstat-collect\.service - system activity accounting tool.*$
 .* .*systemd.*: session-.*\.scope: Deactivated successfully.*$
 .* .*systemd.*: .*: Consumed.* CPU time.*$
+.* .*systemd.*: Start.* .* - .*\.$
+.* .*systemd.*: Finish.* .* - .*\.$
+.* .*systemd.*: .*: Deactivated successfully\.$

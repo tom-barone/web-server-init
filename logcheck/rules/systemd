@@ -19,3 +19,6 @@
 .* .*systemd.*: Reached target.*$
 .* .*systemd.*: Started .* Session .* of User.*$
 .* .*systemd.*: Startup finished in.*
+.* .*systemd.*: Start.* .* - .*\.$
+.* .*systemd.*: Finish.* .* - .*\.$
+.* .*systemd.*: .*: Deactivated successfully\.$

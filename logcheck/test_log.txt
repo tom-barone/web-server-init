@@ -52,6 +52,7 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 2025-02-19T05:04:43.446062+00:00 jqc-production kernel: [526409.073607] veth6da1c53: renamed from eth0
 2025-02-19T05:04:41.826017+00:00 jqc-production kernel: [526407.450523] IPv6: ADDRCONF(NETDEV_CHANGE): veth301e9c6: link becomes ready
 2025-02-19T05:44:59.069255+00:00 jqc-production kernel: [528824.671587] device veth8995f1b left promiscuous mode
+Mar 07 21:45:07 au-adelaide kernel: perf: interrupt took too long (3134 > 3128), lowering kernel.perf_event_max_sample_rate to 63750
 
 # Containerd
 2025-02-19T05:04:43.419981+00:00 jqc-production containerd[16080]: time="2025-02-19T05:04:43.419578510Z" level=info msg="shim disconnected" id=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db namespace=moby
@@ -76,7 +77,9 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 2025-03-05T03:21:42.884136+00:00 au-melbourne sshd[2162357]: error: kex_exchange_identification: client sent invalid protocol identifier "GET / HTTP/1.1"
 2025-03-05T18:48:39.108962+00:00 au-melbourne sshd[2266668]: error: maximum authentication attempts exceeded for root from 180.225.193.142 port 38207 ssh2 [preauth]
 2025-03-06T12:26:03.126819+00:00 eu-central sshd[594927]: error: kex_protocol_error: type 20 seq 4 [preauth]
+2025-03-08T09:38:18.491215+10:30 au-adelaide sshd[1033077]: error: Protocol major versions differ: 2 vs. 1
 2025-03-05T03:21:42.884372+00:00 au-melbourne sshd[2162357]: banner exchange: Connection from 65.49.1.111 port 42023: invalid format
+2025-03-08T09:38:18.491315+10:30 au-adelaide sshd[1033077]: banner exchange: Connection from 165.154.179.204 port 44264: could not read protocol version
 2025-02-19T06:16:44.315529+00:00 jqc-production sshd[52563]: Received signal 15; terminating.
 Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
 2025-03-04T21:28:19.748994+00:00 jqc-production sshd[2915253]: padding error: need 1580 block 8 mod 4 [preauth]
@@ -114,6 +117,7 @@ Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
 2025-03-05T17:45:13.908955+00:00 au-melbourne systemd[1]: Starting packagekit.service - PackageKit Daemon...
 2025-03-05T17:45:13.936328+00:00 au-melbourne systemd[1]: Started packagekit.service - PackageKit Daemon.
 2025-03-05T17:50:19.044880+00:00 au-melbourne systemd[1]: packagekit.service: Deactivated successfully.
+2025-03-09T00:00:04.284660+10:30 au-adelaide systemd[1]: rsyslog.service: Sent signal SIGHUP to main process 680 (rsyslogd) on client request.
 
 # PackageKit
  2025-02-19T06:16:45.742606+00:00 jqc-production dbus-daemon[557]: [system] Activating via systemd: service name='org.freedesktop.PackageKit' unit='packagekit.service' requested by ':1.656' (uid=0 pid=912195 comm="/usr/bin/gdbus call --system --dest org.freedeskto")

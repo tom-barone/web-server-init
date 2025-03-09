@@ -15,10 +15,11 @@
 .* .*sshd.*: error: maximum authentication attempts.*$
 .* .*sshd.*: error: Bad remote protocol version.*$
 .* .*sshd.*: error: beginning MaxStartups throttling.*$
+.* .*sshd.*: error: Protocol major versions differ.*$
 .* .*sshd.*: drop connection .* past MaxStartups.*$
 .* .*sshd.*: exited MaxStartups throttling.*$
 .* .*sshd.*: fatal: userauth_pubkey.*$
-.* .*sshd.*: banner exchange: Connection from .* port .*: invalid format$
+.* .*sshd.*: banner exchange: Connection from .* port .*$
 .* .*sshd.*: padding error: need.*block.*mod.*$
 .* .*sshd.*: userauth_pubkey: signature algorithm .* not in PubkeyAcceptedAlgorithms \[preauth\]$
 .* .*sshd.*: pam_env.*deprecated reading of user.*$

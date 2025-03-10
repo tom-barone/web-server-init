@@ -53,6 +53,7 @@ Feb 19 05:02:03 jqc-production postfix/qmgr[639199]: 73FDC65FE7: removed
 2025-02-19T05:04:41.826017+00:00 jqc-production kernel: [526407.450523] IPv6: ADDRCONF(NETDEV_CHANGE): veth301e9c6: link becomes ready
 2025-02-19T05:44:59.069255+00:00 jqc-production kernel: [528824.671587] device veth8995f1b left promiscuous mode
 Mar 07 21:45:07 au-adelaide kernel: perf: interrupt took too long (3134 > 3128), lowering kernel.perf_event_max_sample_rate to 63750
+2025-03-10T13:01:02.655403+10:30 au-adelaide kernel: [399592.532630] perf: interrupt took too long (4921 > 4918), lowering kernel.perf_event_max_sample_rate to 40500
 
 # Containerd
 2025-02-19T05:04:43.419981+00:00 jqc-production containerd[16080]: time="2025-02-19T05:04:43.419578510Z" level=info msg="shim disconnected" id=2187827c9ee5dbb0efcd4ad51dbeb16ce345595fd91b3f1588b889f8a4d899db namespace=moby

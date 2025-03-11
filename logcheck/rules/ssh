@@ -1,26 +1,27 @@
+.* .*sshd.*: Connection closed by .* port .*$
 .* .*sshd.*: Connection closed by authenticating user.*\[preauth\]$
 .* .*sshd.*: Connection closed by invalid user.*\[preauth\]$
-.* .*sshd.*: Connection closed by .* port .*$
 .* .*sshd.*: Connection reset by .* port .*$
+.* .*sshd.*: Corrupted MAC on input.*$
 .* .*sshd.*: Disconnected from .*$
 .* .*sshd.*: Disconnecting .* user.*$
 .* .*sshd.*: Invalid user .* from .* port .*$
 .* .*sshd.*: Received disconnect from .*$
 .* .*sshd.*: Received signal.*$
 .* .*sshd.*: Unable to negotiate with.*\[preauth\]$
+.* .*sshd.*: banner exchange: Connection from .* port .*$
+.* .*sshd.*: drop connection .* past MaxStartups.*$
+.* .*sshd.*: error: Bad remote protocol version.*$
+.* .*sshd.*: error: Protocol major versions differ.*$
+.* .*sshd.*: error: beginning MaxStartups throttling.*$
 .* .*sshd.*: error: kex_exchange_identification: .*$
 .* .*sshd.*: error: kex_protocol_error.*$
+.* .*sshd.*: error: maximum authentication attempts.*$
+.* .*sshd.*: error: maximum authentication attempts.*$
 .* .*sshd.*: error: send_error: write: Broken pipe.*$
-.* .*sshd.*: error: maximum authentication attempts.*$
-.* .*sshd.*: error: maximum authentication attempts.*$
-.* .*sshd.*: error: Bad remote protocol version.*$
-.* .*sshd.*: error: beginning MaxStartups throttling.*$
-.* .*sshd.*: error: Protocol major versions differ.*$
-.* .*sshd.*: drop connection .* past MaxStartups.*$
 .* .*sshd.*: exited MaxStartups throttling.*$
 .* .*sshd.*: fatal: userauth_pubkey.*$
-.* .*sshd.*: banner exchange: Connection from .* port .*$
 .* .*sshd.*: padding error: need.*block.*mod.*$
-.* .*sshd.*: userauth_pubkey: signature algorithm .* not in PubkeyAcceptedAlgorithms \[preauth\]$
 .* .*sshd.*: pam_env.*deprecated reading of user.*$
+.* .*sshd.*: userauth_pubkey: signature algorithm .* not in PubkeyAcceptedAlgorithms \[preauth\]$
 .* .*: pam_unix.*session .* for user.*$

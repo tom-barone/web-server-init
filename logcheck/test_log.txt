@@ -92,6 +92,7 @@ Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
 2025-03-07T06:08:25.825786+10:30 au-adelaide sshd[1811]: error: beginning MaxStartups throttling
 2025-03-07T06:08:25.826274+10:30 au-adelaide sshd[1811]: drop connection #11 from [128.14.227.10]:41130 on [192.168.0.12]:22 past MaxStartups
 2025-03-07T06:11:58.658440+10:30 au-adelaide sshd[1811]: exited MaxStartups throttling after 00:03:33, 116 connections dropped
+2025-03-11T09:39:29.978356+00:00 jqc-production sshd[3758125]: Corrupted MAC on input. [preauth]
 
 # Systemd
 2025-03-05T13:54:00.087664+00:00 au-melbourne systemd[1]: Stopping user@0.service - User Manager for UID 0...

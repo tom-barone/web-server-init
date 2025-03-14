@@ -11,3 +11,4 @@
 .* .*systemd.*: dokku-retire\.service: Deactivated successfully.*$
 .* .*systemd.*: Finished dokku-retire\.service - Dokku retire service.*$
 .* .*dokku.*: .*"level":"info".*$
+.* .*dokku-event.*: INVOKED: .*$

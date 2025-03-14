@@ -82,6 +82,19 @@ sudo tee /etc/logrotate.d/dokku <<EOF
 				copytruncate
 }
 EOF
+# Setup log rotation for apps that put their logs in /var/log/dokku/apps
+sudo tee /etc/logrotate.d/dokku-apps <<EOF
+/var/log/dokku/apps/*.log {
+				su root dokku
+				daily
+				missingok
+				rotate 14
+				compress
+				delaycompress
+				notifempty
+				copytruncate
+}
+EOF
 # Create a user and SSH key for Github to use when deploying
 sudo adduser --disabled-password --gecos "" github
 sudo usermod -aG sudo github

@@ -3,7 +3,7 @@ set -ex
 DOKKU_VERSION=v0.35.15
 
 # Environment variable checks
-for var in HOSTNAME DOMAIN EMAIL GMAIL_USERNAME GMAIL_PASSWORD; do
+for var in HOSTNAME DOMAIN EMAIL GMAIL_USERNAME GMAIL_PASSWORD MONITORING_USERNAME MONITORING_PASSWORD; do
 	if [ -z "${!var}" ]; then
 		echo "$var environment variable must be set"
 		exit 1
@@ -67,6 +67,8 @@ dokku domains:set-global "$DOMAIN"
 sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
 sudo dokku plugin:install https://github.com/dokku/dokku-redis
 sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+sudo dokku plugin:install https://github.com/dokku/dokku-http-auth.git
+sudo dokku plugin:install https://github.com/dokku/dokku-graphite.git --name graphite
 dokku letsencrypt:set --global email "$EMAIL"
 dokku letsencrypt:cron-job --add
 # Tell logrotate to act as the dokku user.
@@ -185,3 +187,185 @@ sudo systemctl restart postfix
 # $ Subject: Test root mail
 # $ This is a test email to the root user
 # $ .
+
+# Graphite / Statsd / Grafana
+dokku graphite:create graphite --custom-env "GF_SECURITY_ADMIN_USER=$MONITORING_USERNAME;GF_SECURITY_ADMIN_PASSWORD=$MONITORING_PASSWORD"
+dokku apps:create "monitoring.$DOMAIN"
+dokku config:set --no-restart "monitoring.$DOMAIN" SERVICE_NAME=graphite SERVICE_TYPE=graphite SERVICE_PORT=80
+dokku graphite:link graphite "monitoring.$DOMAIN"
+dokku git:from-image "monitoring.$DOMAIN" dokku/service-proxy:latest
+dokku letsencrypt:enable "monitoring.$DOMAIN"
+## Test we can push to graphite with
+# dokku graphite:expose graphite 8125 8126 8080 8081 2003
+# echo "foo.bar 1 `date +%s`" | nc localhost 2003
+## Make sure grafana datasource for graphite is set to http://localhost:81
+sudo apt-get install -y collectd
+sudo tee /etc/collectd/collectd.conf.d/graphite.conf <<EOF
+LoadPlugin write_graphite
+<Plugin write_graphite>
+  <Node "local">
+    Host "localhost"
+    Port "2003"
+    Prefix "collectd-"
+  </Node>
+</Plugin>
+EOF
+
+# cAdvisor
+dokku apps:create cadvisor
+dokku graphite:link graphite cadvisor
+dokku docker-options:add cadvisor deploy "--privileged"
+dokku docker-options:add cadvisor deploy "--device=/dev/kmsg"
+dokku config:set --no-restart cadvisor DOKKU_DOCKERFILE_START_CMD="--storage_driver=statsd --storage_driver_host=dokku-graphite-graphite:8125"
+dokku storage:mount cadvisor /:/rootfs:ro
+dokku storage:mount cadvisor /var/run:/var/run:ro
+dokku storage:mount cadvisor /sys:/sys:ro
+dokku storage:mount cadvisor /var/lib/docker:/var/lib/docker:ro
+dokku storage:mount cadvisor /dev/disk:/dev/disk:ro
+docker image pull gcr.io/cadvisor/cadvisor:v0.49.1
+dokku git:from-image cadvisor gcr.io/cadvisor/cadvisor:v0.49.1
+
+#sudo docker run \
+#  --name=cadvisor \
+#  --network=host \
+#  --volume=/:/rootfs:ro \
+#  --volume=/var/run:/var/run:ro \
+#  --volume=/sys:/sys:ro \
+#  --volume=/var/lib/docker/:/var/lib/docker:ro \
+#  --volume=/dev/disk/:/dev/disk:ro \
+#  --detach=true \
+#  --name=cadvisor \
+#  --privileged \
+#  --device=/dev/kmsg \
+#  gcr.io/cadvisor/cadvisor:v0.49.1 \
+#  --port 8082 \
+#  --storage_driver=statsd \
+#  --storage_driver_host=0.0.0.0:8125
+
+## Prometheus
+## TODO: Rename prometheus1 to prometheus
+## Make sure prometheus.$DOMAIN points to the server
+#dokku network:create prometheus-bridge
+## This is needed to fix https://github.com/dokku/dokku-http-auth/issues/15
+#cd /home && sudo chmod +x dokku && cd -
+#dokku apps:create "prometheus1.$DOMAIN"
+#dokku ports:add "prometheus1.$DOMAIN" http:80:9090
+#dokku network:set "prometheus1.$DOMAIN" attach-post-deploy prometheus-bridge
+#sudo mkdir -p /var/lib/dokku/data/storage/prometheus/{config,data}
+#sudo touch /var/lib/dokku/data/storage/prometheus/config/{alert.rules,prometheus.yml}
+#dokku storage:mount "prometheus1.$DOMAIN" /var/lib/dokku/data/storage/prometheus/config:/etc/prometheus
+#dokku storage:mount "prometheus1.$DOMAIN" /var/lib/dokku/data/storage/prometheus/data:/prometheus
+#dokku config:set --no-restart "prometheus1.$DOMAIN" DOKKU_DOCKERFILE_START_CMD="--config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/prometheus --web.console.libraries=/usr/share/prometheus/console_libraries --web.console.templates=/usr/share/prometheus/consoles --web.enable-lifecycle --storage.tsdb.no-lockfile"
+#sudo tee /var/lib/dokku/data/storage/prometheus/config/prometheus.yml <<EOF
+#global:
+#  scrape_interval: 15s
+#scrape_configs:
+#  - job_name: "prometheus"
+#    scrape_interval: 15s
+#    static_configs:
+#      - targets:
+#          - "localhost:9090"
+#  - job_name: node-exporter
+#    scrape_interval: 15s
+#    scheme: https
+#    basic_auth:
+#      username: $MONITORING_USERNAME
+#      password: $MONITORING_PASSWORD
+#    relabel_configs: []
+#    metric_relabel_configs: []
+#    static_configs:
+#      - targets:
+#          - "node-exporter1.$DOMAIN"
+#  - job_name: cadvisor
+#    scrape_interval: 15s
+#    scheme: http
+#    static_configs:
+#      - targets:
+#          - cadvisor.$DOMAIN.web:8080
+#EOF
+#sudo chown -R nobody:nogroup /var/lib/dokku/data/storage/prometheus
+#docker pull prom/prometheus:latest
+#docker tag prom/prometheus:latest dokku/prometheus:latest
+#dokku git:from-image "prometheus1.$DOMAIN" dokku/prometheus:latest
+#dokku letsencrypt:enable "prometheus1.$DOMAIN"
+## Need to enable / disable / enable - workaround for https://github.com/dokku/dokku-http-auth/issues/24
+#dokku http-auth:enable "prometheus1.$DOMAIN" "$MONITORING_USERNAME" "$MONITORING_PASSWORD"
+#dokku http-auth:disable "prometheus1.$DOMAIN"
+#dokku http-auth:enable "prometheus1.$DOMAIN" "$MONITORING_USERNAME" "$MONITORING_PASSWORD"
+
+## Node Exporter
+## TODO: Rename node-exporter1 to node-exporter
+#dokku apps:create "node-exporter1.$DOMAIN"
+#dokku ports:add "node-exporter1.$DOMAIN" http:80:9100
+##dokku config:set --no-restart "node-exporter1.$DOMAIN" DOKKU_DOCKERFILE_START_CMD="--collector.textfile.directory=/data --path.procfs=/host/proc --path.sysfs=/host/sys"
+#dokku config:set --no-restart "node-exporter1.$DOMAIN" DOKKU_DOCKERFILE_START_CMD="--collector.textfile.directory=/data --path.rootfs=/host"
+#dokku docker-options:add "node-exporter1.$DOMAIN" deploy,run "--net=host"
+#dokku docker-options:add "node-exporter1.$DOMAIN" deploy,run "--pid=host"
+#dokku checks:disable "node-exporter1.$DOMAIN"
+#sudo mkdir -p /var/lib/dokku/data/storage/node-exporter
+#sudo chown nobody:nogroup /var/lib/dokku/data/storage/node-exporter
+##dokku storage:mount "node-exporter1.$DOMAIN" /proc:/host/proc:ro
+##dokku storage:mount "node-exporter1.$DOMAIN" /:/rootfs:ro
+##dokku storage:mount "node-exporter1.$DOMAIN" /sys:/host/sys:ro
+#dokku storage:mount "node-exporter1.$DOMAIN" /:/host:ro,rslave
+#dokku storage:mount "node-exporter1.$DOMAIN" /var/lib/dokku/data/storage/node-exporter:/data
+#docker image pull quay.io/prometheus/node-exporter:latest
+#docker image tag quay.io/prometheus/node-exporter:latest dokku/node-exporter:latest
+#dokku git:from-image "node-exporter1.$DOMAIN" dokku/node-exporter:latest
+#dokku letsencrypt:enable "node-exporter1.$DOMAIN"
+## Need to enable / disable / enable - workaround for https://github.com/dokku/dokku-http-auth/issues/24
+#dokku http-auth:enable "node-exporter1.$DOMAIN" "$MONITORING_USERNAME" "$MONITORING_PASSWORD"
+#dokku http-auth:disable "node-exporter1.$DOMAIN"
+#dokku http-auth:enable "node-exporter1.$DOMAIN" "$MONITORING_USERNAME" "$MONITORING_PASSWORD"
+
+## cAdvisor
+#dokku apps:create "cadvisor.$DOMAIN"
+#dokku ports:add "cadvisor.$DOMAIN" http:80:8080
+#dokku config:set --no-restart "cadvisor.$DOMAIN" DOKKU_DOCKERFILE_START_CMD="--docker_only --housekeeping_interval=10s --max_housekeeping_interval=60s"
+#dokku network:set "cadvisor.$DOMAIN" attach-post-deploy prometheus-bridge
+#dokku storage:mount "cadvisor.$DOMAIN" /:/rootfs:ro
+#dokku storage:mount "cadvisor.$DOMAIN" /sys:/sys:ro
+#dokku storage:mount "cadvisor.$DOMAIN" /var/lib/docker:/var/lib/docker:ro
+#dokku storage:mount "cadvisor.$DOMAIN" /var/run:/var/run:rw
+#docker image pull gcr.io/cadvisor/cadvisor:latest
+#docker image tag gcr.io/cadvisor/cadvisor:latest dokku/cadvisor:latest
+#dokku git:from-image "cadvisor.$DOMAIN" dokku/cadvisor:latest
+## Need to enable / disable / enable - workaround for https://github.com/dokku/dokku-http-auth/issues/24
+#dokku letsencrypt:enable "cadvisor.$DOMAIN"
+#dokku http-auth:enable "cadvisor.$DOMAIN" "$MONITORING_USERNAME" "$MONITORING_PASSWORD"
+#dokku http-auth:disable "cadvisor.$DOMAIN"
+#dokku http-auth:enable "cadvisor.$DOMAIN" "$MONITORING_USERNAME" "$MONITORING_PASSWORD"
+
+## Grafana
+#dokku apps:create "grafana.$DOMAIN"
+#dokku ports:add "grafana.$DOMAIN" http:80:3000
+#dokku network:set "grafana.$DOMAIN" attach-post-deploy prometheus-bridge
+#sudo mkdir -p /var/lib/dokku/data/storage/grafana/{config,data,plugins}
+#sudo mkdir -p /var/lib/dokku/data/storage/grafana/config/provisioning/datasources
+#sudo chown -R 472:472 /var/lib/dokku/data/storage/grafana
+#dokku storage:mount "grafana.$DOMAIN" /var/lib/dokku/data/storage/grafana/config/provisioning/datasources:/etc/grafana/provisioning/datasources
+#dokku storage:mount "grafana.$DOMAIN" /var/lib/dokku/data/storage/grafana/data:/var/lib/grafana
+#dokku storage:mount "grafana.$DOMAIN" /var/lib/dokku/data/storage/grafana/plugins:/var/lib/grafana/plugins
+#sudo tee /var/lib/dokku/data/storage/grafana/config/provisioning/datasources/prometheus.yml <<EOF
+#datasources:
+#  - name: Prometheus
+#    type: prometheus
+#    access: proxy
+#    orgId: 1
+#    url: http://prometheus1.$DOMAIN.web:9090
+#    basicAuth: false
+#    isDefault: true
+#    version: 1
+#    editable: true
+#EOF
+#dokku config:set --no-restart "grafana.$DOMAIN" GF_SECURITY_ADMIN_USER="$MONITORING_USERNAME" GF_SECURITY_ADMIN_PASSWORD="$MONITORING_PASSWORD"
+#docker pull grafana/grafana:latest
+#docker tag grafana/grafana:latest dokku/grafana:latest
+#dokku git:from-image "grafana.$DOMAIN" dokku/grafana:latest
+#dokku letsencrypt:enable "grafana.$DOMAIN"
+
+#dokku apps:destroy "prometheus1.$DOMAIN" --force
+#dokku apps:destroy "node-exporter1.$DOMAIN" --force
+#dokku apps:destroy "grafana.$DOMAIN" --force
+#dokku apps:destroy "cadvisor.$DOMAIN" --force
+#sudo rm -rf /var/lib/dokku/data/storage/prometheus /var/lib/dokku/data/storage/node-exporter /var/lib/dokku/data/storage/grafana

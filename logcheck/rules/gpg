@@ -1,0 +1,2 @@
+.* .*systemd.*: Closed dirmngr.socket.*$
+.* .*systemd.*: Listening on dirmngr.socket.*$

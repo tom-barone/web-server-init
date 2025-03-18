@@ -25,3 +25,4 @@
 .* .*sshd.*: pam_env.*deprecated reading of user.*$
 .* .*sshd.*: userauth_pubkey: signature algorithm .* not in PubkeyAcceptedAlgorithms \[preauth\]$
 .* .*: pam_unix.*session .* for user.*$
+.* .*sshd.*: Accepted publickey for tbone from.*$

@@ -190,13 +190,13 @@ sudo systemctl restart postfix
 
 # Graphite / Statsd / Grafana
 # By default this will retain metrics for the last 7 days
-dokku graphite:create graphite --custom-env "GF_SECURITY_ADMIN_USER=$MONITORING_USERNAME;GF_SECURITY_ADMIN_PASSWORD=$MONITORING_PASSWORD;GF_SMTP_ENABLED=true;GF_SMTP_HOST=smtp.gmail.com:587;GF_SMTP_USER=$GMAIL_USERNAME;GF_SMTP_PASSWORD=$GMAIL_PASSWORD"
+dokku graphite:create graphite --custom-env "GF_SECURITY_ADMIN_USER=$MONITORING_USERNAME;GF_SECURITY_ADMIN_PASSWORD=$MONITORING_PASSWORD;GF_SMTP_ENABLED=true;GF_SMTP_HOST=smtp.gmail.com:587;GF_SMTP_USER=$GMAIL_USERNAME;GF_SMTP_PASSWORD=$GMAIL_PASSWORD;GF_SMTP_FROM_NAME=GrafanaAlerts"
+dokku graphite:expose graphite 8125 8126 8084 8081 2003
 dokku apps:create "monitoring.$DOMAIN"
 dokku config:set --no-restart "monitoring.$DOMAIN" SERVICE_NAME=graphite SERVICE_TYPE=graphite SERVICE_PORT=80
 dokku graphite:link graphite "monitoring.$DOMAIN"
 dokku git:from-image "monitoring.$DOMAIN" dokku/service-proxy:latest
 dokku letsencrypt:enable "monitoring.$DOMAIN"
-dokku graphite:expose graphite 8125 8126 8084 8081 2003
 ## Test we can push to graphite with
 # echo "foo.bar 1 `date +%s`" | nc localhost 2003
 ## Make sure grafana datasource for graphite is set to http://localhost:81
@@ -226,4 +226,3 @@ dokku storage:mount cadvisor /var/lib/docker:/var/lib/docker:ro
 dokku storage:mount cadvisor /dev/disk:/dev/disk:ro
 docker image pull gcr.io/cadvisor/cadvisor:v0.49.1
 dokku git:from-image cadvisor gcr.io/cadvisor/cadvisor:v0.49.1
-

@@ -69,6 +69,7 @@ sudo dokku plugin:install https://github.com/dokku/dokku-redis
 sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
 sudo dokku plugin:install https://github.com/dokku/dokku-http-auth.git
 sudo dokku plugin:install https://github.com/dokku/dokku-graphite.git --name graphite
+sudo dokku plugin:install https://github.com/dokku/dokku-cron-restart.git
 dokku letsencrypt:set --global email "$EMAIL"
 dokku letsencrypt:cron-job --add
 # Tell logrotate to act as the dokku user.
@@ -226,3 +227,7 @@ dokku storage:mount cadvisor /var/lib/docker:/var/lib/docker:ro
 dokku storage:mount cadvisor /dev/disk:/dev/disk:ro
 docker image pull gcr.io/cadvisor/cadvisor:v0.49.1
 dokku git:from-image cadvisor gcr.io/cadvisor/cadvisor:v0.49.1
+# When a Dokku app is deployed, cadvisor loses track of the container metrics and needs to be restarted
+# This cron job will restart cadvisor every day at 3am, which is a bit of a hack to correct this
+# A better solution is to have cadvisor restart automatically when a new container is deployed
+dokku cron-restart:set cadvisor schedule '0 3 * * *'

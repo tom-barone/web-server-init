@@ -1,7 +1,7 @@
 .* .*sshd.*: Connection closed by .* port .*$
 .* .*sshd.*: Connection closed by authenticating user.*\[preauth\]$
 .* .*sshd.*: Connection closed by invalid user.*\[preauth\]$
-.* .*sshd.*: Connection reset by .* port .*$
+.* .*sshd.*: .*Connection reset by .*$
 .* .*sshd.*: Corrupted MAC on input.*$
 .* .*sshd.*: Disconnected from .*$
 .* .*sshd.*: Disconnecting .* user.*$

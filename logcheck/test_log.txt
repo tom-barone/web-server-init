@@ -163,5 +163,8 @@ Feb 20 22:11:42 au-melbourne chronyd[550]: Source 112.213.32.219 replaced with 2
 2025-03-06T06:56:26.291514+10:30 au-adelaide polkitd[444192]: Finished loading, compiling and executing 3 rules
 Mar 06 06:56:26 au-adelaide polkitd[444192]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
 
+# Collectd
+2025-03-24T19:11:48.684979+10:30 au-adelaide collectd[807525]: processes plugin: read_file_contents: Reading file "/proc/2369663/stat" failed.
+
 # Put in bulk output from the last report below to double check it filters everything
 

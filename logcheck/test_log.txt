@@ -151,6 +151,7 @@ Feb 20 22:11:42 au-melbourne chronyd[550]: Source 112.213.32.219 replaced with 2
 2025-03-05T17:45:11.356276+00:00 au-melbourne systemd[1]: Starting apt-daily.service - Daily apt download activities...
 2025-03-05T17:45:15.415234+00:00 au-melbourne systemd[1]: apt-daily.service: Deactivated successfully.
 2025-03-05T17:45:15.416836+00:00 au-melbourne systemd[1]: Finished apt-daily.service - Daily apt download activities.
+2025-03-27T01:11:42.560576+10:30 au-adelaide wpa_supplicant[1341]: wlp0s20f3: CTRL-EVENT-BEACON-LOSS
 
 # GPG
 2025-03-18T13:08:11.987212+10:30 au-adelaide systemd[613761]: Closed dirmngr.socket - GnuPG network certificate management daemon.

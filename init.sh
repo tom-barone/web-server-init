@@ -108,6 +108,8 @@ ssh-keygen -t ed25519 -C "Github Deploy Key" -f ~/.ssh/github_deploy_key -N "" -
 cat ~/.ssh/github_deploy_key.pub >> ~/.ssh/authorized_keys
 EOF
 sudo dokku ssh-keys:add github /home/github/.ssh/github_deploy_key.pub
+# Start the vector logging service
+dokku logs:vector-start
 
 ## Some utility tools
 
@@ -198,6 +200,13 @@ dokku config:set --no-restart "monitoring.$DOMAIN" SERVICE_NAME=graphite SERVICE
 dokku graphite:link graphite "monitoring.$DOMAIN"
 dokku git:from-image "monitoring.$DOMAIN" dokku/service-proxy:latest
 dokku letsencrypt:enable "monitoring.$DOMAIN"
+#
+# If there's an issue with starting / stopping / restarting the graphite or graphite.ambassador images
+# you can try removing the docker images and starting again
+#
+# $ docker ps -a
+# $ docker rm <container_id>
+#
 ## Test we can push to graphite with
 # echo "foo.bar 1 `date +%s`" | nc localhost 2003
 ## Make sure grafana datasource for graphite is set to http://localhost:81

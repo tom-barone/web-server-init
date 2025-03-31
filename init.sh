@@ -200,6 +200,8 @@ dokku config:set --no-restart "monitoring.$DOMAIN" SERVICE_NAME=graphite SERVICE
 dokku graphite:link graphite "monitoring.$DOMAIN"
 dokku git:from-image "monitoring.$DOMAIN" dokku/service-proxy:latest
 dokku letsencrypt:enable "monitoring.$DOMAIN"
+# Print the storage schema / retention policy for carbon
+dokku graphite:enter graphite cat /opt/graphite/conf/storage-schemas.conf
 #
 # If there's an issue with starting / stopping / restarting the graphite or graphite.ambassador images
 # you can try removing the docker images and starting again

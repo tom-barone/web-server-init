@@ -121,6 +121,9 @@ sudo dpkg -i bottom_0.10.2-1_amd64.deb
 rm bottom_0.10.2-1_amd64.deb
 # iftop to see how much traffic is going through the network interfaces
 sudo apt -y install iftop
+# stress to test the CPU load
+# $ stress --cpu 2 --timeout 10 (2 CPU cores for 10 seconds)
+sudo apt -y install stress
 
 ## Logcheck
 
@@ -222,6 +225,18 @@ LoadPlugin write_graphite
     Prefix "collectd-"
   </Node>
 </Plugin>
+LoadPlugin cpu
+<Plugin cpu>
+	ReportByCpu true
+	ReportByState false
+	ValuesPercentage true
+	ReportNumCpu true
+</Plugin>
+LoadPlugin memory
+<Plugin memory>
+	ValuesPercentage true
+	ValuesAbsolute true
+</Plugin>
 EOF
 sudo systemctl restart collectd
 
@@ -239,6 +254,8 @@ dokku storage:mount cadvisor /dev/disk:/dev/disk:ro
 docker image pull gcr.io/cadvisor/cadvisor:v0.49.1
 dokku git:from-image cadvisor gcr.io/cadvisor/cadvisor:v0.49.1
 # When a Dokku app is deployed, cadvisor loses track of the container metrics and needs to be restarted
-# This cron job will restart cadvisor every day at 3am, which is a bit of a hack to correct this
-# A better solution is to have cadvisor restart automatically when a new container is deployed
+# This cron job will restart cadvisor every day at 3am, which is a bit of a hack.
+# A better solution is to have cadvisor restart automatically when a new container is deployed.
+# Can also do it manually with:
+# $ dokku ps:restart cadvisor
 dokku cron-restart:set cadvisor schedule '0 3 * * *'

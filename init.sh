@@ -2,7 +2,16 @@ set -ex
 
 DOKKU_VERSION=v0.35.15
 
-# Environment variable checks
+# Environment variable checks:
+#
+#  		HOSTNAME=au-adelaide 			: The hostname of the server
+#  		DOMAIN=example.com 			 	: Our external domain name if we're using this as a webserver
+#  		EMAIL= 										: Sysadmin email to send all notifications to
+#  		GMAIL_USERNAME=   				: Gmail SMTP server username, so postfix etc. can route emails through
+#  		GMAIL_PASSWORD=						:	Gmail SMTP server password
+#  		MONITORING_USERNAME=			: Username for the grafana monitoring dashboard
+# 		MONITORING_PASSWORD=			: Password for the grafana monitoring dashboard
+#
 for var in HOSTNAME DOMAIN EMAIL GMAIL_USERNAME GMAIL_PASSWORD MONITORING_USERNAME MONITORING_PASSWORD; do
 	if [ -z "${!var}" ]; then
 		echo "$var environment variable must be set"
@@ -39,6 +48,16 @@ sudo service fail2ban restart
 # $ sudo tail -n 100 /var/log/fail2ban.log
 # Unban IP with
 # sudo fail2ban-client set sshd unbanip <ip-address>
+
+## SYN flood protection
+
+# Check for presence of SYN-REVC
+# $ ss -taupe
+# https://lwn.net/Articles/277146/
+sudo sysctl net.ipv4.tcp_syncookies=1
+sudo sysctl -p
+# Not worth setting up any sort of IP banning because the IP
+# addresses are likely to be spoofed
 
 ## Unattended Upgrades
 
@@ -119,11 +138,15 @@ sudo apt -y install lshw
 curl -LO https://github.com/ClementTsang/bottom/releases/download/0.10.2/bottom_0.10.2-1_amd64.deb
 sudo dpkg -i bottom_0.10.2-1_amd64.deb
 rm bottom_0.10.2-1_amd64.deb
-# iftop to see how much traffic is going through the network interfaces
-sudo apt -y install iftop
 # stress to test the CPU load
 # $ stress --cpu 2 --timeout 10 (2 CPU cores for 10 seconds)
 sudo apt -y install stress
+# bandwhich to see which processes are using the most bandwidth
+# $ sudo bandwhich
+curl -LO https://github.com/imsnif/bandwhich/releases/download/v0.23.1/bandwhich-v0.23.1-x86_64-unknown-linux-gnu.tar.gz
+tar -xvf bandwhich-v0.23.1-x86_64-unknown-linux-gnu.tar.gz
+sudo mv bandwhich /usr/local/bin/
+rm -rf bandwhich-v0.23.1-x86_64-unknown-linux-gnu.tar.gz assets
 
 ## Logcheck
 
@@ -196,7 +219,10 @@ sudo systemctl restart postfix
 
 # Graphite / Statsd / Grafana
 # By default this will retain metrics for the last 7 days
-dokku graphite:create graphite --custom-env "GF_SECURITY_ADMIN_USER=$MONITORING_USERNAME;GF_SECURITY_ADMIN_PASSWORD=$MONITORING_PASSWORD;GF_SMTP_ENABLED=true;GF_SMTP_HOST=smtp.gmail.com:587;GF_SMTP_USER=$GMAIL_USERNAME;GF_SMTP_PASSWORD=$GMAIL_PASSWORD;GF_SMTP_FROM_NAME=GrafanaAlerts"
+dokku graphite:create graphite \
+	--image tombarone/docker-grafana-graphite \
+	--image-version latest \
+	--custom-env "GF_SECURITY_ADMIN_USER=$MONITORING_USERNAME;GF_SECURITY_ADMIN_PASSWORD=$MONITORING_PASSWORD;GF_SMTP_ENABLED=true;GF_SMTP_HOST=smtp.gmail.com:587;GF_SMTP_USER=$GMAIL_USERNAME;GF_SMTP_PASSWORD=$GMAIL_PASSWORD;GF_SMTP_FROM_NAME=GrafanaAlerts"
 dokku graphite:expose graphite 8125 8126 8084 8081 2003
 dokku apps:create "monitoring.$DOMAIN"
 dokku config:set --no-restart "monitoring.$DOMAIN" SERVICE_NAME=graphite SERVICE_TYPE=graphite SERVICE_PORT=80
@@ -205,7 +231,7 @@ dokku git:from-image "monitoring.$DOMAIN" dokku/service-proxy:latest
 dokku letsencrypt:enable "monitoring.$DOMAIN"
 # Print the storage schema / retention policy for carbon
 dokku graphite:enter graphite cat /opt/graphite/conf/storage-schemas.conf
-#
+
 # If there's an issue with starting / stopping / restarting the graphite or graphite.ambassador images
 # you can try removing the docker images and starting again
 #
@@ -216,6 +242,7 @@ dokku graphite:enter graphite cat /opt/graphite/conf/storage-schemas.conf
 # echo "foo.bar 1 `date +%s`" | nc localhost 2003
 ## Make sure grafana datasource for graphite is set to http://localhost:81
 sudo apt-get install -y collectd
+# For collectd config see [https://www.collectd.org/documentation/manpages/collectd.conf.html]
 sudo tee /etc/collectd/collectd.conf.d/graphite.conf <<EOF
 LoadPlugin write_graphite
 <Plugin write_graphite>

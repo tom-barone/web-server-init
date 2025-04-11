@@ -163,9 +163,10 @@ Feb 20 22:11:42 au-melbourne chronyd[550]: Source 112.213.32.219 replaced with 2
 2025-03-06T06:56:26.290417+10:30 au-adelaide polkitd[444192]: Loading rules from directory /usr/share/polkit-1/rules.d
 2025-03-06T06:56:26.291514+10:30 au-adelaide polkitd[444192]: Finished loading, compiling and executing 3 rules
 Mar 06 06:56:26 au-adelaide polkitd[444192]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+2025-04-10T03:50:40.336249+00:00 au-melbourne dbus-daemon[539]: [system] Activating via systemd: service name='org.freedesktop.hostname1' unit='dbus-org.freedesktop.hostname1.service' requested by ':1.1732' (uid=1000 pid=2175983 comm="hostnamectl")
+2025-04-10T03:50:40.443813+00:00 au-melbourne dbus-daemon[539]: [system] Successfully activated service 'org.freedesktop.hostname1'
 
 # Collectd
 2025-03-24T19:11:48.684979+10:30 au-adelaide collectd[807525]: processes plugin: read_file_contents: Reading file "/proc/2369663/stat" failed.
-
 # Put in bulk output from the last report below to double check it filters everything
 

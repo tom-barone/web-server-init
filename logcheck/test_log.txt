@@ -99,6 +99,7 @@ Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
 2025-03-18T12:09:34.520114+10:30 au-adelaide sshd[619201]: Accepted publickey for tbone from 192.168.0.1 port 64930 ssh2: ED25519 SHA256:PX+zAk6kynIQtfFsKtjKAQ+JE1kM6VEpebqLHxkBVqQ
 2025-03-19T08:10:40.807493+00:00 au-melbourne sshd[3785778]: ssh_dispatch_run_fatal: Connection from 81.230.83.162 port 60399: message authentication code incorrect [preauth]
 2025-03-21T06:47:11.776235+00:00 au-melbourne sshd[3991334]: error: send_error: write: Connection reset by peer
+2025-04-25T01:50:32.194569+09:30 au-adelaide sshd[1474641]: Bad packet length 869520175. [preauth]
 
 # Systemd
 2025-03-05T13:54:00.087664+00:00 au-melbourne systemd[1]: Stopping user@0.service - User Manager for UID 0...

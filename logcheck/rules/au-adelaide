@@ -1,0 +1,16 @@
+.* .*au-adelaide kernel: .*NIC Link is Down.*$
+.* .*au-adelaide kernel: .*NIC Link is Up.*$
+.* .*au-adelaide kernel: .*wlp0s20f3.*authenticate with.*$
+.* .*au-adelaide kernel: .*wlp0s20f3.*not supported, disabling.*$
+.* .*au-adelaide kernel: .*wlp0s20f3.*send auth to.*$
+.* .*au-adelaide kernel: .*wlp0s20f3.*authenticated.*$
+.* .*au-adelaide kernel: .*wlp0s20f3.*associate with.*$
+.* .*au-adelaide kernel: .*wlp0s20f3.*RX AssocResp from.*$
+.* .*au-adelaide kernel: .*wlp0s20f3.*associated.*$
+.* .*au-adelaide kernel: .*wlp0s20f3.*Limiting TX power.*$
+.* .*au-adelaide wpa_supplicant.*wlp0s20f3.*Trying to .* with.*$
+.* .*au-adelaide wpa_supplicant.*wlp0s20f3.*CTRL-EVENT-DISCONNECTED.*$
+.* .*au-adelaide wpa_supplicant.*wlp0s20f3.*CTRL-EVENT-SUBNET-STATUS-UPDATE.*$
+.* .*au-adelaide wpa_supplicant.*wlp0s20f3.*Associated with.*$
+.* .*au-adelaide wpa_supplicant.*wlp0s20f3.*Key negotiation completed.*$
+.* .*au-adelaide wpa_supplicant.*wlp0s20f3.*CTRL-EVENT-CONNECTED.*$

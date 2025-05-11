@@ -8,9 +8,13 @@
 .* .*au-adelaide kernel: .*wlp0s20f3.*RX AssocResp from.*$
 .* .*au-adelaide kernel: .*wlp0s20f3.*associated.*$
 .* .*au-adelaide kernel: .*wlp0s20f3.*Limiting TX power.*$
+.* .*au-adelaide kernel: .*wlp0s20f3.*authentication with .* timed out.*$
 .* .*au-adelaide wpa_supplicant.*wlp0s20f3.*Trying to .* with.*$
 .* .*au-adelaide wpa_supplicant.*wlp0s20f3.*CTRL-EVENT-DISCONNECTED.*$
 .* .*au-adelaide wpa_supplicant.*wlp0s20f3.*CTRL-EVENT-SUBNET-STATUS-UPDATE.*$
+.* .*au-adelaide wpa_supplicant.*wlp0s20f3.*CTRL-EVENT-SSID.*$
 .* .*au-adelaide wpa_supplicant.*wlp0s20f3.*Associated with.*$
 .* .*au-adelaide wpa_supplicant.*wlp0s20f3.*Key negotiation completed.*$
 .* .*au-adelaide wpa_supplicant.*wlp0s20f3.*CTRL-EVENT-CONNECTED.*$
+.* .*au-adelaide systemd-timesyncd.*: Timed out waiting for reply from.*$
+.* .*au-adelaide systemd-timesyncd.*: Contacted time server.*$

@@ -180,7 +180,7 @@ Mar 06 06:56:26 au-adelaide polkitd[444192]: Acquired the name org.freedesktop.P
 2025-05-09T12:45:56.817653+09:30 au-adelaide kernel: [3456988.117619] wlp0s20f3: 80 MHz not supported, disabling VHT
 2025-05-09T12:45:56.825674+09:30 au-adelaide kernel: [3456988.122934] wlp0s20f3: send auth to d8:d7:75:22:9c:9f (try 1/3)
 2025-05-09T12:45:56.849627+09:30 au-adelaide kernel: [3456988.150541] wlp0s20f3: authenticated
-2025-05-09T12:45:56.850325+09:30 au-adelaide wpa_supplicant[1335]: wlp0s20f3: Trying to associate with d8:d7:75:22:9c:9f (SSID='DALLY' freq=2437 MHz)
+2025-05-09T12:45:56.850325+09:30 au-adelaide wpa_supplicant[1335]: wlp0s20f3: Trying to associate with d8:d7:75:22:9c:9f (SSID='sdfsd' freq=2437 MHz)
 2025-05-09T12:45:56.857718+09:30 au-adelaide kernel: [3456988.154815] wlp0s20f3: associate with d8:d7:75:22:9c:9f (try 1/3)
 2025-05-09T12:45:56.861721+09:30 au-adelaide kernel: [3456988.159584] wlp0s20f3: RX AssocResp from d8:d7:75:22:9c:9f (capab=0x1411 status=0 aid=1)
 2025-05-09T12:45:56.869372+09:30 au-adelaide wpa_supplicant[1335]: wlp0s20f3: Associated with d8:d7:75:22:9c:9f
@@ -189,6 +189,12 @@ Mar 06 06:56:26 au-adelaide polkitd[444192]: Acquired the name org.freedesktop.P
 2025-05-09T12:45:56.897720+09:30 au-adelaide kernel: [3456988.195926] wlp0s20f3: Limiting TX power to 36 (36 - 0) dBm as advertised by d8:d7:75:22:9c:9f
 2025-05-09T12:45:58.295814+09:30 au-adelaide wpa_supplicant[1335]: wlp0s20f3: WPA: Key negotiation completed with d8:d7:75:22:9c:9f [PTK=CCMP GTK=TKIP]
 2025-05-09T12:45:58.296021+09:30 au-adelaide wpa_supplicant[1335]: wlp0s20f3: CTRL-EVENT-CONNECTED - Connection to d8:d7:75:22:9c:9f completed [id=0 id_str=]
+2025-05-10T08:47:11.181743+09:30 au-adelaide kernel: [3529061.260745] wlp0s20f3: authentication with d8:d7:75:22:9c:9f timed out
+2025-05-11T12:00:18.023455+09:30 au-adelaide systemd-timesyncd[652]: Timed out waiting for reply from 129.250.35.251:123 (2.debian.pool.ntp.org).
+2025-05-11T16:15:51.109694+09:30 au-adelaide kernel: [3642379.325612] wlp0s20f3: authentication with d8:d7:75:22:9c:9f timed out
+2025-05-11T16:15:51.148195+09:30 au-adelaide wpa_supplicant[1335]: wlp0s20f3: CTRL-EVENT-SSID-TEMP-DISABLED id=0 ssid="sdfsf" auth_failures=1 duration=10 reason=CONN_FAILED
+2025-05-11T16:16:01.274338+09:30 au-adelaide wpa_supplicant[1335]: wlp0s20f3: CTRL-EVENT-SSID-REENABLED id=0 ssid="sdfs"
+2025-05-11T16:22:56.702270+09:30 au-adelaide systemd-timesyncd[652]: Contacted time server 27.124.125.252:123 (0.debian.pool.ntp.org).
 
 # Put in bulk output from the last report below to double check it filters everything
 

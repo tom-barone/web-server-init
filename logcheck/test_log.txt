@@ -195,6 +195,22 @@ Mar 06 06:56:26 au-adelaide polkitd[444192]: Acquired the name org.freedesktop.P
 2025-05-11T16:15:51.148195+09:30 au-adelaide wpa_supplicant[1335]: wlp0s20f3: CTRL-EVENT-SSID-TEMP-DISABLED id=0 ssid="sdfsf" auth_failures=1 duration=10 reason=CONN_FAILED
 2025-05-11T16:16:01.274338+09:30 au-adelaide wpa_supplicant[1335]: wlp0s20f3: CTRL-EVENT-SSID-REENABLED id=0 ssid="sdfs"
 2025-05-11T16:22:56.702270+09:30 au-adelaide systemd-timesyncd[652]: Contacted time server 27.124.125.252:123 (0.debian.pool.ntp.org).
+2025-05-19T06:14:13.562846+09:30 au-adelaide systemd[1]: Stopping systemd-binfmt.service - Set Up Additional Binary Formats...
+2025-05-19T06:14:13.569882+09:30 au-adelaide systemd[1]: Stopped systemd-binfmt.service - Set Up Additional Binary Formats.
+2025-05-19T06:14:19.063931+09:30 au-adelaide systemd[1]: Stopping ssh.service - OpenBSD Secure Shell server...
+2025-05-19T06:14:19.064642+09:30 au-adelaide systemd[1]: Stopped ssh.service - OpenBSD Secure Shell server.
+2025-05-19T06:14:47.406696+09:30 au-adelaide systemd[1]: Stopping nginx.service - A high performance web server and a reverse proxy server...
+2025-05-19T06:14:47.429409+09:30 au-adelaide systemd[1]: Stopped nginx.service - A high performance web server and a reverse proxy server.
+2025-05-19T06:14:18.931047+09:30 au-adelaide systemd[1]: Reloading.
+2025-05-19T06:14:19.135889+09:30 au-adelaide sshd[2465499]: Server listening on 0.0.0.0 port 22.
+2025-05-19T06:14:19.135982+09:30 au-adelaide sshd[2465499]: Server listening on :: port 22.
+2025-05-15T16:14:39.610462+09:30 au-adelaide kernel: [3987901.973218] pcieport 0000:00:06.0: AER: Multiple Corrected error message received from 0000:00:06.0
+2025-05-15T16:14:39.610475+09:30 au-adelaide kernel: [3987902.001141] pcieport 0000:00:06.0: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Transmitter ID)
+2025-05-15T16:14:39.610476+09:30 au-adelaide kernel: [3987902.001142] pcieport 0000:00:06.0:   device [8086:4c09] error status/mask=00001041/00002000
+2025-05-15T16:14:39.610476+09:30 au-adelaide kernel: [3987902.001144] pcieport 0000:00:06.0:    [ 0] RxErr                  (First)
+2025-05-15T16:14:39.610476+09:30 au-adelaide kernel: [3987902.001145] pcieport 0000:00:06.0:    [ 6] BadTLP
+2025-05-15T16:14:39.610477+09:30 au-adelaide kernel: [3987902.001147] pcieport 0000:00:06.0:    [12] Timeout
+2025-05-15T16:14:39.610478+09:30 au-adelaide kernel: [3987902.001148] pcieport 0000:00:06.0: AER:   Error of this Agent is reported first
 
 # Put in bulk output from the last report below to double check it filters everything
 

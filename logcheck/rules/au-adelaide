@@ -18,3 +18,15 @@
 .* .*au-adelaide wpa_supplicant.*wlp0s20f3.*CTRL-EVENT-CONNECTED.*$
 .* .*au-adelaide systemd-timesyncd.*: Timed out waiting for reply from.*$
 .* .*au-adelaide systemd-timesyncd.*: Contacted time server.*$
+.* .*au-adelaide systemd.*: Stop.* systemd-binfmt.service.*$
+.* .*au-adelaide systemd.*: Stop.* ssh.service.*$
+.* .*au-adelaide systemd.*: Stop.* nginx.service.*$
+.* .*au-adelaide systemd.*: Reloading.*$
+.* .*au-adelaide sshd.*: Server listening on .* port 22.*$
+.* .*au-adelaide kernel.*: .*pcieport.* AER: Multiple Corrected error message.*$
+.* .*au-adelaide kernel.*: .*pcieport.* Error of this Agent is reported first.*$
+.* .*au-adelaide kernel.*: .*pcieport.* PCIe Bus Error: severity=Corrected.*$
+.* .*au-adelaide kernel.*: .*pcieport.* device .* error status.*$
+.* .*au-adelaide kernel.*: .*pcieport.* RxErr.*$
+.* .*au-adelaide kernel.*: .*pcieport.* BadTLP.*$
+.* .*au-adelaide kernel.*: .*pcieport.* Timeout.*$

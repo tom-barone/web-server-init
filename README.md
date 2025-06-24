@@ -32,15 +32,17 @@ sudo tee -a /root/.ssh/authorized_keys < ~/.ssh/authorized_keys
 ```
 
 # Add the docker group
+
 sudo groupadd docker
 sudo usermod -aG docker tbone
-```
+
+````
 
 Copy the `init.sh` script to your server and run it.
 
 ```bash
 scp init.sh tbone@<server>:~
-```
+````
 
 Run `push.sh` to push new logcheck rules to a server.
 
@@ -121,3 +123,21 @@ iface wlp0s20f3 inet dhcp
 ```
 
 Run the regular setup scripts as above.
+
+## Dead battery on an old laptop
+
+An old laptop with a dead battery can cause annoying cycling between `AC Power` and `0% Battery` states.
+
+To fix this, you can [disable the battery module](https://wiki.debian.org/KernelModuleBlacklisting) in the kernel and stop it being loaded at boot time, which causes the system to rely on AC power only and ignore the battery entirely.
+
+Add the following line to `/etc/modprobe.d/battery.conf`:
+
+```bash
+blacklist battery
+```
+
+Then apply the changes to the boot process:
+
+```bash
+sudo update-initramfs -u
+```

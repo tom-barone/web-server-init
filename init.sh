@@ -4,13 +4,13 @@ DOKKU_VERSION=v0.35.15
 
 # Environment variable checks:
 #
-#  		HOSTNAME=au-adelaide 			: The hostname of the server
-#  		DOMAIN=example.com 			 	: Our external domain name if we're using this as a webserver
-#  		EMAIL= 										: Sysadmin email to send all notifications to
-#  		GMAIL_USERNAME=   				: Gmail SMTP server username, so postfix etc. can route emails through
-#  		GMAIL_PASSWORD=						:	Gmail SMTP server password
-#  		MONITORING_USERNAME=			: Username for the grafana monitoring dashboard
-# 		MONITORING_PASSWORD=			: Password for the grafana monitoring dashboard
+#   HOSTNAME=au-adelaide   : The hostname of the server
+#   DOMAIN=example.com     : Our external domain name if we're using this as a webserver
+#   EMAIL=                 : Sysadmin email to send all notifications to
+#   GMAIL_USERNAME=        : Gmail SMTP server username, so postfix etc. can route emails through
+#   GMAIL_PASSWORD=        : Gmail SMTP server password
+#   MONITORING_USERNAME=   : Username for the grafana monitoring dashboard
+#   MONITORING_PASSWORD=   : Password for the grafana monitoring dashboard
 #
 for var in HOSTNAME DOMAIN EMAIL GMAIL_USERNAME GMAIL_PASSWORD MONITORING_USERNAME MONITORING_PASSWORD; do
 	if [ -z "${!var}" ]; then

@@ -140,6 +140,7 @@ sudo dpkg -i bottom_0.10.2-1_amd64.deb
 rm bottom_0.10.2-1_amd64.deb
 # stress to test the CPU load
 # $ stress --cpu 2 --timeout 10 (2 CPU cores for 10 seconds)
+# $ stress --vm 2 --timeout 10 (2 VM processes for 10 seconds at 256MB each)
 sudo apt -y install stress
 # bandwhich to see which processes are using the most bandwidth
 # $ sudo bandwhich

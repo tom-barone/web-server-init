@@ -129,6 +129,7 @@ Feb 22 03:14:03 au-melbourne sshd[966352]: error: send_error: write: Broken pipe
 2025-03-09T00:00:04.284660+10:30 au-adelaide systemd[1]: rsyslog.service: Sent signal SIGHUP to main process 680 (rsyslogd) on client request.
 Mar 09 09:17:04 au-melbourne systemd-journald[2176327]: Data hash table of /var/log/journal/139e8470cdcb45a6841982d6f2165f90/system.journal has a fill level at 75.0 (174764 of 233016 items, 50331648 file size, 287 bytes per hash table item), suggesting rotation.
 Mar 09 09:17:04 au-melbourne systemd-journald[2176327]: /var/log/journal/139e8470cdcb45a6841982d6f2165f90/system.journal: Journal header limits reached or header out-of-date, rotating.
+2025-07-02T06:53:54.069858+00:00 au-melbourne systemd[1]: Reloading.
 
 # PackageKit
  2025-02-19T06:16:45.742606+00:00 jqc-production dbus-daemon[557]: [system] Activating via systemd: service name='org.freedesktop.PackageKit' unit='packagekit.service' requested by ':1.656' (uid=0 pid=912195 comm="/usr/bin/gdbus call --system --dest org.freedeskto")

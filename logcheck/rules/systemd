@@ -25,3 +25,4 @@
 .* .*systemd.*: .*: Sent signal .* on client request\.$
 .* .*systemd.*: Data hash table of .* suggesting rotation.*$
 .* .*systemd.*: .* limits reached .* rotating\.$
+.* .*systemd.*: Reloading.*$

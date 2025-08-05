@@ -29,3 +29,4 @@
 .* .*sshd.*: Accepted publickey for tbone from.*$
 .* .*sshd.*: Accepted publickey for root from.*$
 .* .*sshd.*: Bad packet length.*$
+.* .*sshd.*: dispatch_protocol_error:.*$

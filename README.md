@@ -1,3 +1,33 @@
+# Tbone Web Services (TWS)
+
+Virtual machines on your own hardware, connected to the internet.
+
+# Installation
+
+## Proxmox VE
+
+Current version: 9.0
+
+Follow the instructions on the [Proxmox website](https://pve.proxmox.com/pve-docs/chapter-pve-installation.html). It's helpful to use the graphical install while the machine is connected via Ethernet cable to the internet.
+
+Settings:
+
+- Email: I like using a gmail alias to my own address `...+<server_name>@gmail.com`.
+- Hostname (FQDN): This will be used down the line for SSH access, so something like `<server_name>.<your_domain>`.
+
+Once installed, run this [post install script](https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install):
+
+- Disable enterprise sources
+- Add the `pve-no-subscription` source
+- Disable the subscription nag
+- If just using a single node, disable the High Availability (HA) cluster services. e.g. corosync
+
+# Ansible tips
+
+https://redhat-cop.github.io/automation-good-practices
+
+- Ansible setup for configuring ssh access on port 22
+
 # Self hosted web server setup
 
 Current best practices:
@@ -33,8 +63,7 @@ sudo tee -a /root/.ssh/authorized_keys < ~/.ssh/authorized_keys
 
 # Add the docker group
 
-sudo groupadd docker
-sudo usermod -aG docker tbone
+sudo groupadd docker sudo usermod -aG docker tbone
 
 ````
 
@@ -59,9 +88,7 @@ sudo dpkg-reconfigure locales
 
 Follow whatever is recommended on the [Debian website](https://www.debian.org/CD/netinst).
 
-I've found it easier to use Windows to configure USB drives.
-As of writing, use a clean FAT32 formatted USB drive to start with that has at least 2GB of space.
-I prefer the `netinst` installer.
+I've found it easier to use Windows to configure USB drives. As of writing, use a clean FAT32 formatted USB drive to start with that has at least 2GB of space. I prefer the `netinst` installer.
 
 Boot from the USB drive and follow the prompts.
 
@@ -83,9 +110,7 @@ sudo apt install openssh-server
 
 Should now be able to SSH into the server from another machine on the local network.
 
-For some reason, Debian likes to set the nameserver to the router or local machine which is no good and causes problems for the Docker daemon.
-We'd prefer to use a public DNS server like Cloudflare or Google.
-Modify the dhclient config `/etc/dhcp/dhclient.conf`, see [here](https://wiki.debian.org/resolv.conf) for details:
+For some reason, Debian likes to set the nameserver to the router or local machine which is no good and causes problems for the Docker daemon. We'd prefer to use a public DNS server like Cloudflare or Google. Modify the dhclient config `/etc/dhcp/dhclient.conf`, see [here](https://wiki.debian.org/resolv.conf) for details:
 
 ```bash
 # Make sure this line is commented out

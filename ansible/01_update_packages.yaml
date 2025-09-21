@@ -1,0 +1,24 @@
+---
+# Ansible playbook to:
+#  1. Update apt sources
+#  2. Ensure all packages are at their latest versions
+#
+#  If SSH has not been hardened:
+#     ansible-playbook ... --user root --ask-pass
+#
+#  If SSH has been hardened:
+#     ansible-playbook ... --user <existing_admin_user> --ask-become-pass
+
+- name: Update and upgrade all packages
+  hosts: proxmox
+  become: true
+
+  tasks:
+    - name: Run apt update
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Ensure all packages have latest versions
+      ansible.builtin.apt:
+        name: "*"
+        state: latest

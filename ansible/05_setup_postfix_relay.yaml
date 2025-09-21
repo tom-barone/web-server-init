@@ -1,0 +1,56 @@
+---
+# Ansible playbook to:
+#  1. Install postfix to send emails
+#  2. Configure postfix as a relay through the Gmail SMTP server
+
+- name: Setup postfix as a relay through Gmail SMTP
+  hosts: proxmox
+  vars:
+    gmail_username: "{{ gmail_username }}"
+    hostname: "{{ hostname }}"
+    root_email_alias: "{{ root_email_alias }}"
+  vars_prompt:
+    - name: gmail_password
+      prompt: "Enter the gmail app password"
+      private: yes
+  handlers:
+    - name: restart postfix
+      ansible.builtin.systemd:
+        name: postfix
+        state: restarted
+  become: true
+
+  tasks:
+    - name: Install postfix and dependencies
+      ansible.builtin.apt:
+        pkg:
+          - postfix
+          - libsasl2-modules
+          - mailutils
+        state: present
+
+    - name: Create sasl_passwd file
+      ansible.builtin.template:
+        src: files/postfix_sasl_passwd.j2
+        dest: /etc/postfix/sasl/sasl_passwd
+        backup: true
+        mode: "0600"
+
+    - name: Reload sasl_passwd db
+      ansible.builtin.command: postmap /etc/postfix/sasl/sasl_passwd
+
+    - name: Configure postfix main.cf
+      ansible.builtin.template:
+        src: files/postfix_main.cf.j2
+        dest: /etc/postfix/main.cf
+        backup: true
+
+    - name: Add new root mail alias
+      ansible.builtin.template:
+        src: files/aliases.j2
+        dest: /etc/aliases
+        backup: true
+
+    - name: Update aliases db
+      ansible.builtin.command: newaliases
+      notify: restart postfix

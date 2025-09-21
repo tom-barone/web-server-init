@@ -2,6 +2,7 @@
 # Ansible playbook to:
 #  1. Update apt sources
 #  2. Ensure all packages are at their latest versions
+#  3. Ensure we have the AU locale
 #
 #  If SSH has not been hardened:
 #     ansible-playbook ... --user root --ask-pass
@@ -22,3 +23,8 @@
       ansible.builtin.apt:
         name: "*"
         state: latest
+
+    - name: Ensure the AU locale is generated
+      ansible.builtin.locale_gen:
+        name: en_AU.UTF-8
+        state: present

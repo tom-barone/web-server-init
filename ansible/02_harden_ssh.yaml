@@ -1,17 +1,19 @@
 ---
 # Ansible playbook to harden SSH access:
-#  1. Disable password authentication for SSH
-#  2. Disable root login
+#  1. Set up SSH key-based authentication for root
+#  1. Disable password authentication
 #  3. Disable X11 forwarding
 #
 #  If SSH has not been hardened yet:
 #     ansible-playbook ... --user root --ask-pass
 #
 #  If SSH has been hardened:
-#     ansible-playbook ... --user <existing_admin_user> --ask-become-pass
+#     ansible-playbook ... --user root
 
 - name: Harden SSH access
   hosts: proxmox
+  vars:
+    ssh_public_key: "{{ ssh_public_key }}"
   handlers:
     - name: reload ssh
       ansible.builtin.systemd:
@@ -20,6 +22,12 @@
   become: true
 
   tasks:
+    - name: Set up authorized keys for new user
+      ansible.posix.authorized_key:
+        user: root
+        key: "{{ ssh_public_key }}"
+        exclusive: yes
+
     - name: Update sshd_config
       ansible.builtin.template:
         src: files/sshd_config.j2

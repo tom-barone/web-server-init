@@ -4,15 +4,14 @@
 #  2. Ensure all packages are at their latest versions
 #  3. Ensure we have the AU locale
 #
-#  If SSH has not been hardened:
+#  If SSH has not been hardened, and need to use the root password:
 #     ansible-playbook ... --user root --ask-pass
 #
-#  If SSH has been hardened:
-#     ansible-playbook ... --user <existing_admin_user> --ask-become-pass
+#  If SSH has been hardened, we can sign in with public SSH key
+#     ansible-playbook ... --user root
 
 - name: Update and upgrade all packages
   hosts: proxmox
-  become: true
 
   tasks:
     - name: Run apt update

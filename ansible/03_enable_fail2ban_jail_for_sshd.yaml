@@ -16,7 +16,6 @@
       ansible.builtin.systemd:
         name: fail2ban
         state: restarted
-  become: true
 
   tasks:
     - name: Install fail2ban and dependencies

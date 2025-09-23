@@ -1,0 +1,47 @@
+---
+# Ansible playbook to:
+#  1. Download a cloud-init enabled Debian image
+#  2. Start a new VM in Proxmox and attach the cloud-init image as a CD-ROM
+#  3. Create a template from the VM for future use
+
+- name: Create a Debian cloud-init template in Proxmox
+  hosts: proxmox
+  vars:
+    vm_id: "{{ vm_id | default(9000) }}"
+
+  tasks:
+    - name: Download Debian 13 cloud image
+      ansible.builtin.get_url:
+        url: https://cloud.debian.org/images/cloud/trixie/latest/debian-13-generic-amd64.raw
+        dest: /root/debian-13-generic-amd64.raw
+
+    - name: Create a new VM for the template
+      ansible.builtin.command: >
+        qm create {{ vm_id }}
+        --name debian13-cloudinit-template
+        --net0 virtio,bridge=vmbr0
+        --scsihw virtio-scsi-pci
+        --balloon 0
+        --agent enabled=1
+        --memory 2048
+        --scsi0 local-lvm:0,format=raw,import-from=/root/debian-13-generic-amd64.raw
+        --ide2 local-lvm:cloudinit
+        --boot order=scsi0
+      args:
+        creates: /etc/pve/qemu-server/{{ vm_id }}.conf
+
+    - name: Resize the hard disk
+      ansible.builtin.command: >
+        qm disk resize {{ vm_id }} scsi0 8G
+
+    - name: "Set cloudinit settings"
+      # Use same authorized_keys as the Proxmox host root user
+      ansible.builtin.command: >
+        qm set {{ vm_id }}
+        --ciuser cloudinit
+        --ipconfig0 ip=dhcp,ip6=dhcp
+        --sshkey /root/.ssh/authorized_keys
+
+    - name: Convert VM to a template
+      ansible.builtin.command: >
+        qm template {{ vm_id }}

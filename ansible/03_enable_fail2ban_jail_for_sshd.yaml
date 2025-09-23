@@ -1,6 +1,5 @@
 ---
-# Ansible playbook to enable the fail2ban jail for SSHD
-#
+# Ansible playbook to enable the fail2ban jail for SSHD.
 # Tests to confirm working:
 #   `sudo fail2ban-client status sshd`
 #   `sudo tail -n 100 /var/log/auth.log`

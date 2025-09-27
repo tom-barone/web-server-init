@@ -1,5 +1,5 @@
 ---
-- name: Setup the NFS server on Proxmox host and provision Traefik VM
+- name: Provision the NFS server & Traefik VM on Proxmox
   hosts: proxmox
   vars:
     vm_name: traefik

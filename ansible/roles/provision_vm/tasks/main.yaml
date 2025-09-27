@@ -1,0 +1,74 @@
+---
+- name: Validate required variables for VM provisioning
+  ansible.builtin.assert:
+    that:
+      - vm_id is defined
+      - template_id is defined
+      - vm_name is defined
+      # Internal static IP address to assign to the new VM
+      - ipv4_static_address is defined
+      # Gateway internal address (usually the router IP so we can get to the internet)
+      # do `ip route show` on the proxmox host to find out
+      - ipv4_gateway_address is defined
+    msg: "Missing a required variable"
+
+- name: Clone the cloud-init template into a new VM
+  ansible.builtin.command:
+    argv:
+      - qm
+      - clone
+      - "{{ template_id }}"
+      - "{{ vm_id }}"
+      - --name
+      - "{{ vm_name }}"
+      - --description
+      - "{{ vm_description }}"
+      - --full
+      - "true"
+  args:
+    creates: "/etc/pve/qemu-server/{{ vm_id }}.conf"
+
+- name: Update cloudinit settings
+  ansible.builtin.command:
+    argv:
+      - qm
+      - set
+      - "{{ vm_id }}"
+      - --ipconfig0
+      - "ip={{ ipv4_static_address }}/{{ ipv4_prefix_length }},gw={{ ipv4_gateway_address }}"
+
+- name: Check VM status
+  ansible.builtin.command:
+    argv:
+      - qm
+      - status
+      - "{{ vm_id }}"
+  register: vm_status
+  changed_when: false
+
+- name: Start the new VM
+  ansible.builtin.command:
+    argv:
+      - qm
+      - start
+      - "{{ vm_id }}"
+  when:
+    - start_vm | bool
+    - "'stopped' in vm_status.stdout"
+
+- name: Install miniupnpc package to manage router port forwards
+  ansible.builtin.apt:
+    name: miniupnpc
+    state: present
+
+- name: Add port redirect to router for external SSH access
+  ansible.builtin.command:
+    argv:
+      - upnpc
+      - -e
+      - "{{ port_forward_description }}"
+      - -a
+      - "{{ ipv4_static_address }}"
+      - "{{ internal_ssh_port }}"
+      - "{{ external_ssh_port }}"
+      - "{{ port_forward_protocol }}"

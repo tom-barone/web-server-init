@@ -22,36 +22,6 @@
     external_ssh_port: 9050
 
   tasks:
-    - name: Clone the cloud-init template into a new VM
-      ansible.builtin.command: >
-        qm clone {{ template_id }} {{ vm_id }}
-        --name debian13
-        --description "{{ ipv4_static_address }}:{{ external_ssh_port }}"
-        --full true
-      args:
-        creates: /etc/pve/qemu-server/{{ vm_id }}.conf
-
-    - name: Update cloudinit settings
-      ansible.builtin.command: >
-        qm set {{ vm_id }}
-        --ipconfig0 ip={{ ipv4_static_address }}/24,gw={{ ipv4_gateway_address }}
-
-    - name: Check VM status
-      ansible.builtin.command: qm status {{ vm_id }}
-      register: vm_status
-      changed_when: false
-
-    - name: Start the new VM
-      ansible.builtin.command: qm start {{ vm_id }}
-      when: "'stopped' in vm_status.stdout"
-
-    - name: Install miniupnpc package to manage router port forwards
-      ansible.builtin.apt:
-        name: miniupnpc
-        state: present
-
-    # Delete ports with `upnpc -d <external port> <protocol>`
-    # List current port forwards with `upnpc -l`
-    - name: Add port redirect to router to access new VM externally via SSH
-      ansible.builtin.command: >
-        upnpc  -e "Proxmox-VM-{{ vm_id }}" -a {{ ipv4_static_address }} 22 {{ external_ssh_port }} TCP
+    - name: Provision test VM
+      ansible.builtin.include_role:
+        name: proxmox_cloudinit_vm

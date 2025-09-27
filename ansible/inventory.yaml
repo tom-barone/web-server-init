@@ -1,9 +1,14 @@
 proxmox:
   hosts:
-    au-adelaide.tombarone.net:
+    proxmox-au-adelaide:
+      ansible_host: au-adelaide.tombarone.net
+      ansible_user: root
       ansible_python_interpreter: /usr/bin/python3
 
 traefik:
   hosts:
-    au-adelaide.tombarone.net:
-      http_port: 9049
+    traefik-au-adelaide:
+      ansible_host: au-adelaide.tombarone.net
+      ansible_user: cloudinit
+      ansible_port: 9049
+      ansible_python_interpreter: /usr/bin/python3

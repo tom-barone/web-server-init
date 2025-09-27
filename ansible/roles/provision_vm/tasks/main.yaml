@@ -1,4 +1,13 @@
 ---
+# Ansible role to create a new VM from a template in Proxmox
+#  1. Clone the template into a new VM
+#  2. Set a static IP address for the new VM
+#  3. Start the new VM
+#  4. Set up a port forward on the router to allow external SSH access to the new VM
+#
+#  After running, should now be able to SSH to the new VM with:
+#   ssh cloudinit@<public_ipv4_address> -p <external_ssh_port>
+
 - name: Validate required variables for VM provisioning
   ansible.builtin.assert:
     that:
@@ -72,3 +81,8 @@
       - "{{ internal_ssh_port }}"
       - "{{ external_ssh_port }}"
       - "{{ port_forward_protocol }}"
+
+- name: Wait for 10 seconds for the VM to boot
+  ansible.builtin.pause:
+    seconds: "{{ startup_delay }}"
+  when: start_vm | bool

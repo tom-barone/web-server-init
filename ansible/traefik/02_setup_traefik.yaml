@@ -1,0 +1,117 @@
+- name: Setup Traefik on the new VM
+  hosts: traefik
+  vars:
+    proxmox_ip: "192.168.0.12"
+    traefik_version: "3.5.3"
+    traefik_dashboard_enabled: true
+    traefik_dashboard_insecure: true # Set to false for production
+    traefik_log_level: "INFO"
+    traefik_log_dir: "/var/log/traefik"
+    traefik_config_dir: "/etc/traefik"
+    traefik_nfs_mount: "/mnt/traefik-routes"
+    traefik_web_port: 80
+    traefik_websecure_port: 443
+    traefik_dashboard_port: 8080
+  become: true
+  handlers:
+    - name: restart traefik
+      ansible.builtin.systemd:
+        name: traefik
+        state: restarted
+        daemon_reload: yes
+
+  tasks:
+    - name: Install nfs-common package to mount NFS shares
+      ansible.builtin.apt:
+        name: nfs-common
+        state: present
+        update_cache: yes
+
+    - name: Create mount point for NFS share
+      ansible.builtin.file:
+        path: /mnt/traefik-routes
+        state: directory
+
+    - name: Add NFS mount to /etc/fstab for persistence
+      ansible.builtin.lineinfile:
+        path: /etc/fstab
+        line: "{{ proxmox_ip }}:/etc/traefik-routes {{ traefik_nfs_mount }} nfs defaults,_netdev 0 0"
+        state: present
+
+    - name: Mount the NFS share from the Proxmox host
+      ansible.builtin.mount:
+        path: "{{ traefik_nfs_mount }}"
+        src: "{{ proxmox_ip }}:/etc/traefik-routes"
+        fstype: nfs
+        opts: defaults,_netdev
+        state: mounted
+
+    - name: Download Traefik binary
+      ansible.builtin.get_url:
+        url: "https://github.com/traefik/traefik/releases/download/v{{ traefik_version }}/traefik_v{{ traefik_version }}_linux_amd64.tar.gz"
+        dest: /tmp/traefik.tar.gz
+        mode: "0644"
+
+    - name: Extract Traefik binary
+      ansible.builtin.unarchive:
+        src: /tmp/traefik.tar.gz
+        dest: /tmp
+        remote_src: yes
+        creates: /tmp/traefik
+
+    - name: Install Traefik binary
+      ansible.builtin.copy:
+        src: /tmp/traefik
+        dest: /usr/local/bin/traefik
+        mode: "0755"
+        owner: root
+        group: root
+        remote_src: yes
+
+    - name: Create Traefik configuration directory
+      ansible.builtin.file:
+        path: "{{ traefik_config_dir }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Create Traefik log directory
+      ansible.builtin.file:
+        path: "{{ traefik_log_dir }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Create Traefik main configuration file
+      ansible.builtin.template:
+        src: files/traefik.yml.j2
+        dest: "{{ traefik_config_dir }}/traefik.yml"
+        owner: root
+        group: root
+        mode: "0644"
+      notify: restart traefik
+
+    - name: Create systemd service file for Traefik
+      ansible.builtin.template:
+        src: files/traefik.service.j2
+        dest: /etc/systemd/system/traefik.service
+        owner: root
+        group: root
+        mode: "0644"
+      notify:
+        - restart traefik
+
+    - name: Start and enable Traefik service
+      ansible.builtin.systemd:
+        name: traefik
+        state: started
+        enabled: yes
+
+    - name: Wait for Traefik to be ready
+      ansible.builtin.wait_for:
+        port: "{{ traefik_web_port }}"
+        host: 0.0.0.0
+        delay: 2
+        timeout: 30

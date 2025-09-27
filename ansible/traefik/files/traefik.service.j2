@@ -1,0 +1,22 @@
+[Unit]
+Description=Traefik v3 Edge Router
+After=network-online.target
+Wants=network-online.target
+# Wait for NFS mount
+RequiresMountsFor={{ traefik_nfs_mount }}
+
+[Service]
+Type=notify
+User=root
+Group=root
+
+# Service configuration
+ExecStart=/usr/local/bin/traefik --configfile={{ traefik_config_dir }}/traefik.yml
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=traefik
+
+[Install]
+WantedBy=multi-user.target

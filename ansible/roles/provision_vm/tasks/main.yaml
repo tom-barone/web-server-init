@@ -65,22 +65,14 @@
     - start_vm | bool
     - "'stopped' in vm_status.stdout"
 
-- name: Install miniupnpc package to manage router port forwards
-  ansible.builtin.apt:
-    name: miniupnpc
-    state: present
-
-- name: Add port redirect to router for external SSH access
-  ansible.builtin.command:
-    argv:
-      - upnpc
-      - -e
-      - "{{ port_forward_description }}"
-      - -a
-      - "{{ ipv4_static_address }}"
-      - "{{ internal_ssh_port }}"
-      - "{{ external_ssh_port }}"
-      - "{{ port_forward_protocol }}"
+- name: Forward port to allow external SSH access to the new VM
+  ansible.builtin.include_role:
+    name: "router_port_forward"
+  vars:
+    description: "{{ port_forward_description }}"
+    internal_port: "{{ internal_ssh_port }}"
+    external_port: "{{ external_ssh_port }}"
+    protocol: "{{ port_forward_protocol }}"
 
 - name: Wait for 10 seconds for the VM to boot
   ansible.builtin.pause:

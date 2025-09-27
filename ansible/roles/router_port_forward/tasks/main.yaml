@@ -1,0 +1,29 @@
+---
+# Ansible role to setup a port forward on the router
+
+- name: Validate required variables for VM provisioning
+  ansible.builtin.assert:
+    that:
+      - description is defined
+      - ipv4_static_address is defined
+      - internal_port is defined
+      - external_port is defined
+      - protocol is defined
+    msg: "Missing a required variable"
+
+- name: Install miniupnpc package to manage router port forwards
+  ansible.builtin.apt:
+    name: miniupnpc
+    state: present
+
+- name: Add port redirect to router for external SSH access
+  ansible.builtin.command:
+    argv:
+      - upnpc
+      - -e
+      - "{{ description }}"
+      - -a
+      - "{{ ipv4_static_address }}"
+      - "{{ internal_port }}"
+      - "{{ external_port }}"
+      - "{{ protocol }}"

@@ -35,7 +35,7 @@
 
     - name: Provision the Traefik VM
       ansible.builtin.include_role:
-        name: "../roles/provision_vm"
+        name: "provision_vm"
       vars:
         vm_name: traefik
         vm_id: 149
@@ -43,29 +43,3 @@
         ipv4_static_address: "192.168.0.49"
         ipv4_gateway_address: "192.168.0.1"
         external_ssh_port: 9049
-
-- name: Setup Traefik on the new VM
-  hosts: traefik
-  vars:
-    proxmox_ip: "192.168.0.12"
-  become: true
-  tasks:
-    - name: Install nfs-common package to mount NFS shares
-      ansible.builtin.apt:
-        name: nfs-common
-        state: present
-        update_cache: yes
-
-    - name: Create mount point for NFS share
-      ansible.builtin.file:
-        path: /mnt/traefik-routes
-        state: directory
-
-    - name: Mount the NFS share from the Proxmox host
-      ansible.builtin.command:
-        argv:
-          - mount
-          - -t
-          - nfs
-          - "{{ proxmox_ip }}:/etc/traefik-routes"
-          - /mnt/traefik-routes

@@ -11,14 +11,15 @@
 - name: Create a test Debian VM in Proxmox from the cloud-init template
   hosts: proxmox
   vars:
-    vm_id: "{{ vm_id | default(100) }}"
-    template_id: "{{ template | default(9000) }}"
-    # Example static IP address:
-    ipv4_static_address: "{{ ipv4_static_address | default('192.168.0.50'}}"
-    # Gateway address (usually the router IP so we can get to the internet)
+    vm_name: debian13-test
+    vm_id: 150
+    template_id: 9000
+    # Internal static IP address to assign to the new VM
+    ipv4_static_address: "192.168.0.50"
+    # Gateway internal address (usually the router IP so we can get to the internet)
     # do `ip route show` on the proxmox host to find out
-    ipv4_gateway_address: "{{ ipv4_gateway_address | default('192.168.0.1') }}"
-    external_ssh_port: "{{ external_ssh_port | default(9050) }}"
+    ipv4_gateway_address: "192.168.0.1"
+    external_ssh_port: 9050
 
   tasks:
     - name: Clone the cloud-init template into a new VM

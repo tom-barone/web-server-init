@@ -1,5 +1,12 @@
 inventory:
-    ansible-inventory -i ansible/inventory.yaml --list
+    cd ansible && ansible-inventory --list
+
+destroy_vm *FLAGS:
+    cd ansible && ansible-playbook proxmox/99_delete_vm.yaml {{FLAGS}}
 
 create_traefik:
-    ansible-playbook ./ansible/traefik/01_create_vm.yaml -i ansible/inventory.yaml --user root
+    cd ansible && ansible-playbook traefik/01_create_vm.yaml
+    cd ansible && ansible-playbook traefik/02_setup_traefik.yaml
+
+destroy_traefik:
+    just destroy_vm -e vm_id=149

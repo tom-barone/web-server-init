@@ -1,5 +1,8 @@
 ---
 # Ansible role to setup a port forward on the router
+#
+# Print all current port forwards:
+# upnpc -l
 
 - name: Validate required variables for VM provisioning
   ansible.builtin.assert:

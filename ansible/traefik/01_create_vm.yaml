@@ -1,6 +1,15 @@
 ---
 - name: Setup the NFS server on Proxmox host and provision Traefik VM
   hosts: proxmox
+  vars:
+    vm_name: traefik
+    vm_id: 149
+    template_id: 9000
+    ipv4_static_address: "192.168.0.49"
+    ipv4_gateway_address: "192.168.0.1"
+    external_ssh_port: 9049
+    nfs_ip_range: "192.168.0.0/24"
+    nfs_export_dir: /etc/traefik-routes
   handlers:
     - name: restart nfs
       ansible.builtin.command: exportfs -ra
@@ -22,9 +31,6 @@
       ansible.builtin.template:
         src: files/exports.j2
         dest: /etc/exports
-      vars:
-        nfs_export_dir: /etc/traefik-routes
-        nfs_ip_range: "192.168.0.0/24"
       notify: restart nfs
 
     - name: Start and enable NFS
@@ -36,10 +42,3 @@
     - name: Provision the Traefik VM
       ansible.builtin.include_role:
         name: "provision_vm"
-      vars:
-        vm_name: traefik
-        vm_id: 149
-        template_id: 9000
-        ipv4_static_address: "192.168.0.49"
-        ipv4_gateway_address: "192.168.0.1"
-        external_ssh_port: 9049

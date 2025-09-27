@@ -3,15 +3,8 @@
   vars:
     proxmox_ip: "192.168.0.12"
     traefik_version: "3.5.3"
-    traefik_dashboard_enabled: true
-    traefik_dashboard_insecure: true # Set to false for production
-    traefik_log_level: "INFO"
-    traefik_log_dir: "/var/log/traefik"
     traefik_config_dir: "/etc/traefik"
     traefik_nfs_mount: "/mnt/traefik-routes"
-    traefik_web_port: 80
-    traefik_websecure_port: 443
-    traefik_dashboard_port: 8080
   become: true
   handlers:
     - name: restart traefik
@@ -76,14 +69,6 @@
         group: root
         mode: "0755"
 
-    - name: Create Traefik log directory
-      ansible.builtin.file:
-        path: "{{ traefik_log_dir }}"
-        state: directory
-        owner: root
-        group: root
-        mode: "0755"
-
     - name: Create Traefik main configuration file
       ansible.builtin.template:
         src: files/traefik.yml.j2
@@ -111,7 +96,7 @@
 
     - name: Wait for Traefik to be ready
       ansible.builtin.wait_for:
-        port: "{{ traefik_web_port }}"
+        port: 80
         host: 0.0.0.0
         delay: 2
         timeout: 30

@@ -1,0 +1,97 @@
+---
+- name: Provision the webserver VM
+  hosts: proxmox
+  vars:
+    vm_name: test-webserver
+    vm_id: 150
+    template_id: 9000
+    ipv4_static_address: "192.168.0.50"
+    ipv4_gateway_address: "192.168.0.1"
+    external_ssh_port: 9050
+  tasks:
+    - name: Provision the VM
+      ansible.builtin.include_role:
+        name: "provision_vm"
+
+- name: Setup Traefik on the new VM
+  hosts: test_webserver
+  vars:
+    ipv4_static_address: "192.168.0.50"
+    domain: "test-server.tombarone.net"
+    proxmox_ip: "192.168.0.12"
+    traefik_config_dir: "/etc/traefik"
+    traefik_nfs_mount: "/mnt/traefik-routes"
+  become: true
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+  tasks:
+    - name: Install nfs-common package to mount NFS shares
+      ansible.builtin.apt:
+        name: nfs-common
+        state: present
+        update_cache: yes
+
+    - name: Create mount point for NFS share
+      ansible.builtin.file:
+        path: /mnt/traefik-routes
+        state: directory
+
+    - name: Add NFS mount to /etc/fstab for persistence
+      ansible.builtin.lineinfile:
+        path: /etc/fstab
+        line: "{{ proxmox_ip }}:/etc/traefik-routes {{ traefik_nfs_mount }} nfs defaults,_netdev 0 0"
+        state: present
+
+    - name: Mount the NFS share from the Proxmox host
+      ansible.builtin.mount:
+        path: "{{ traefik_nfs_mount }}"
+        src: "{{ proxmox_ip }}:/etc/traefik-routes"
+        fstype: nfs
+        opts: defaults,_netdev
+        state: mounted
+
+    - name: Update package cache and install Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Start and enable Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Create a simple index.html file
+      ansible.builtin.copy:
+        dest: /var/www/html/index.html
+        content: |
+          <html>
+          <head><title>Test Webserver</title></head>
+          <body>
+          <h1>Welcome to the Test Webserver!</h1>
+          <p>This is a simple web page served by the test webserver VM.</p>
+          </body>
+          </html>
+        owner: root
+        group: root
+        mode: "0644"
+      notify: restart nginx
+
+    - name: Create Traefik route file
+      ansible.builtin.copy:
+        dest: "{{ traefik_nfs_mount }}/test-webserver.toml"
+        content: |
+          [http.routers]
+            [http.routers.to-test-webserver]
+              rule = "Host(`{{ domain }}`)"
+              service = "test-webserver-service"
+              entryPoints = ["web"]
+
+          [http.services]
+            [http.services.test-webserver-service.loadBalancer]
+              [[http.services.test-webserver-service.loadBalancer.servers]]
+                url = "http://{{ ipv4_static_address }}"

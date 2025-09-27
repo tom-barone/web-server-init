@@ -3,3 +3,15 @@ api:
   dashboard: true
   # We're not exposing this to the internet
   insecure: true
+
+providers:
+  file:
+    directory: "/mnt/traefik-routes"
+
+entryPoints:
+  web:
+    address: ":80"
+    asDefault: true
+  websecure:
+    address: ":443"
+    asDefault: true

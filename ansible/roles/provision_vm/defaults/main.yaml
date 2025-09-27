@@ -4,5 +4,5 @@ start_vm: true
 internal_ssh_port: 22
 port_forward_protocol: TCP
 vm_description: "{{ ipv4_static_address }}:{{ external_ssh_port }}"
-port_forward_description: "Proxmox-VM-{{ vm_id }}"
+port_forward_description: "Proxmox-VM-{{ vm_id }} SSH"
 startup_delay: 10

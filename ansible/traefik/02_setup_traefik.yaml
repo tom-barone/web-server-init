@@ -2,6 +2,7 @@
   hosts: traefik
   vars:
     proxmox_ip: "192.168.0.12"
+    ipv4_static_address: "192.168.0.49"
     traefik_version: "3.5.3"
     traefik_config_dir: "/etc/traefik"
     traefik_nfs_mount: "/mnt/traefik-routes"
@@ -93,6 +94,24 @@
         name: traefik
         state: started
         enabled: yes
+
+    - name: Claim port 80 for Traefik
+      ansible.builtin.include_role:
+        name: "router_port_forward"
+      vars:
+        description: "Traefik-VM HTTP"
+        internal_port: "80"
+        external_port: "80"
+        protocol: "TCP"
+
+    - name: Claim port 443 for Traefik
+      ansible.builtin.include_role:
+        name: "router_port_forward"
+      vars:
+        description: "Traefik-VM HTTPS"
+        internal_port: "443"
+        external_port: "443"
+        protocol: "TCP"
 
     - name: Wait for Traefik to be ready
       ansible.builtin.wait_for:

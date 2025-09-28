@@ -12,17 +12,8 @@
 
 - name: Update and upgrade all packages
   hosts: proxmox
-  tasks:
-    - name: Run apt update
-      ansible.builtin.apt:
-        update_cache: yes
-
-    - name: Ensure all packages have latest versions
-      ansible.builtin.apt:
-        name: "*"
-        state: latest
-
-    - name: Ensure the AU locale is generated
-      ansible.builtin.locale_gen:
-        name: "{{ defaults.locale }}"
-        state: present
+  roles:
+    - role: system/update
+    - role: system/locale
+      vars:
+        locale: "{{ defaults.locale }}"

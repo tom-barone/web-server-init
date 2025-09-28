@@ -1,7 +1,7 @@
 ---
 # Ansible role to set the system locale
 
-- name: Validate required variables for VM provisioning
+- name: Validate required variables
   ansible.builtin.assert:
     that:
       - locale is defined

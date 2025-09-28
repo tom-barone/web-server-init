@@ -1,0 +1,21 @@
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - ssh_public_key is defined
+      - exclusive_access is defined
+      - permit_root_login is defined
+    msg: "Missing a required variable"
+
+- name: Set up authorized keys for new user
+  ansible.posix.authorized_key:
+    user: root
+    key: "{{ ssh_public_key }}"
+    exclusive: "{{ exclusive_access }}"
+
+- name: Update sshd_config
+  ansible.builtin.template:
+    src: files/sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    backup: true
+    validate: "sshd -t -f %s"
+  notify: reload ssh

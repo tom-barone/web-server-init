@@ -1,19 +1,20 @@
 ---
-# Ansible playbook to:
-#  1. Update apt sources
-#  2. Ensure all packages are at their latest versions
-#  3. Ensure we have the AU locale
-#
 #  If SSH has not been hardened, and need to use the root password:
 #     ansible-playbook ... --user root --ask-pass
 #
 #  If SSH has been hardened, we can sign in with public SSH key
 #     ansible-playbook ... --user root
 
-- name: Update and upgrade all packages
+- name: Deploy and configure Proxmox
   hosts: proxmox
   roles:
     - role: system/update
     - role: system/locale
       vars:
         locale: "{{ defaults.locale }}"
+    - role: system/harden_ssh
+      vars:
+        ssh_public_key: "{{ defpults.ssh_public_key }}"
+        exclusive_access: "yes"
+        # We'll just have a single root user on the Proxmox host
+        permit_root_login: "yes"

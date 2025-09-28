@@ -1,5 +1,4 @@
 ---
-#
 - name: Shutdown and delete a VM in Proxmox
   hosts: proxmox
   vars_prompt:

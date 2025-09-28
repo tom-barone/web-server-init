@@ -1,12 +1,8 @@
 inventory:
     cd ansible && ansible-inventory --list
 
-setup_proxmox:
-    cd ansible && ansible-playbook proxmox/01_update_packages.yaml
-    cd ansible && ansible-playbook proxmox/02_harden_ssh.yaml
-    cd ansible && ansible-playbook proxmox/03_enable_fail2ban_jail_for_sshd.yaml
-    cd ansible && ansible-playbook proxmox/04_setup_postfix_relay.yaml
-    cd ansible && ansible-playbook proxmox/05_create_debian_cloudinit_template.yaml
+deploy_proxmox:
+    cd ansible && ansible-playbook proxmox/deploy.yaml
 
 destroy_vm *FLAGS:
     cd ansible && ansible-playbook proxmox/99_delete_vm.yaml {{ FLAGS }}

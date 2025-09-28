@@ -6,7 +6,7 @@ api:
 
 providers:
   file:
-    directory: "/mnt/traefik-routes"
+    directory: {{ nfs.mount_dir }}
 
 entryPoints:
   web:

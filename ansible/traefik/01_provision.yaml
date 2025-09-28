@@ -1,22 +1,10 @@
 ---
 - name: Provision the NFS server & Traefik VM on Proxmox
   hosts: proxmox
-  vars:
-    vm_name: traefik
-    vm_id: 149
-    template_id: 9000
-    ipv4_static_address: "192.168.0.49"
-    ipv4_gateway_address: "192.168.0.1"
-    external_ssh_port: 9049
-    nfs_ip_range: "192.168.0.0/24"
-    nfs_export_dir: /etc/traefik-routes
-  handlers:
-    - name: restart nfs
-      ansible.builtin.command: exportfs -ra
   tasks:
     - name: Create shared config on the Proxmox host that internal VMs can write to and Traefik can watch for changes
       ansible.builtin.file:
-        path: /etc/traefik-routes
+        path: "{{ nfs.export_dir }}"
         state: directory
         owner: root
         group: root
@@ -42,3 +30,14 @@
     - name: Provision the Traefik VM
       ansible.builtin.include_role:
         name: "provision_vm"
+      vars:
+        vm_id: "{{ traefik.vm_id }}"
+        template_id: "{{ templates.debian_13.id }}"
+        vm_name: traefik
+        vm_ip_address: "{{ traefik.ip_address }}"
+        external_ssh_port: "{{ traefik.ssh_port }}"
+        gateway_ip_address: "{{ router.ip_address }}"
+
+  handlers:
+    - name: restart nfs
+      ansible.builtin.command: exportfs -ra

@@ -5,19 +5,6 @@
 
 - name: Setup postfix as a relay through Gmail SMTP
   hosts: proxmox
-  vars:
-    gmail_username: "{{ gmail_username }}"
-    hostname: "{{ hostname }}"
-    root_email_alias: "{{ root_email_alias }}"
-  vars_prompt:
-    - name: gmail_password
-      prompt: "Enter the gmail app password"
-      private: yes
-  handlers:
-    - name: restart postfix
-      ansible.builtin.systemd:
-        name: postfix
-        state: restarted
 
   tasks:
     - name: Install postfix and dependencies
@@ -53,3 +40,9 @@
     - name: Update aliases db
       ansible.builtin.command: newaliases
       notify: restart postfix
+
+  handlers:
+    - name: restart postfix
+      ansible.builtin.systemd:
+        name: postfix
+        state: restarted

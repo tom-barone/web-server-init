@@ -12,8 +12,6 @@
 
 - name: Harden SSH access
   hosts: proxmox
-  vars:
-    ssh_public_key: "{{ ssh_public_key }}"
   handlers:
     - name: reload ssh
       ansible.builtin.systemd:
@@ -25,7 +23,7 @@
     - name: Set up authorized keys for new user
       ansible.posix.authorized_key:
         user: root
-        key: "{{ ssh_public_key }}"
+        key: "{{ defaults.ssh_public_key }}"
         exclusive: yes
 
     - name: Update sshd_config

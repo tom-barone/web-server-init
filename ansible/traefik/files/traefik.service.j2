@@ -3,7 +3,7 @@ Description=Traefik v3 Edge Router
 After=network-online.target
 Wants=network-online.target
 # Wait for NFS mount
-RequiresMountsFor={{ traefik_nfs_mount }}
+RequiresMountsFor={{ nfs.mount_dir }}
 
 [Service]
 Type=notify

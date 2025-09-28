@@ -15,10 +15,12 @@
       - template_id is defined
       - vm_name is defined
       # Internal static IP address to assign to the new VM
-      - ipv4_static_address is defined
+      - vm_ip_address is defined
+      # Port on the router to forward to the new VM for external SSH access
+      - external_ssh_port is defined
       # Gateway internal address (usually the router IP so we can get to the internet)
       # do `ip route show` on the proxmox host to find out
-      - ipv4_gateway_address is defined
+      - gateway_ip_address is defined
     msg: "Missing a required variable"
 
 - name: Clone the cloud-init template into a new VM
@@ -31,7 +33,7 @@
       - --name
       - "{{ vm_name }}"
       - --description
-      - "{{ vm_description }}"
+      - "{{ vm_ip_address }}:{{ external_ssh_port }}"
       - --full
       - "true"
   args:
@@ -44,7 +46,7 @@
       - set
       - "{{ vm_id }}"
       - --ipconfig0
-      - "ip={{ ipv4_static_address }}/{{ ipv4_prefix_length }},gw={{ ipv4_gateway_address }}"
+      - "ip={{ vm_ip_address }}/24,gw={{ gateway_ip_address }}"
 
 - name: Check VM status
   ansible.builtin.command:
@@ -62,19 +64,18 @@
       - start
       - "{{ vm_id }}"
   when:
-    - start_vm | bool
     - "'stopped' in vm_status.stdout"
 
 - name: Forward port to allow external SSH access to the new VM
   ansible.builtin.include_role:
     name: "router_port_forward"
   vars:
-    description: "{{ port_forward_description }}"
-    internal_port: "{{ internal_ssh_port }}"
+    description: "Proxmox-VM-{{ vm_id }} SSH"
+    ip_address: "{{ vm_ip_address }}"
+    internal_port: 22
     external_port: "{{ external_ssh_port }}"
-    protocol: "{{ port_forward_protocol }}"
+    protocol: "TCP"
 
 - name: Wait for 10 seconds for the VM to boot
   ansible.builtin.pause:
-    seconds: "{{ startup_delay }}"
-  when: start_vm | bool
+    seconds: 10

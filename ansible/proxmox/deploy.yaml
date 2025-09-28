@@ -14,7 +14,8 @@
         locale: "{{ defaults.locale }}"
     - role: system/harden_ssh
       vars:
-        ssh_public_key: "{{ defpults.ssh_public_key }}"
+        ssh_public_key: "{{ defaults.ssh_public_key }}"
         exclusive_access: "yes"
         # We'll just have a single root user on the Proxmox host
         permit_root_login: "yes"
+    - role: system/fail2ban

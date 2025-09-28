@@ -8,7 +8,7 @@
 #  After running, should now be able to SSH to the new VM with:
 #   ssh cloudinit@<public_ipv4_address> -p <external_ssh_port>
 
-- name: Validate required variables for VM provisioning
+- name: Validate required variables
   ansible.builtin.assert:
     that:
       - vm_id is defined

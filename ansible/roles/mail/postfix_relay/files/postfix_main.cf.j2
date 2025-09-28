@@ -1,6 +1,6 @@
 # See /usr/share/postfix/main.cf.dist for a commented, more complete version
 
-myhostname={{ proxmox.email.hostname }}
+myhostname={{ postfix_hostname }}
 
 smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU)
 biff = no

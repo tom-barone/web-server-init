@@ -3,7 +3,7 @@
   hosts: proxmox
   vars:
     vm_id: "{{ test_webserver.vm_id }}"
-    template_id: "{{ vm.template_id }}"
+    template_id: "{{ templates.debian_13.id }}"
     vm_name: test-webserver
     vm_ip_address: "{{ test_webserver.ip_address }}"
     external_ssh_port: "{{ test_webserver.ssh_port }}"

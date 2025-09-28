@@ -4,12 +4,6 @@
     traefik_version: "3.5.3"
     traefik_config_dir: "/etc/traefik"
   become: true
-  handlers:
-    - name: restart traefik
-      ansible.builtin.systemd:
-        name: traefik
-        state: restarted
-        daemon_reload: yes
 
   tasks:
     - name: Install nfs-common package to mount NFS shares
@@ -26,13 +20,13 @@
     - name: Add NFS mount to /etc/fstab for persistence
       ansible.builtin.lineinfile:
         path: /etc/fstab
-        line: "{{ proxmox.ip_address }}:/etc/traefik-routes {{ nfs.mount_dir }} nfs defaults,_netdev 0 0"
+        line: "{{ proxmox.ip_address }}:{{ nfs.export_dir }} {{ nfs.mount_dir }} nfs defaults,_netdev 0 0"
         state: present
 
     - name: Mount the NFS share from the Proxmox host
       ansible.builtin.mount:
         path: "{{ nfs.mount_dir }}"
-        src: "{{ proxmox.ip_address }}:/etc/traefik-routes"
+        src: "{{ proxmox.ip_address }}:{{ nfs.export_dir }}"
         fstype: nfs
         opts: defaults,_netdev
         state: mounted
@@ -97,6 +91,7 @@
         name: "router_port_forward"
       vars:
         description: "Traefik-VM HTTP"
+        ip_address: "{{ traefik.ip_address }}"
         internal_port: "80"
         external_port: "80"
         protocol: "TCP"
@@ -106,6 +101,7 @@
         name: "router_port_forward"
       vars:
         description: "Traefik-VM HTTPS"
+        ip_address: "{{ traefik.ip_address }}"
         internal_port: "443"
         external_port: "443"
         protocol: "TCP"
@@ -116,3 +112,10 @@
         host: 0.0.0.0
         delay: 2
         timeout: 30
+
+  handlers:
+    - name: restart traefik
+      ansible.builtin.systemd:
+        name: traefik
+        state: restarted
+        daemon_reload: yes

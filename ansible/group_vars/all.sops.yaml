@@ -31,6 +31,7 @@ test_webserver:
     vm_id: ENC[AES256_GCM,data:e2Fy,iv:CHx+uFamB2ASlZE+1RGGkN2iEh9XL5vDKUWRu0ZRLs4=,tag:lLxYFx/yW6joNYY9EZ5F/A==,type:int]
     ip_address: ENC[AES256_GCM,data:hXMpjFY/RrPhvGTD,iv:dj7kAPWRLK1HfCEm+mdqj2s7apPPROFamLSXBmnoReg=,tag:p7o5vbJ92apkfsIKQszZYg==,type:str]
     ssh_port: ENC[AES256_GCM,data:prcrww==,iv:e5FVZNzewqY6+8qBAEw4AfyHrr5MR9QsnF1IL/1F77E=,tag:NC5NgKHeYHWotVRcS4zHiQ==,type:int]
+    domain: ENC[AES256_GCM,data:fAa8qgA+4WpLPBCPDEfXtvisB3qdB6BXwrLSOHBqXKrf2ebVvA==,iv:6AG4+WKK45F7vdixNwHJxkHUS3G/kp2m7oucsK9sYmQ=,tag:OY/EsFP7z+8ShI7uZf/HLg==,type:str]
 #ENC[AES256_GCM,data:SztoEMzKfQfRDY556NWKv2UN4fa/HOZsof0SoDA=,iv:kHFCHxL/2zcTAsSZo7BQq7VyP/juCz/AW6qKYWARAhk=,tag:spui2EWdx243NsBeCgtI1A==,type:comment]
 defaults:
     #ENC[AES256_GCM,data:0KYW/e6nRdnUDVpWq48=,iv:exiZZH8s+C0SCUEtF9ZBdzjdi94b5pperCQGGWZQags=,tag:/1ixWmvTPPFBT1R89tRUpw==,type:comment]
@@ -38,8 +39,8 @@ defaults:
     #ENC[AES256_GCM,data:3TwrIvRuCEtQbCpeMsQc/k2oLUntfZ3dPWBmGLskmFRh6vkxbKIkR8GluLoRDIeL9uX4sYAM6WdWsI1u5828Yfmwa8ks,iv:d/gnZRxC/E6oISb4rUAwW2fZjz5QOXu37S0TJinAyPk=,tag:lUeifTeeTu2lj/CWmGqZHg==,type:comment]
     ssh_public_key: ENC[AES256_GCM,data:WlpHs20Bg8vbaCYBSO5r5HLlBSejfPD246V5GNUmxtJInrYYdNIEcNTZiggFSX3vIO2C3sj2ja+FxMbMzn0/9dV8uElS8occZmMIAE2YE9xdSwWBrzivPQqwm6tC3hu5Koud,iv:9RoOtkaFnGxJ+YmAAql9oW+8n9hORIXKH+WOMh1Z+8c=,tag:GmvOzXD+lZyXoG3vrL2vYw==,type:str]
 sops:
-    lastmodified: "2025-09-28T12:37:40Z"
-    mac: ENC[AES256_GCM,data:z5FSSXVHyyz3CowOWVnXfBjSB/LrswGS8dqo7TcTmCVSGina9qGK2E1okQvvw+3INxNQXKVJIuY/bBlaTahI7UvxLsY6uVJTLzwHmPRtKkbfhapC5j1GU5xZeMVy8huteLmbpOQ/fVf4iYqhR0qfDyQmrQWO41/WqXbKt1nzpaY=,iv:G+6q4bpNPQZ48MrSDKB7uc7v2jLtR2EEIA6m5zkli5w=,tag:QU1SOK8nT08SDK42psHuYw==,type:str]
+    lastmodified: "2025-09-28T13:04:13Z"
+    mac: ENC[AES256_GCM,data:rbs3LzryLs2844xQYq+Um/Brc+1zpFBjm8vFRRwQehnBnTl0h39XLfiLgp6iAaNv6Klw1nu0EOOLYh/fBEedxW4weixaj+IzfsUOxuLNHT5UTp1PCX2fk9ykz06esHqNCzLi7hJ5Kfuo3LR71Qv1rJKRAmz9RhP4AqLJVmdebs8=,iv:pVYd6yltLkJ1q6eAWZAkDxzNkdkVhsNkVXDFnxC2m0E=,tag:kcFMrCXU1f+zSPXU77MVdQ==,type:str]
     pgp:
         - created_at: "2025-09-28T11:57:27Z"
           enc: |-

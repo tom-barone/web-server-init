@@ -1,18 +1,7 @@
 ---
 - name: Setup the test webserver
   hosts: test_webserver
-  vars:
-    ipv4_static_address: "192.168.0.50"
-    domain: "test-server.tombarone.net"
-    proxmox_ip: "192.168.0.12"
-    traefik_config_dir: "/etc/traefik"
-    traefik_nfs_mount: "/mnt/traefik-routes"
   become: true
-  handlers:
-    - name: restart nginx
-      service:
-        name: nginx
-        state: restarted
   tasks:
     - name: Install nfs-common package to mount NFS shares
       ansible.builtin.apt:
@@ -28,13 +17,13 @@
     - name: Add NFS mount to /etc/fstab for persistence
       ansible.builtin.lineinfile:
         path: /etc/fstab
-        line: "{{ proxmox_ip }}:/etc/traefik-routes {{ traefik_nfs_mount }} nfs defaults,_netdev 0 0"
+        line: "{{ proxmox.ip_address }}:{{ nfs.export_dir }} {{ nfs.mount_dir }} nfs defaults,_netdev 0 0"
         state: present
 
     - name: Mount the NFS share from the Proxmox host
       ansible.builtin.mount:
-        path: "{{ traefik_nfs_mount }}"
-        src: "{{ proxmox_ip }}:/etc/traefik-routes"
+        path: "{{ nfs.mount_dir }}"
+        src: "{{ proxmox.ip_address }}:{{ nfs.export_dir }}"
         fstype: nfs
         opts: defaults,_netdev
         state: mounted
@@ -69,15 +58,21 @@
 
     - name: Create Traefik route file
       ansible.builtin.copy:
-        dest: "{{ traefik_nfs_mount }}/test-webserver.toml"
+        dest: "{{ nfs.mount_dir }}/test-webserver.toml"
         content: |
           [http.routers]
             [http.routers.to-test-webserver]
-              rule = "Host(`{{ domain }}`)"
+              rule = "Host(`{{ test_webserver.domain }}`)"
               service = "test-webserver-service"
               entryPoints = ["web"]
 
           [http.services]
             [http.services.test-webserver-service.loadBalancer]
               [[http.services.test-webserver-service.loadBalancer.servers]]
-                url = "http://{{ ipv4_static_address }}"
+                url = "http://{{ test_webserver.ip_address }}"
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted

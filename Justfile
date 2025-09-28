@@ -26,4 +26,4 @@ destroy_test_webserver:
     just destroy_vm -e vm_id=150
 
 edit_vars:
-    sops edit ansible/group_vars/all.sops.yaml
+    sops edit ansible/inventory/au-adelaide/group_vars/all.sops.yaml

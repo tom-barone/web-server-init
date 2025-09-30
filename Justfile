@@ -6,6 +6,8 @@ proxmox_port := '8006'
 
 update: inventory deploy_proxmox deploy_traefik deploy_webserver
 
+destroy: inventory destroy_traefik destroy_webserver
+
 # Open the proxmox management portal via an SSH tunnel
 open_proxmox:
     ssh -fN -M -S {{ socket }} -L {{ proxmox_port }}:localhost:{{ proxmox_port }} root@{{ proxmox_domain }}
@@ -25,19 +27,16 @@ inventory:
 deploy_proxmox:
     cd ansible && ansible-playbook proxmox/deploy.yaml
 
-destroy_vm *FLAGS:
-    cd ansible && ansible-playbook proxmox/99_delete_vm.yaml {{ FLAGS }}
-
 deploy_traefik:
     cd ansible && ansible-playbook traefik/01_provision.yaml
     cd ansible && ansible-playbook traefik/02_setup.yaml
 
 destroy_traefik:
-    just destroy_vm -e vm_id=149
+    cd ansible && ansible-playbook traefik/destroy.yaml
 
 deploy_webserver:
     cd ansible && ansible-playbook test_webserver/01_provision.yaml
     cd ansible && ansible-playbook test_webserver/02_setup.yaml
 
-destroy_test_webserver:
-    just destroy_vm -e vm_id=150
+destroy_webserver:
+    cd ansible && ansible-playbook test_webserver/destroy.yaml

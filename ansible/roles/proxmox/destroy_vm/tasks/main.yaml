@@ -1,0 +1,23 @@
+---
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - vm_id is defined
+    msg: "Missing a required variable"
+
+- name: Shutdown the VM
+  ansible.builtin.command:
+    argv:
+      - qm
+      - stop
+      - "{{ vm_id }}"
+  ignore_errors: yes
+
+- name: Remove the VM
+  ansible.builtin.command:
+    argv:
+      - qm
+      - destroy
+      - "{{ vm_id }}"
+      - --purge
+  ignore_errors: yes

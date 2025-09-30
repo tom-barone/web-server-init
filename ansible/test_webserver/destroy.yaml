@@ -1,0 +1,7 @@
+---
+- name: Destroy the webserver VM
+  hosts: proxmox
+  vars:
+    vm_id: "{{ test_webserver.vm_id }}"
+  roles:
+    - role: proxmox/destroy_vm

@@ -6,6 +6,20 @@ proxmox_domain := 'au-adelaide.tombarone.net'
 
 default: help
 
+# Provision and deploy all proxmox infrastructure and VMs
+deploy:
+    ansible-playbook ./playbooks/proxmox/deploy.yaml
+    ansible-playbook ./playbooks/traefik/provision.yaml
+    ansible-playbook ./playbooks/traefik/deploy.yaml
+    ansible-playbook ./playbooks/vms/provision.yaml
+    ansible-playbook ./playbooks/dokku_sandbox/deploy.yaml
+
+# Destroy all VMs in proxmox (asks for confirmation)
+destroy:
+    @read -p "Are you sure you want to destroy all VMs? Press Ctrl+C to cancel or Enter to continue..." _
+    ansible-playbook ./playbooks/vms/destroy.yaml
+    ansible-playbook ./playbooks/traefik/destroy.yaml
+
 # Open all management dashboards
 open-dashboards:
     ssh -fN -M -S {{ proxmox_socket }} -L 8006:localhost:8006 root@{{ proxmox_domain }}
@@ -18,22 +32,6 @@ close-dashboards:
     ssh -S {{ proxmox_socket }} -O exit root@{{ proxmox_domain }} || true
     ssh -S {{ traefik_socket }} -O exit cloudinit@{{ proxmox_domain }} || true
     rm -f {{ proxmox_socket }} {{ traefik_socket }}
-
-# Provision and deploy all infrastructure components
-deploy:
-    ansible-playbook ./playbooks/proxmox/deploy.yaml
-    ansible-playbook ./playbooks/traefik/provision.yaml
-    ansible-playbook ./playbooks/traefik/deploy.yaml
-    ansible-playbook ./playbooks/vms/provision.yaml
-    ansible-playbook ./playbooks/dokku_sandbox/deploy.yaml
-
-# Destroy the traefik reverse proxy VM
-destroy_traefik:
-    ansible-playbook ./playbooks/traefik/destroy.yaml
-
-# Destroy all configured VMs (asks for confirmation)
-destroy_vms:
-    ansible-playbook ./playbooks/vms/destroy.yaml
 
 help:
     @just --list

@@ -23,3 +23,5 @@
         ssh_public_key: "{{ admin.ssh_public_key }}"
         exclusive_access: "no"
         permit_root_login: "no"
+    - role: system/fail2ban
+    - role: system/unattended_upgrades

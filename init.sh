@@ -55,7 +55,7 @@ sudo service fail2ban restart
 # $ ss -taupe
 # https://lwn.net/Articles/277146/
 sudo sysctl net.ipv4.tcp_syncookies=1
-sudo sysctl -p
+#sudo sysctl -p
 # Not worth setting up any sort of IP banning because the IP
 # addresses are likely to be spoofed
 

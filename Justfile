@@ -2,10 +2,10 @@ default: help
 
 # Provision and deploy everything
 deploy:
-		ansible-playbook ./playbooks/proxmox/deploy.yaml
-		ansible-playbook ./playbooks/traefik/provision.yaml
-		ansible-playbook ./playbooks/traefik/deploy.yaml
-		ansible-playbook ./playbooks/vms/provision.yaml
+    ansible-playbook ./playbooks/proxmox/deploy.yaml
+    ansible-playbook ./playbooks/traefik/provision.yaml
+    ansible-playbook ./playbooks/traefik/deploy.yaml
+    ansible-playbook ./playbooks/vms/provision.yaml
     ansible-playbook ./playbooks/dokku_sandbox/deploy.yaml
 
 # Destroy everything

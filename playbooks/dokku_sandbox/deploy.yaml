@@ -6,7 +6,20 @@
   hosts: dokku_sandbox
   become: true
   roles:
+    - role: system/update
     - role: user/create_admin
       vars:
         username: "{{ admin.username }}"
         ssh_public_key: "{{ admin.ssh_public_key }}"
+    - role: user/add_user_to_groups
+      vars:
+        username: "{{ admin.username }}"
+        groupnames: ["docker"]
+    - role: system/locale
+      vars:
+        locale: "{{ defaults.locale }}"
+    - role: system/harden_ssh
+      vars:
+        ssh_public_key: "{{ admin.ssh_public_key }}"
+        exclusive_access: "no"
+        permit_root_login: "no"

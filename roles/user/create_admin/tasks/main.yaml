@@ -22,3 +22,11 @@
   ansible.posix.authorized_key:
     user: "{{ username }}"
     key: "{{ ssh_public_key }}"
+
+- name: Set up passwordless sudo for user
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/{{ username }}
+    line: "{{ username }} ALL=(ALL) NOPASSWD:ALL"
+    create: yes
+    mode: "0440"
+    validate: "visudo -cf %s"

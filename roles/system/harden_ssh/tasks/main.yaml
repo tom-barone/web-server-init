@@ -18,7 +18,6 @@
     dest: /etc/ssh/sshd_config
     backup: true
     validate: "sshd -t -f %s"
-  notify: reload ssh
 
 - name: Reload ssh service
   ansible.builtin.systemd:

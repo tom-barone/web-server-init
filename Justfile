@@ -1,24 +1,22 @@
-## Main tasks
-
-proxmox_socket := '/tmp/proxmox-ssh-tunnel.sock'
-traefik_socket := '/tmp/traefik-ssh-tunnel.sock'
-proxmox_domain := 'au-adelaide.tombarone.net'
-
 default: help
 
-# Provision and deploy all proxmox infrastructure and VMs
+# Provision and deploy everything
 deploy:
-    ansible-playbook ./playbooks/proxmox/deploy.yaml
-    ansible-playbook ./playbooks/traefik/provision.yaml
-    ansible-playbook ./playbooks/traefik/deploy.yaml
-    ansible-playbook ./playbooks/vms/provision.yaml
+		ansible-playbook ./playbooks/proxmox/deploy.yaml
+		ansible-playbook ./playbooks/traefik/provision.yaml
+		ansible-playbook ./playbooks/traefik/deploy.yaml
+		ansible-playbook ./playbooks/vms/provision.yaml
     ansible-playbook ./playbooks/dokku_sandbox/deploy.yaml
 
-# Destroy all VMs in proxmox (asks for confirmation)
+# Destroy everything
 destroy:
     @read -p "Are you sure you want to destroy all VMs? Press Ctrl+C to cancel or Enter to continue..." _
     ansible-playbook ./playbooks/vms/destroy.yaml
     ansible-playbook ./playbooks/traefik/destroy.yaml
+
+proxmox_socket := '/tmp/proxmox-ssh-tunnel.sock'
+traefik_socket := '/tmp/traefik-ssh-tunnel.sock'
+proxmox_domain := 'au-adelaide.tombarone.net'
 
 # Open all management dashboards
 open-dashboards:

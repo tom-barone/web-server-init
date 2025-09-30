@@ -1,0 +1,17 @@
+---
+- name: Deploy all virtual machines to Proxmox
+  hosts: proxmox
+  tasks:
+    - name: Deploy each vm
+      include_role:
+        name: proxmox/provision_vm
+      loop: "{{ virtual_machines }}"
+      loop_control:
+        loop_var: vm
+      vars:
+        vm_id: "{{ vm.vm_id }}"
+        template_id: "{{ vm.template_id }}"
+        vm_name: "{{ vm.name }}"
+        vm_ip_address: "{{ vm.ip_address }}"
+        external_ssh_port: "{{ vm.ssh_port }}"
+        gateway_ip_address: "{{ router.ip_address }}"

@@ -1,0 +1,29 @@
+---
+#  If SSH has not been hardened, and need to use the root password:
+#     ansible-playbook ... --user root --ask-pass
+#
+#  If SSH has been hardened, we can sign in with public SSH key
+#     ansible-playbook ... --user root
+
+- name: Deploy and configure Proxmox
+  hosts: proxmox
+  roles:
+    - role: system/update
+    - role: system/locale
+      vars:
+        locale: "{{ defaults.locale }}"
+    - role: system/harden_ssh
+      vars:
+        ssh_public_key: "{{ defaults.ssh_public_key }}"
+        exclusive_access: "yes"
+        # We'll just have a single root user on the Proxmox host
+        permit_root_login: "yes"
+    - role: system/fail2ban
+    - role: mail/postfix_relay
+      vars:
+        relay_host: "smtp.gmail.com"
+        relay_port: 587
+        relay_username: "{{ proxmox.email.gmail_app_username }}"
+        relay_password: "{{ proxmox.email.gmail_app_password }}"
+        postfix_hostname: "{{ proxmox.email.hostname }}"
+        root_alias: "{{ proxmox.email.root_alias }}"

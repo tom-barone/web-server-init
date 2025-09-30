@@ -1,0 +1,21 @@
+---
+- name: Destroy all virtual machines in Proxmox
+  hosts: proxmox
+  tasks:
+    - name: Ask for confirmation before destroying VMs
+      ansible.builtin.pause:
+        prompt: "Are you sure you want to destroy all virtual machines? Press 'y' to confirm."
+      register: confirmation
+
+    - ansible.builtin.fail:
+        msg: "Operation cancelled by user."
+      when: confirmation.user_input.lower() != 'y'
+
+    - name: Destroy each vm
+      include_role:
+        name: proxmox/destroy_vm
+      loop: "{{ virtual_machines }}"
+      loop_control:
+        loop_var: vm
+      vars:
+        vm_id: "{{ vm.vm_id }}"

@@ -1,36 +1,23 @@
-- name: Setup Traefik on a proxmox VM
+---
+- name: Provision the Traefik VM
+  hosts: proxmox
+  roles:
+    - role: proxmox/provision_vm
+      vars:
+        vm_id: "{{ traefik.vm_id }}"
+        template_id: "{{ traefik.template_id }}"
+        vm_name: traefik
+        vm_ip_address: "{{ traefik.ip_address }}"
+        external_ssh_port: "{{ traefik.ssh_port }}"
+        gateway_ip_address: "{{ router.ip_address }}"
+
+- name: Setup the Traefik VM
   hosts: traefik
   vars:
     traefik_version: "3.5.3"
     traefik_config_dir: "/etc/traefik"
   become: true
-
   tasks:
-    - name: Install nfs-common package to mount NFS shares
-      ansible.builtin.apt:
-        name: nfs-common
-        state: present
-        update_cache: yes
-
-    - name: Create mount point for NFS share
-      ansible.builtin.file:
-        path: /mnt/traefik-routes
-        state: directory
-
-    - name: Add NFS mount to /etc/fstab for persistence
-      ansible.builtin.lineinfile:
-        path: /etc/fstab
-        line: "{{ proxmox.ip_address }}:{{ nfs.export_dir }} {{ nfs.mount_dir }} nfs defaults,_netdev 0 0"
-        state: present
-
-    - name: Mount the NFS share from the Proxmox host
-      ansible.builtin.mount:
-        path: "{{ nfs.mount_dir }}"
-        src: "{{ proxmox.ip_address }}:{{ nfs.export_dir }}"
-        fstype: nfs
-        opts: defaults,_netdev
-        state: mounted
-
     - name: Download Traefik binary
       ansible.builtin.get_url:
         url: "https://github.com/traefik/traefik/releases/download/v{{ traefik_version }}/traefik_v{{ traefik_version }}_linux_amd64.tar.gz"
@@ -68,7 +55,14 @@
         owner: root
         group: root
         mode: "0644"
-      notify: restart traefik
+
+    - name: Create Traefik routes file
+      ansible.builtin.template:
+        src: files/routes.yml.j2
+        dest: "{{ traefik_config_dir }}/routes.yml"
+        owner: root
+        group: root
+        mode: "0644"
 
     - name: Create systemd service file for Traefik
       ansible.builtin.template:
@@ -77,10 +71,8 @@
         owner: root
         group: root
         mode: "0644"
-      notify:
-        - restart traefik
 
-    - name: Start and enable Traefik service
+    - name: Start and enable Traefik + config watcher services
       ansible.builtin.systemd:
         name: traefik
         state: started
@@ -113,8 +105,7 @@
         delay: 2
         timeout: 30
 
-  handlers:
-    - name: restart traefik
+    - name: Restart traefik
       ansible.builtin.systemd:
         name: traefik
         state: restarted

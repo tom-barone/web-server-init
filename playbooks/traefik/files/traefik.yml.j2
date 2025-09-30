@@ -4,10 +4,6 @@ api:
   # We're not exposing this to the internet
   insecure: true
 
-providers:
-  file:
-    directory: {{ nfs.mount_dir }}
-
 entryPoints:
   web:
     address: ":80"
@@ -15,3 +11,8 @@ entryPoints:
   websecure:
     address: ":443"
     asDefault: true
+
+providers:
+  file:
+    filename: {{ traefik_config_dir }}/routes.yml
+    watch: true

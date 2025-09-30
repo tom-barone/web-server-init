@@ -1,0 +1,65 @@
+---
+# Ansible playbook to:
+#  1. Download a cloud-init enabled Debian image
+#  2. Start a new VM in Proxmox and attach the cloud-init image as a CD-ROM
+#  3. Create a template from the VM for future use
+
+- name: Create a Debian 13 cloud-init template in Proxmox
+  hosts: proxmox
+  vars:
+    vm_id: "{{ templates.debian_13.id }}"
+    debian_version: "20250924-2245"
+
+  tasks:
+    - name: Check if VM exists and is a template
+      ansible.builtin.shell: >
+        qm config {{ templates.debian_13.id }} --current 2>/dev/null || echo "NOT_FOUND"
+      register: vm_config
+      changed_when: false
+      failed_when: false
+
+    - name: Parse template status
+      ansible.builtin.set_fact:
+        is_template: "{{ 'template: 1' in vm_config.stdout }}"
+        vm_exists: "{{ 'NOT_FOUND' not in vm_config.stdout }}"
+
+    - name: Download Debian 13 cloud image
+      ansible.builtin.get_url:
+        url: "https://cloud.debian.org/images/cloud/trixie/{{ debian_version }}/debian-13-generic-amd64-{{ debian_version }}.raw"
+        dest: /root/debian-13-generic-amd64-{{ debian_version }}.raw
+      when: not vm_exists
+
+    - name: Create a new VM for the template
+      ansible.builtin.command: >
+        qm create {{ templates.debian_13.id }}
+        --name debian13-cloudinit-template
+        --net0 virtio,bridge=vmbr0
+        --scsihw virtio-scsi-pci
+        --balloon 0
+        --agent enabled=1
+        --memory 2048
+        --scsi0 local-lvm:0,format=raw,import-from=/root/debian-13-generic-amd64-{{ debian_version }}.raw
+        --ide2 local-lvm:cloudinit
+        --boot order=scsi0
+      args:
+        creates: /etc/pve/qemu-server/{{ templates.debian_13.id }}.conf
+      when: not vm_exists
+
+    - name: Resize the hard disk
+      ansible.builtin.command: >
+        qm disk resize {{ templates.debian_13.id }} scsi0 8G
+      when: not is_template
+
+    - name: "Set cloudinit settings"
+      # Use same authorized_keys as the Proxmox host root user
+      ansible.builtin.command: >
+        qm set {{ templates.debian_13.id }}
+        --ciuser cloudinit
+        --ipconfig0 ip=dhcp,ip6=dhcp
+        --sshkey /root/.ssh/authorized_keys
+      when: not is_template
+
+    - name: Convert VM to a template
+      ansible.builtin.command: >
+        qm template {{ templates.debian_13.id }}
+      when: not is_template

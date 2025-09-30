@@ -1,7 +1,0 @@
----
-- name: Destroy the webserver VM
-  hosts: proxmox
-  vars:
-    vm_id: 150
-  roles:
-    - role: proxmox/destroy_vm

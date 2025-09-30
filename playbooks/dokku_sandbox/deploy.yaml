@@ -1,0 +1,12 @@
+---
+#  Playbook to deploy a sandbox VM with dokku
+#  that can be used to test out web applications.
+
+- name: Deploy the dokku sandbox webserver
+  hosts: dokku_sandbox
+  become: true
+  roles:
+    - role: user/create_admin
+      vars:
+        username: "{{ admin.username }}"
+        ssh_public_key: "{{ admin.ssh_public_key }}"

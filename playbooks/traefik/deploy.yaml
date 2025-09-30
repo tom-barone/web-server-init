@@ -1,17 +1,4 @@
----
-- name: Provision the Traefik VM
-  hosts: proxmox
-  roles:
-    - role: proxmox/provision_vm
-      vars:
-        vm_id: "{{ traefik.vm_id }}"
-        template_id: "{{ traefik.template_id }}"
-        vm_name: traefik
-        vm_ip_address: "{{ traefik.ip_address }}"
-        external_ssh_port: "{{ traefik.ssh_port }}"
-        gateway_ip_address: "{{ router.ip_address }}"
-
-- name: Setup the Traefik VM
+- name: Deploy the Traefik VM
   hosts: traefik
   vars:
     traefik_version: "3.5.3"

@@ -1,6 +1,0 @@
-proxmox:
-  hosts:
-    proxmox-au-adelaide:
-      ansible_host: au-adelaide.tombarone.net
-      ansible_user: root
-      ansible_python_interpreter: /usr/bin/python3

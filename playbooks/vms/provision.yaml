@@ -1,5 +1,5 @@
 ---
-- name: Deploy all virtual machines to Proxmox
+- name: Provision all configured virtual machines
   hosts: proxmox
   tasks:
     - name: Deploy each vm

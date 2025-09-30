@@ -6,7 +6,7 @@
       - permit_root_login is defined
     msg: "Missing a required variable"
 
-- name: Set up authorized keys for new user
+- name: Set up authorized keys for root user
   ansible.posix.authorized_key:
     user: root
     key: "{{ ssh_public_key }}"

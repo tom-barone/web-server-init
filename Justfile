@@ -19,24 +19,24 @@ close_proxmox:
 
 # Manage ansible secrets via SOPS
 edit-secrets:
-    sops edit ansible/inventory/au-adelaide/group_vars/all.sops.yaml
+    sops edit inventory/au-adelaide/group_vars/all.sops.yaml
 
 inventory:
-    cd ansible && ansible-inventory --list
+    ansible-inventory --list
 
 deploy_proxmox:
-    cd ansible && ansible-playbook proxmox/deploy.yaml
+    ansible-playbook proxmox/deploy.yaml
 
 deploy_traefik:
-    cd ansible && ansible-playbook traefik/01_provision.yaml
-    cd ansible && ansible-playbook traefik/02_setup.yaml
+    ansible-playbook traefik/provision.yaml
+    ansible-playbook traefik/setup.yaml
 
 destroy_traefik:
-    cd ansible && ansible-playbook traefik/destroy.yaml
+    ansible-playbook traefik/destroy.yaml
 
 deploy_webserver:
-    cd ansible && ansible-playbook test_webserver/01_provision.yaml
-    cd ansible && ansible-playbook test_webserver/02_setup.yaml
+    ansible-playbook test_webserver/provision.yaml
+    ansible-playbook test_webserver/setup.yaml
 
 destroy_webserver:
-    cd ansible && ansible-playbook test_webserver/destroy.yaml
+    ansible-playbook test_webserver/destroy.yaml

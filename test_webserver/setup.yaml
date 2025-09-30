@@ -1,5 +1,5 @@
 ---
-- name: Setup the test webserver
+- name: Setup the webserver
   hosts: test_webserver
   become: true
   tasks:

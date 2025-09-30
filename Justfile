@@ -22,7 +22,6 @@ edit-secrets:
 # Deploy proxmox
 deploy_proxmox:
     ansible-playbook ./playbooks/proxmox/deploy.yaml
-    ansible-playbook ./playbooks/proxmox/create_debian_cloudinit_template.yaml
 
 # Open the proxmox dashboard via an SSH tunnel
 open_proxmox_dashboard: close_proxmox_dashboard

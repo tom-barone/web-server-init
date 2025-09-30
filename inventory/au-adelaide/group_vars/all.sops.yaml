@@ -24,23 +24,24 @@ traefik:
         - domain: ENC[AES256_GCM,data:ODz9hJiB9SDm3ShW0mng8q6SMKKukzo/5kk=,iv:pCk1cw0yK6SyW9cuPvFjTm59ury5j2lrIXxgYkRq/l0=,tag:uH3fNn+FF9MunmdmBfVpTA==,type:str]
           destination: ENC[AES256_GCM,data:IR3djQHYbg0MFmDv,iv:x7B28Ttip/ltaRs42vjKPAex5kb4a1EtEbjN7onj4Sg=,tag:pleKnlAQ0JgGQHu4MAAvVA==,type:str]
 #ENC[AES256_GCM,data:MzEX4Z1ARtHRi764Zeam97YbMEJxsZbPAs5PQvqP8izgAf/QhdH9,iv:UUITyDuy2qov0OXaC1BCwwaZ7dHohF2eK4QdAiYCAKE=,tag:5obOTiGO/V3FO4ektvoW4Q==,type:comment]
-templates:
-    debian_13:
-        id: ENC[AES256_GCM,data:RDruGA==,iv:4WpzPnzT14ywePcEicu2oS5orqfbU83IX+cWWA5l6ko=,tag:HBlY2fABMskpsIRSw91E8Q==,type:int]
+vm_templates:
+    - name: ENC[AES256_GCM,data:+UdEQ+zKWdyY+GBpX3ESh0dd1g==,iv:F9irFbOxzEPtumIzaZUek2Oe+RExkUazZ4Nb0W2+OTU=,tag:ogIK4KcoeJXJtTVc+91hFg==,type:str]
+      image_url: ENC[AES256_GCM,data:fP81HD6VfU+p3VNfpRo0fKiQ4d+0DApL0b5BC52kK2MvscPLPJFysFaeWmlxs0J3e2Ks2eijcVOUbPkB33KB5JQvBJIu9Fy8aLCgsKb4DO/3VfYFSK2Ln1HsODKTyVq4UybZFA==,iv:/m+xx+NBtHALqrqvyWZdjSuRkK7wjOLMnI93/pMFM0U=,tag:J6Bm+EH7QAGzKh21c0PSgg==,type:str]
+      template_id: ENC[AES256_GCM,data:j746ag==,iv:1nLcMdD0ouC3KvttO3m+v2Tkh7o3CNka3EmibhMgPIw=,tag:xXcGcCmn4zHbEEJPaj9Pgg==,type:int]
 #ENC[AES256_GCM,data:ffyU3+SR9/cUw9jfun8fG/M2AVHbMYTmJeJeD/9sVf38N/b+rFQ/bK5NksovCT0=,iv:TgjqZMn/095FInvhqF+gwVm4/fhUp+1iOgQtgifPUZc=,tag:SS+k+Eb2Py+QcEmCIcQH0Q==,type:comment]
-virtual_machines:
-    - name: ENC[AES256_GCM,data:5Wefbv7cAFgwOMMtS2I=,iv:GnlIiliud0Ih8SDMOZSALlI1W/9U+er5aiug9eHwwJo=,tag:ZwTy2dFVP0xfn+gQ09QeEg==,type:str]
-      domain: ENC[AES256_GCM,data:Loq5YiOF12NNV4a0hw8AjItQzEf7OPR/4w==,iv:wLWLMdGIPDalTPkg7v+qG9N8CRUfpEyvQBmrcWK/cpw=,tag:xK23Ot66gjcoo8L65VV3hA==,type:str]
-      vm_id: ENC[AES256_GCM,data:e48M,iv:fN4PFkkk+MjY8YnHrPJB6G6K3xUEno3LRJLikxqAtic=,tag:FW8ayKyW3gd76jA14dk/MA==,type:int]
-      template_id: ENC[AES256_GCM,data:GXD8EA==,iv:8a19yb9OeddRjFlYz2JyUxUQ/pL2dsUAbNyFqofzkKc=,tag:cUy4ZTzze0QrvwR8yfrT4w==,type:int]
-      ssh_port: ENC[AES256_GCM,data:PQojyA==,iv:ikmtVCjdpPxPqzwZF/0hPfPmhTA0XgUPq5hILZ0A7oY=,tag:HdE3DUb+QSSGgK1jHcyKTQ==,type:int]
-      ip_address: ENC[AES256_GCM,data:nV8TnzA8vAHDV7tk,iv:DQ+eBoD/TzlafUyMoTsx0P924nviVbJqP4Vk+huYGPs=,tag:BtMCrMiHPTWmjfg8nSP3Fw==,type:str]
-    - name: ENC[AES256_GCM,data:09ZGzGEgnPUT/y4uScxn,iv:LDJN6Qpfpft53xg9ZdhLA4ZRpip9bfsmI0gmOEhu6/o=,tag:4hqRJ/Q35kY/hDX2toPeEQ==,type:str]
-      domain: ENC[AES256_GCM,data:pa3rZLaAOoCY/B854BcEEVjnf1LvLIQtYvQ=,iv:UyiJ5FYzjmxhQZkioOa/Vof+TVhL2lHqNT6SI45ZL+8=,tag:3CwvOd/4HzLNNzTXs7U8dA==,type:str]
-      vm_id: ENC[AES256_GCM,data:YLvr,iv:PkJXV+XMBt+PJDKwqiVceKWV+pBn2nA7rqdlGpNLiVE=,tag:JHaDNLT6BkvAh8J63iLHYQ==,type:int]
-      template_id: ENC[AES256_GCM,data:GXD8EA==,iv:8a19yb9OeddRjFlYz2JyUxUQ/pL2dsUAbNyFqofzkKc=,tag:cUy4ZTzze0QrvwR8yfrT4w==,type:int]
-      ssh_port: ENC[AES256_GCM,data:c72sjQ==,iv:brO8f6cpuXJg92/SwsNIqsojqTPl7X3+hQl0DL9Wp3M=,tag:dGCgofjeTHZYfTxLX60TUw==,type:int]
-      ip_address: ENC[AES256_GCM,data:78/pKpRJMEURnN+n,iv:tUm1Mjvg5HiVwu08N7Dp0u45Bevmpfffn9hTmg7zOKQ=,tag:CgClJGXjXBvSdWOXOx6DKg==,type:str]
+vms:
+    - name: ENC[AES256_GCM,data:pVBQ1D+cXogos9eUs+A=,iv:ZRJSUfcB+91PX3/l8+pOSM7SzXW82NRPwCrin0PPn5w=,tag:j35OlxMlWuRJ2sEQrDa0Wg==,type:str]
+      domain: ENC[AES256_GCM,data:kzNxakP9IE4tjNawVFw8W9g3Wm5P/u1aeQ==,iv:Oz5c7mP9eQU4pMQNTL4iLofIj9yCuzKP68xJOydwJN8=,tag:iX8yrfHUIBGazuQKzSSTVg==,type:str]
+      vm_id: ENC[AES256_GCM,data:9ghm,iv:7T/nlOJIlSp0DcTtM3GUSPYoQaK9feKxhq7/JH9UsIc=,tag:/bVnb4naeqmNK+P19PojUg==,type:int]
+      template_id: ENC[AES256_GCM,data:HTp5KA==,iv:3Uv/kkltIuXBoq6TlMs0D0tCVGmX2V25ra8/A1Tg4eM=,tag:nc6DeK+aSwR2Jw8+T6JcSg==,type:int]
+      ssh_port: ENC[AES256_GCM,data:EYmuaQ==,iv:CYIMG+a86xr7EJc3vPAY/9hRgu+G3wsU8Q8Bwu4razY=,tag:fqKqgNjZP9XJZ7K5pvSBxg==,type:int]
+      ip_address: ENC[AES256_GCM,data:ZgGuAM+gKXfC5LRx,iv:jhxdo8BcnRnuJFe+FEcxXnIK7w1Sawb/6tDSBEd+txg=,tag:cLyWwXU4f1EuooUQDQhDYQ==,type:str]
+    - name: ENC[AES256_GCM,data:04KS4CbxMUkcbrh6wOcT,iv:IoMl50BF4cpPELwbcByQH2TVD+7yhFFl4UZz9WKpkIE=,tag:3yXB7bViZ5SsloMxjBSvmg==,type:str]
+      domain: ENC[AES256_GCM,data:RGPlVw3C9vz7KM+Jd7fy9nixuAfAb1RaTWc=,iv:Hp/eZ/CO14IXlk3bjCKDiUF4J41Jb9FmMFJ8RK/5LWk=,tag:SaQaJdBZIjY6l0XhOAqGOQ==,type:str]
+      vm_id: ENC[AES256_GCM,data:xRJp,iv:eo/8jM4/rFFigd4jPUsq9pARCIisnBwMnLxJyxJvWfc=,tag:E3x0NPIDFFjrg14zVvTWUA==,type:int]
+      template_id: ENC[AES256_GCM,data:HTp5KA==,iv:3Uv/kkltIuXBoq6TlMs0D0tCVGmX2V25ra8/A1Tg4eM=,tag:nc6DeK+aSwR2Jw8+T6JcSg==,type:int]
+      ssh_port: ENC[AES256_GCM,data:dx8Szg==,iv:OwtZmVgYsV3O3xEbMO4xWmNY1TSS9acCu2wRxfJnvoI=,tag:G5NB1gB3Z8u1VO7V5DV7bA==,type:int]
+      ip_address: ENC[AES256_GCM,data:4hWYLLcZM5rNGXPA,iv:iKcSXelHMid6GRorbIgTGV5FVVMVx09Guo9zO4kPaZI=,tag:WAy7sRw8e0GV2+3SMi6MIw==,type:str]
 #ENC[AES256_GCM,data:SztoEMzKfQfRDY556NWKv2UN4fa/HOZsof0SoDA=,iv:kHFCHxL/2zcTAsSZo7BQq7VyP/juCz/AW6qKYWARAhk=,tag:spui2EWdx243NsBeCgtI1A==,type:comment]
 defaults:
     #ENC[AES256_GCM,data:0KYW/e6nRdnUDVpWq48=,iv:exiZZH8s+C0SCUEtF9ZBdzjdi94b5pperCQGGWZQags=,tag:/1ixWmvTPPFBT1R89tRUpw==,type:comment]
@@ -48,8 +49,8 @@ defaults:
     #ENC[AES256_GCM,data:3TwrIvRuCEtQbCpeMsQc/k2oLUntfZ3dPWBmGLskmFRh6vkxbKIkR8GluLoRDIeL9uX4sYAM6WdWsI1u5828Yfmwa8ks,iv:d/gnZRxC/E6oISb4rUAwW2fZjz5QOXu37S0TJinAyPk=,tag:lUeifTeeTu2lj/CWmGqZHg==,type:comment]
     ssh_public_key: ENC[AES256_GCM,data:WlpHs20Bg8vbaCYBSO5r5HLlBSejfPD246V5GNUmxtJInrYYdNIEcNTZiggFSX3vIO2C3sj2ja+FxMbMzn0/9dV8uElS8occZmMIAE2YE9xdSwWBrzivPQqwm6tC3hu5Koud,iv:9RoOtkaFnGxJ+YmAAql9oW+8n9hORIXKH+WOMh1Z+8c=,tag:GmvOzXD+lZyXoG3vrL2vYw==,type:str]
 sops:
-    lastmodified: "2025-09-30T09:39:47Z"
-    mac: ENC[AES256_GCM,data:NZ9wv9LB6nMWaGOm2Y1fQ30qTzZMJ0ZURtElAeGkbXhuHsLXpZnJ30fEZNwxsqac3XuYh/WCg4Ur7FbZjH3l+mjgZUhNKs9Vj1HBsU/G7daZOKfG7xJYGVzOX8JibKf/ortVVmS4xPXvCd8lX6+fVtZbE87EDraCpPsEBDpDOAA=,iv:aB+IsS9E1n3i+t8fjUUmVgwd1OKnO2XCnt7kcBcWb0E=,tag:ydkmfGjo+njHvaQLa047Ww==,type:str]
+    lastmodified: "2025-09-30T12:56:32Z"
+    mac: ENC[AES256_GCM,data:6H4t1aLMOHPOCGb0aFOKUaDi131/AgMLdbyiDC38g1W/tINqWnAqOnrb2HEZRm0SLM+VLAWiSYMl9DwuxXkDPdvl+n2J82DQtTcswzvPdec8LZwHvPgvfz6MXvppXjUf14CyQbcKjiyPONj8SbWLmhWkRbh7oze0A7JFI7Vck4g=,iv:8fnPREW4SptGf8j4JxGrHiRbQoqjNYrrjIoRtHU1uuo=,tag:ChxYLgc4mYPhj63amL6M/Q==,type:str]
     pgp:
         - created_at: "2025-09-28T11:57:27Z"
           enc: |-

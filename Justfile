@@ -4,9 +4,9 @@ socket := '/tmp/proxmox-ssh-tunnel.sock'
 proxmox_domain := 'au-adelaide.tombarone.net'
 proxmox_port := '8006'
 
-update: inventory deploy_proxmox deploy_traefik deploy_webserver
+deploy: inventory deploy_proxmox deploy_traefik deploy_test_webserver
 
-destroy: inventory destroy_traefik destroy_webserver
+destroy: inventory destroy_traefik destroy_test_webserver
 
 # Open the proxmox management portal via an SSH tunnel
 open_proxmox:
@@ -34,9 +34,9 @@ deploy_traefik:
 destroy_traefik:
     ansible-playbook traefik/destroy.yaml
 
-deploy_webserver:
+deploy_test_webserver:
     ansible-playbook test_webserver/provision.yaml
     ansible-playbook test_webserver/setup.yaml
 
-destroy_webserver:
+destroy_test_webserver:
     ansible-playbook test_webserver/destroy.yaml

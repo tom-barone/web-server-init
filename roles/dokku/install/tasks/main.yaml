@@ -3,6 +3,8 @@
   ansible.builtin.assert:
     that:
       - dokku_version is defined
+      - domain is defined
+      - lets_encrypt_email is defined
     msg: "Missing a required variable"
 
 - name: Download bootstrap script
@@ -17,4 +19,56 @@
       - /bin/bash
       - /tmp/dokku_bootstrap_{{ dokku_version }}.sh
       - DOKKU_TAG={{ dokku_version }}
+    creates: /usr/bin/dokku
   become: true
+
+- name: Add admin SSH key to dokku
+  become: true
+  ansible.builtin.shell:
+    cmd: cat /root/.ssh/authorized_keys | dokku ssh-keys:add admin
+    creates: /home/dokku/.ssh/authorized_keys
+
+- name: Set global domain
+  ansible.builtin.shell:
+    cmd: "dokku domains:set-global {{ domain }}"
+
+- name: Install dokku plugins
+  loop:
+    - postgres
+    - redis
+    - letsencrypt
+    - http-auth
+    - graphite
+    - cron-restart
+  ansible.builtin.command:
+    cmd: "dokku plugin:install https://github.com/dokku/dokku-{{ item }}.git"
+    creates: "/var/lib/dokku/plugins/enabled/{{ item }}"
+
+- name: Install dokku graphite
+  ansible.builtin.command:
+    cmd: "dokku plugin:install https://github.com/dokku/dokku-graphite.git --name graphite"
+    creates: /var/lib/dokku/plugins/enabled/graphite
+
+- name: Set up LetsEncrypt
+  ansible.builtin.command:
+    cmd: "dokku letsencrypt:set --global email {{ lets_encrypt_email }}"
+
+- name: Enable LetsEncrypt cron job
+  ansible.builtin.command:
+    cmd: "dokku letsencrypt:cron-job --add"
+
+- name: Setup logrotate for dokku
+  become: true
+  vars:
+    logrotate_path: "/var/log/dokku/*.log"
+  ansible.builtin.template:
+    src: files/logrotate.j2
+    dest: /etc/logrotate.d/dokku
+
+- name: Setup logrotate for dokku apps
+  become: true
+  vars:
+    logrotate_path: "/var/log/dokku/apps/*.log"
+  ansible.builtin.template:
+    src: files/logrotate.j2
+    dest: /etc/logrotate.d/dokku-apps

@@ -44,7 +44,7 @@
 
 - name: Resize the hard disk
   ansible.builtin.command: >
-    qm disk resize {{ template_id }} scsi0 8G
+    qm disk resize {{ template_id }} scsi0 15G
   when: not is_template
 
 - name: "Set cloudinit settings"

@@ -46,7 +46,17 @@
       - set
       - "{{ vm_id }}"
       - --ipconfig0
-      - "ip={{ vm_ip_address }}/24,gw={{ gateway_ip_address }}"
+      - "ip={{ vm_ip_address }}/24,gw={{ gateway_ip_address }},ip6=dhcp"
+
+# Required for debian 12 images
+- name: Add serial port socket
+  ansible.builtin.command:
+    argv:
+      - qm
+      - set
+      - "{{ vm_id }}"
+      - --serial0
+      - "socket"
 
 - name: Check VM status
   ansible.builtin.command:

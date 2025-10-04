@@ -1,0 +1,20 @@
+---
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - dokku_version is defined
+    msg: "Missing a required variable"
+
+- name: Download bootstrap script
+  ansible.builtin.get_url:
+    url: https://dokku.com/install/{{ dokku_version }}/bootstrap.sh
+    dest: /tmp/dokku_bootstrap_{{ dokku_version }}.sh
+    mode: "0755"
+
+- name: Install dokku
+  ansible.builtin.command:
+    argv:
+      - /bin/bash
+      - /tmp/dokku_bootstrap_{{ dokku_version }}.sh
+      - DOKKU_TAG={{ dokku_version }}
+  become: true

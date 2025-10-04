@@ -25,3 +25,5 @@
         permit_root_login: "no"
     - role: system/fail2ban
     - role: system/unattended_upgrades
+    - role: docker/install
+    - role: dokku/install

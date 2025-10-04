@@ -17,7 +17,7 @@
   ansible.builtin.get_url:
     url: https://download.docker.com/linux/debian/gpg
     dest: /etc/apt/keyrings/docker.asc
-    mode: '0644'
+    mode: "0644"
 
 - name: Add or remove Docker repository.
   ansible.builtin.deb822_repository:
@@ -39,3 +39,11 @@
       - docker-compose-plugin
     state: present
     update_cache: yes
+
+- name: Run the hello-world container to verify installation
+  ansible.builtin.command:
+    argv:
+      - docker
+      - run
+      - --rm
+      - hello-world

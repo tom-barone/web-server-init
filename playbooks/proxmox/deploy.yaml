@@ -32,10 +32,10 @@
     - name: Create VM templates
       ansible.builtin.include_role:
         name: proxmox/create_template
-      loop: "{{ vm_templates }}"
+      loop: "{{ vm_templates | dict2items }}"
       loop_control:
         loop_var: vm_template
       vars:
-        template_id: "{{ vm_template.template_id }}"
-        image_url: "{{ vm_template.image_url }}"
-        template_name: "{{ vm_template.name }}"
+        template_name: "{{ vm_template.key }}"
+        image_url: "{{ vm_template.value.image_url }}"
+        template_id: "{{ vm_template.value.template_id }}"

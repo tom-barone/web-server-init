@@ -2,7 +2,7 @@ default: help
 
 # Provision and deploy everything
 deploy:
-    @just run-playbook ./playbooks/proxmox/deploy.yaml
+    #@just run-playbook ./playbooks/proxmox/deploy.yaml
     @just run-playbook ./playbooks/traefik/provision.yaml
     @just run-playbook ./playbooks/traefik/deploy.yaml
 
@@ -13,26 +13,22 @@ deploy:
 
 # Destroy everything
 destroy:
-    @read -p "Are you sure you want to destroy all VMs? Press Ctrl+C to cancel or Enter to continue..." _
-    ansible-playbook ./playbooks/vms/destroy.yaml
-    ansible-playbook ./playbooks/traefik/destroy.yaml
-
-proxmox_socket := '/tmp/proxmox-ssh-tunnel.sock'
-traefik_socket := '/tmp/traefik-ssh-tunnel.sock'
-proxmox_domain := 'au-adelaide.tombarone.net'
+    @read -p "Are you sure you want to destroy everything? Press Ctrl+C to cancel or Enter to continue..." _
+    @just run-playbook ./playbooks/proxmox/destroy_vms.yaml
+    #@just run-playbook ./playbooks/proxmox/destroy_vm_templates.yaml
 
 # Open all management dashboards
 open-dashboards:
-    ssh -fN -M -S {{ proxmox_socket }} -L 8006:localhost:8006 root@$(just proxmox_ip)
+    ssh -fN -M -S /tmp/proxmox-ssh-tunnel.sock -L 8006:localhost:8006 root@$(just proxmox_ip)
     python3 -m webbrowser https://localhost:8006 # Proxmox
-    ssh -fN -M -S {{ traefik_socket }} -L 8080:localhost:8080 cloudinit@$(just traefik_ip)
+    ssh -fN -M -S /tmp/traefik-ssh-tunnel.sock -L 8080:localhost:8080 cloudinit@$(just traefik_ip)
     python3 -m webbrowser http://localhost:8080/dashboard/ # Traefik
 
 # Close all management dashboards
 close-dashboards:
-    ssh -S {{ proxmox_socket }} -O exit root@{{ proxmox_domain }} || true
-    ssh -S {{ traefik_socket }} -O exit cloudinit@{{ proxmox_domain }} || true
-    rm -f {{ proxmox_socket }} {{ traefik_socket }}
+    ssh -S /tmp/proxmox-ssh-tunnel.sock -O exit root@$(just proxmox_ip) || true
+    ssh -S /tmp/traefik-ssh-tunnel.sock -O exit cloudinit@$(just traefik_ip) || true
+    rm -f /tmp/proxmox-ssh-tunnel.sock /tmp/traefik-ssh-tunnel.sock
 
 # Edit the SOPS encrypted inventory file
 edit-inventory:
@@ -40,6 +36,8 @@ edit-inventory:
 
 help:
     @just --list
+
+# ------ Secondary Recipes ------
 
 # Extract the proxmox IP address from the encrypted inventory
 [private]

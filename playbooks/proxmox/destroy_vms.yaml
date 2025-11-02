@@ -1,0 +1,12 @@
+---
+- name: Destroy all virtual machines
+  hosts: proxmox
+  tasks:
+    - name: Destroy each vm
+      include_role:
+        name: proxmox/destroy_vm
+      loop: "{{ vms | dict2items }}"
+      loop_control:
+        loop_var: vm
+      vars:
+        vm_id: "{{ vm.value.vm_id }}"

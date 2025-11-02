@@ -1,7 +1,0 @@
----
-- name: Destroy the traefik VM
-  hosts: proxmox
-  vars:
-    vm_id: "{{ traefik.vm_id }}"
-  roles:
-    - role: proxmox/destroy_vm

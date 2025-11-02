@@ -1,0 +1,12 @@
+---
+- name: Destroy all VM templates
+  hosts: proxmox
+  tasks:
+    - name: Destroy each template
+      include_role:
+        name: proxmox/destroy_vm
+      loop: "{{ vm_templates | dict2items }}"
+      loop_control:
+        loop_var: vm_template
+      vars:
+        vm_id: "{{ vm_template.value.template_id }}"

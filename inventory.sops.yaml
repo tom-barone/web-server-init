@@ -17,19 +17,19 @@ all:
                 root_alias: ENC[AES256_GCM,data:KC9NcvR/G2EjL9aaJqH4Aj6nP0yWZWxINb2dV8bHIhF6G7U=,iv:nAqPa4TbgMXSwYjrA5HMO6gArnmkzfGtSGUWZ9hpLwU=,tag:hsDf8S+P/yAwBT5HfIdtRQ==,type:str]
         #ENC[AES256_GCM,data:NdeLD3EFtTeYObRvfG3IF8oqzMLlYFzH1gllAlLSLTtIc6z0ru6w,iv:cJy44Jw3KwurFWr5xsyqDVsCzX3QFCF2T/iryJzV2Pw=,tag:FRocu6vJcysjExqp2hBbAA==,type:comment]
         vm_templates:
-            - name: ENC[AES256_GCM,data:YUCckfVtKz2fnHTvxZ+HM6utGw==,iv:8GdHmmb2x1wvY04VbxLwiiJlWt1VCFyBQK87fvpCS+s=,tag:joei5T62sQnDqXxUcMASIg==,type:str]
-              image_url: ENC[AES256_GCM,data:rftXzUDRSv3lQzN3ipVHX8fGm6elzZGhPPkDPvJSoqPtwa7dV9SoGoJ0P6gOS+csMpBhuBN1E+OpaaVHUppHYpykGx1C/MLxleB4tkJYfmmMyVBAc7of2lpZREXVud8b8KfK2Q==,iv:QbMOyGtuPuipUKeyvzeuHZseZzUzOpPIrZ2na4atcSI=,tag:LS7Lhv9BnT/hhFSudUE9Tg==,type:str]
-              template_id: ENC[AES256_GCM,data:HlvVEg==,iv:b0c8+lHnbYC1jMKVAb5t5zjA0xE+xvpR6mqiuKXGKo4=,tag:YHfRwRlGl3L6XoaDHosH/Q==,type:int]
-              #ENC[AES256_GCM,data:DoMLCrkNbqsA62kcbnzgIaDe5JPVyY+A37BE,iv:0YhGnw0C4TbZczLmawXnI6YOKSzZy+tW31bXQnew2FI=,tag:M2bk+ApWCR9tyLEJrycwQA==,type:comment]
-              #ENC[AES256_GCM,data:qSrcxrtHSRnPAwk+6sGxEuo7mgxvGeuM7sUpepu/gfS3U3Af9BHC2MRJZIKTy0yCBvtfFel6jVoX4rrshS2Ot/72T/ZN/516b5VZiIez/9TETzeMj/5/Ce/hYQ7KNYMt4TfbMHfOZM7cPvvqwx0QcEcT6Q==,iv:HtWiJU2d+Q5sOF/3XeQjjZ1DwDhxZhWGVkpWXKLYjRw=,tag:qBSLFxqW7sl289l23IPfEQ==,type:comment]
-              #ENC[AES256_GCM,data:DBnk4HFNQNefPWgjzUa74dDB3w==,iv:9WSx5Nv2j0EAQGT0W75q9BpVrSSs0AkyagYHwftgtpo=,tag:1uGTVtDHmL4ZTcon+bfF+g==,type:comment]
+            debian_13_cloudinit:
+                image_url: ENC[AES256_GCM,data:8ltxgCRK7SWejf7qg37OJoCD5NhGXzRu5U0QdVr4Np8JyxCwFtYCQBv9YbX7zFmMbg7k6Z45R4uwGsu6FG9pm9P14zQkZXB72iOUHvDsCFWQijuXKUJnh5QVQMoEZyrDI/G6cA==,iv:DRieIfcgbpHPZUVSXJvzcKCbb5lct9uhfSo+Mt/aFws=,tag:/RXHMXzGmQR2ZAstqdqpuQ==,type:str]
+                template_id: ENC[AES256_GCM,data:8S6xJg==,iv:8mwm3PF6Eqc7Xhz4EA7Tt2QFpcMoRvk1E7tLwlydRIk=,tag:baJshXw6rP0rQ7G49hCvVQ==,type:int]
+                #ENC[AES256_GCM,data:qS5uONZ7HqM8uwQdxN1ZcInRgcA=,iv:nOsVii5PEdrQd+QrXbM7fV7n36usjQsw+h8mrXDzoSA=,tag:mu+QX44HDnx84IN/Qt8GxA==,type:comment]
+                #ENC[AES256_GCM,data:Hqlc1aBXMUqxo/qrg5E77vLDEM1LsZdYkvZvumI1UUr+XErMGj7uaR/e/M86OgNXGftUH2xb/NmFoeH1uhfCu4kIEEvrom8nzBvBdVRozMs/kWl1bjZIvby7eVEd632k9QdAKXg886BE83pywUcjErfAdOlk,iv:YmbFRJBisDIAu1NFvd/NTLYvWtRx3T0n1LfSIA2ILVI=,tag:qfZehPaAg6r48M0IFJhn/Q==,type:comment]
+                #ENC[AES256_GCM,data:OO3zkOZXN+varUfZNVvKvS+X2Nu8,iv:lwMMv3IR3GmKPIarB3Vr6i15YTpqMT2J8e4OVgLVP6g=,tag:nQHTbsY6+XAPcR+iOvE6Kw==,type:comment]
         #ENC[AES256_GCM,data:XigyqVkv4mnyiIcZ50q+JFHYEdwcDaxVvpO7DCj9ss3Pt1FLU2PNX3HZBoDjSDo=,iv:cjUmLB73Itvi5wM/XY+a6qR3Q6V982Ha4XvPzJj48AQ=,tag:AuT6ZtYNMS5jA/CNZOQ/IQ==,type:comment]
         vms:
             #ENC[AES256_GCM,data:R5rYAz2qxoLr4QHzyUq6NPa0aqPZ4av7l2YHVkvOK+0jutgv6KQiEQhuPcugi+W2GG8vX4HlXl8AP49n+1Yr/RhZnRsEmQ==,iv:uqkmZ5RAeyU5HvCyvOChtNFMAxm7EGxO6mIjBQRbyqU=,tag:fVZzoZZMd66m+otN7NzRSw==,type:comment]
             traefik:
                 ip_address: ENC[AES256_GCM,data:6PSwu2Fv3m66iA694K4=,iv:MXDa57GezYtEWkhM+zoudkqBogAqf/TUNx2s7DPBPSU=,tag:W0yaxAAGDuEy50y59c/UKw==,type:str]
                 vm_id: ENC[AES256_GCM,data:x9Kb,iv:AXWoeb8Qt6+VLbQnbHSZci6znmhrzQSIXg91HOkn1E4=,tag:hpoJS8COLxzZEKbRxxOqNQ==,type:int]
-                template_id: ENC[AES256_GCM,data:RCQntA==,iv:PL/L0nJ+77IewQ28fOAmOj3FppHwtM7/io33mx5Ie7Y=,tag:VC5QJ18vimItaN030fcgYA==,type:int]
+                template_id: ENC[AES256_GCM,data:1yCUZZGIy20RpIhCZVg9K/cJaBs1jsp+XLYqvBV56IkaZusDvm+qiqQYWHK5dVdjoE28qSaDRA==,iv:nuxp59+LAYlHwbNqtotVpwoXvTWx49+tfWj7sggBY8Y=,tag:TVJaEoDHGlG4A0OR9CPgGg==,type:str]
                 ssh_port: ENC[AES256_GCM,data:gvvVWw==,iv:Ff19R59DZgSqWhvNX1IJL5Lf6okay5KBM8G5qLZYRH0=,tag:NqForfAl/GSXf6bFBM5xlA==,type:int]
                 routes:
                     - domain: ENC[AES256_GCM,data:gqgic9SXzvKNx3aQrWh/NPvVqCH490MzIA==,iv:+cS3zyCxdh6pWRloueCo9DZrZff+ilWjYMO67GsEu4k=,tag:RxC7oXJ+nq+cpGUCm83H7A==,type:str]
@@ -37,7 +37,7 @@ all:
             dokku_sandbox:
                 ip_address: ENC[AES256_GCM,data:mNOo5/ZoxpwugYDR+l8=,iv:4vOi2LuDHwQcgbqEFAkubTIyyQbfs2GyqlxBFJp3CgI=,tag:EWpFHNoRi7ZJKkCCLHLJlA==,type:str]
                 vm_id: ENC[AES256_GCM,data:5XI4,iv:siJI0uobfEnho8zuQUSvp4isEvKIli4Vf0jTtLR0FME=,tag:I53vxINOgzRlDVUhkHDw9w==,type:int]
-                template_id: ENC[AES256_GCM,data:X4xJBw==,iv:5rA1yc5a92/674FV4M7knirDBRdMTgkOZ6gKB9sTp20=,tag:viCxGDa2dF3Pp6kh0pCEIA==,type:int]
+                template_id: ENC[AES256_GCM,data:MkpjzRL3zw8U6wKgGq1KLusbc8lih8Ri+zIgb7RM7QKhU0lRrfyI5ER9xF5fUrHR86+g9a2eYQ==,iv:nIpqZukVQchpeOA63LJHf5FpBsdQgFCUEVkBCByo+po=,tag:8/I8bcImePv1uob/kQ2KEg==,type:str]
                 ssh_port: ENC[AES256_GCM,data:En3gFw==,iv:WiIemeszyU3c1tATjFVaqj66sX8mw4E/CB5uPlR6TmI=,tag:67wtHOPqEeSm04mlevyG2A==,type:int]
         #ENC[AES256_GCM,data:Dw9Zpc9wV+w9CJFhznbKLHsAsc2VfbAAakBarHc=,iv:je3+iYhyV7js2720QL+pSPuaXzTqhWo6LaLDDV14USs=,tag:UZJFyAFw/P9l2EgWKUChVA==,type:comment]
         defaults:
@@ -63,8 +63,8 @@ all:
             domain: ENC[AES256_GCM,data:Ee2GIiUHyT15BQcATRKRkwS+0j41,iv:0UJAb1KPNP9E/JvT3d4cn6lt0B99w3Ss2SW0XDUys0A=,tag:NRP6ERCd3Xp1cIuLamIO1w==,type:str]
             lets_encrypt_email: ENC[AES256_GCM,data:P6trKCBxAXufTPhMK5jE9sT1,iv:7uIiMZLEqFIx09Ju76FRvJ1HgSca9kF1ZVQO9zi4hH0=,tag:qVReWHDfG/0Vbeu3cZMjHw==,type:str]
 sops:
-    lastmodified: "2025-11-02T12:19:47Z"
-    mac: ENC[AES256_GCM,data:XiuyzkWSSuxsNmiqs6iBNsd27NYqGuZRqFfBJZhV4jwlbux4HBk6TXya3Ee5aLWDRqt1oNzOVmvjcONf2AILRQDgPOCjSiG1720McsbWasqtTn1HU7Zwo1U+dRuJOC51Va/NryJlQZ7J1+FpGLXOTJfLROBfqhpA3FBKNPp0jeQ=,iv:nMbpQ9tUIF68ZkssU5NQdvepFl4Xg9g3/wu0n2/Esns=,tag:KsfXytJLTwWac6xRcOOiLg==,type:str]
+    lastmodified: "2025-11-02T13:21:01Z"
+    mac: ENC[AES256_GCM,data:jfcx7pJXA8kzBt8Ct/UJEg7SZIVnT+4wEgGwzpJxOzMtXR4VnF07VNsb35AayE55S//LOjcpMIp+UzUncmSgigdb8EZJ3X9/NsK/zWtX6AoLX1rNbjAlVgJmxipO6nRb0JrtFt605zArNi9mLKeI786UI+VmFxVe6BpVGEXETF8=,iv:3cg5kl5sDrFPq8r055B3pEu6W0eY3BADKlQJOaCyi+g=,tag:oRuaOyxDWprpaoNdz+wqtg==,type:str]
     pgp:
         - created_at: "2025-11-02T09:54:24Z"
           enc: |-

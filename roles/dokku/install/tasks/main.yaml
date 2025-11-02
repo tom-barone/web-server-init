@@ -72,3 +72,14 @@
   ansible.builtin.template:
     src: files/logrotate.j2
     dest: /etc/logrotate.d/dokku-apps
+
+- name: Allow all users in the dokku group to run dokku without password
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/sudoers.d/dokku-users
+    owner: root
+    group: root
+    mode: "0440"
+    content: |
+      %dokku ALL=(ALL:ALL) NOPASSWD:SETENV: /usr/bin/dokku
+    validate: "/usr/sbin/visudo -cf %s"

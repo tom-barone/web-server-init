@@ -34,6 +34,12 @@ edit-inventory:
 help:
     @just --list
 
+ssh-traefik:
+    ssh $(just traefik_ip)
+
+ssh-proxmox:
+    ssh root@$(just proxmox_ip)
+
 # ------ Secondary Recipes ------
 
 # Extract the proxmox IP address from the encrypted inventory

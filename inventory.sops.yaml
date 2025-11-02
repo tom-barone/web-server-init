@@ -41,10 +41,13 @@ all:
                 vm_id: ENC[AES256_GCM,data:5XI4,iv:siJI0uobfEnho8zuQUSvp4isEvKIli4Vf0jTtLR0FME=,tag:I53vxINOgzRlDVUhkHDw9w==,type:int]
                 template_id: ENC[AES256_GCM,data:MkpjzRL3zw8U6wKgGq1KLusbc8lih8Ri+zIgb7RM7QKhU0lRrfyI5ER9xF5fUrHR86+g9a2eYQ==,iv:nIpqZukVQchpeOA63LJHf5FpBsdQgFCUEVkBCByo+po=,tag:8/I8bcImePv1uob/kQ2KEg==,type:str]
                 ssh_port: ENC[AES256_GCM,data:En3gFw==,iv:WiIemeszyU3c1tATjFVaqj66sX8mw4E/CB5uPlR6TmI=,tag:67wtHOPqEeSm04mlevyG2A==,type:int]
+                dokku_version: ENC[AES256_GCM,data:G9xm+twYug==,iv:cnkZmqr2pL0P16CzWNF94Z2eu9gEIxgGN9KPzYez9wg=,tag:QQHa6OBlUpha0b4wscyZNA==,type:str]
+                domain: ENC[AES256_GCM,data:5M/LKy6uNEog4aprKBjUgtunr0U5,iv:tqf6lcb5pPGGbb5kF8nRbg5GO5a1+HmlC6K/sl5pN3M=,tag:wh9OznvV0BcYSIhGbqNveA==,type:str]
         admin:
             #ENC[AES256_GCM,data:8XPsO/RDxFfTJs4Txr+zqyXLn/WrMrGJw6AOWDEnKwqMZ4F6VPvxCZ5WFg==,iv:2bfnkMtnh0t2wzFizzIyo6QCrUWln8VQJX/rriktCNA=,tag:69uLcCUPmwq0JbuDqSt6jw==,type:comment]
             username: ENC[AES256_GCM,data:nN6BPtU=,iv:6SvjGRcYjKnbg60cWsmnQuUOAHHIzg5bQSrH8uCvzBI=,tag:UAzfAMf6bG9RVbJf8zzh8A==,type:str]
             ssh_public_key: ENC[AES256_GCM,data:XFNi2m3AEVVrgASFvl5E65ShHIwL62babKQDBfknucERVjZwuWOaNsBo4EHC2V2c57FlSe1f+n2JeeHj7Y3mSHktc4pCSS9gMK98ism37Cdax3m1CYo9Ubbsf1WqEX4/Csy1,iv:25TyaG1a8ZT9WA5366TnXuNFPJD49Esx34aXBJWUQsc=,tag:KNxhERMcVMxAiGq6cMiD2Q==,type:str]
+            lets_encrypt_email: ENC[AES256_GCM,data:+tcfmowUnpZJ7x6juVI16wNOxr5sbZqRwi9Bt2wo,iv:E/bcinUXkJtF+KNqVg7OIW2BGac4ejLnDSZTYO1EM14=,tag:1MhJqlwNh+c+coc90EQ+pA==,type:str]
         #ENC[AES256_GCM,data:Dw9Zpc9wV+w9CJFhznbKLHsAsc2VfbAAakBarHc=,iv:je3+iYhyV7js2720QL+pSPuaXzTqhWo6LaLDDV14USs=,tag:UZJFyAFw/P9l2EgWKUChVA==,type:comment]
         defaults:
             #ENC[AES256_GCM,data:3FMjYMep7CI2V4MXQW4=,iv:fA/72GbJXbZV6F9zHcg16erwSHktzAKwKxokvZhZTcg=,tag:ROnZijbOb+nXjDJ+ncWS3A==,type:comment]
@@ -59,12 +62,9 @@ all:
         dokku_sandbox:
             ansible_host: ENC[AES256_GCM,data:SmPV080wTQ6mA2bKpf09Ppn9C5tqi6ghbBv/El+JaNJGvxGK6+uj,iv:WatwWVoc6Fd9LqE7DzUoMfV+KJRyXcUk88ABxVirunQ=,tag:g/N3QZ8pB8AvnaN8GhjUEA==,type:str]
             ansible_user: ENC[AES256_GCM,data:++P9qWR9kihe,iv:QUDyNahtu0HADxLVKVsJRDu6Ks0mJxOdLP2o4oBOTrQ=,tag:tUif8Ex1FszTkjgLRlrf7Q==,type:str]
-            #ENC[AES256_GCM,data:vlgNIW01j0N8U3+rBpiDWirplVMTPw==,iv:nw29wthogiOOGCftHRv1GCAhN2adQvpsOLTsHUwZ4Bo=,tag:rx/31HcEPQi4GQwa0Qudlg==,type:comment]
-            #ENC[AES256_GCM,data:jgewK3zK21k2i0nSzLJ98GHGcw1Gbbe+ILTY13Y=,iv:do0PVhwE3+OPj8ocOO+XGYmdJ+TI4rYeVO4TtF6k7AE=,tag:xiLuiJFMaA0wlmRHdGC90w==,type:comment]
-            #ENC[AES256_GCM,data:FT9K6f5Dx/xvI3aVSKStVBOxxbOFU8aKSSCwG/xhR0jPmf8W2vU=,iv:VnAosGNcVMITdoE8LLDyPRXwFqGd7V3ZWgcI/OO+hZ0=,tag:YlKFpca071LoPP2jpVNWng==,type:comment]
 sops:
-    lastmodified: "2025-11-02T13:52:40Z"
-    mac: ENC[AES256_GCM,data:1lVGkYUlOtHfcKiIGTytbK5ip1cXexticvTVlstNP1WRImyJWn3n2tgy3R8Jec1ETqZPsEXBCLPcmWpWrsGTualFevEY81CkjPueqqFtCOeU3sblvidjNkHW8zO/T7oKy4Z/qQW8kJHj/nRm3H33NqSOCmYYFRgWP0fzKCQiGJ0=,iv:udwYq1743hqwVP1rNZXAKD21GUuXDRHvMWoEtTvsjp4=,tag:07T70idpdKol6U0eB+2/2g==,type:str]
+    lastmodified: "2025-11-02T14:13:08Z"
+    mac: ENC[AES256_GCM,data:PQOKNDAAkKx+omnxM4eyjMLVrIl9ovgZ/MDJDxUc6IXhmOTSIgW6heE8a3CX2bY8YIy541LmIVIx/9sFr8jRVNtaavHUnu+7DX26fWtek8T9WagLCAF4Jq3P3Zchw1f685Jh4UiwMNqp8N/Prau7JTgXoz/7SeNZp1S8WH7Oj2o=,iv:01KqA7jNGgMREbNxBJwTxkjwm775yTiRhWwvsXhhN1Q=,tag:PD74ltT/0bObZjIvJWzYvw==,type:str]
     pgp:
         - created_at: "2025-11-02T09:54:24Z"
           enc: |-

@@ -1,3 +1,4 @@
+---
 - name: Provision the Traefik VM
   hosts: proxmox
   roles:

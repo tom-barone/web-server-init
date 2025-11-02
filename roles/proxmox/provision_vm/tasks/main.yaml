@@ -89,3 +89,5 @@
 - name: Wait for 30 seconds for the VM to boot
   ansible.builtin.pause:
     seconds: 30
+  when:
+    - "'stopped' in vm_status.stdout"

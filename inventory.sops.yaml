@@ -42,7 +42,11 @@ all:
                 template_id: ENC[AES256_GCM,data:MkpjzRL3zw8U6wKgGq1KLusbc8lih8Ri+zIgb7RM7QKhU0lRrfyI5ER9xF5fUrHR86+g9a2eYQ==,iv:nIpqZukVQchpeOA63LJHf5FpBsdQgFCUEVkBCByo+po=,tag:8/I8bcImePv1uob/kQ2KEg==,type:str]
                 ssh_port: ENC[AES256_GCM,data:En3gFw==,iv:WiIemeszyU3c1tATjFVaqj66sX8mw4E/CB5uPlR6TmI=,tag:67wtHOPqEeSm04mlevyG2A==,type:int]
                 dokku_version: ENC[AES256_GCM,data:G9xm+twYug==,iv:cnkZmqr2pL0P16CzWNF94Z2eu9gEIxgGN9KPzYez9wg=,tag:QQHa6OBlUpha0b4wscyZNA==,type:str]
-                domain: ENC[AES256_GCM,data:5M/LKy6uNEog4aprKBjUgtunr0U5,iv:tqf6lcb5pPGGbb5kF8nRbg5GO5a1+HmlC6K/sl5pN3M=,tag:wh9OznvV0BcYSIhGbqNveA==,type:str]
+                domain: ENC[AES256_GCM,data:fE5j+Gqyb9es2ixYGEYdhBMw8VtnDF4Qkqhk,iv:MNRI9CMrM8ki6tK68j7ln44YNbPBdWDZROhkkqhwEsc=,tag:eFL6f4K95YoKGH6TZrx4GQ==,type:str]
+                email:
+                    gmail_app_username: ENC[AES256_GCM,data:3cYzsWRcUTHXtjsF36HGWfP0,iv:gGxx2oQEgYGGRFtLZYyJCIjFOAezu1GWbo2lh9XX1z0=,tag:/ObMtOss/yQ2Sp7FxNWvRA==,type:str]
+                    gmail_app_password: ENC[AES256_GCM,data:rxTr15ZNrbZ0rNDqzxWl5w==,iv:zQnYZJ8HHGAZjQYwD5GWQAxQFe6+dj9RGClNhk2vgoA=,tag:c67pYvDgaAG7rWGnNtaIUQ==,type:str]
+                    root_alias: ENC[AES256_GCM,data:TxnRDX1dTm5SJOL1LQLkPgaz5+OptOoZX8yK/5C6ug0=,iv:hKW9kGD60ahBXWeB7UW3AOY/NjDprzZAMNIlSqgsfaY=,tag:fctYKkYAxGJ4PokzUlwCOA==,type:str]
         admin:
             #ENC[AES256_GCM,data:8XPsO/RDxFfTJs4Txr+zqyXLn/WrMrGJw6AOWDEnKwqMZ4F6VPvxCZ5WFg==,iv:2bfnkMtnh0t2wzFizzIyo6QCrUWln8VQJX/rriktCNA=,tag:69uLcCUPmwq0JbuDqSt6jw==,type:comment]
             username: ENC[AES256_GCM,data:nN6BPtU=,iv:6SvjGRcYjKnbg60cWsmnQuUOAHHIzg5bQSrH8uCvzBI=,tag:UAzfAMf6bG9RVbJf8zzh8A==,type:str]
@@ -63,8 +67,8 @@ all:
             ansible_host: ENC[AES256_GCM,data:SmPV080wTQ6mA2bKpf09Ppn9C5tqi6ghbBv/El+JaNJGvxGK6+uj,iv:WatwWVoc6Fd9LqE7DzUoMfV+KJRyXcUk88ABxVirunQ=,tag:g/N3QZ8pB8AvnaN8GhjUEA==,type:str]
             ansible_user: ENC[AES256_GCM,data:++P9qWR9kihe,iv:QUDyNahtu0HADxLVKVsJRDu6Ks0mJxOdLP2o4oBOTrQ=,tag:tUif8Ex1FszTkjgLRlrf7Q==,type:str]
 sops:
-    lastmodified: "2025-11-02T14:13:08Z"
-    mac: ENC[AES256_GCM,data:PQOKNDAAkKx+omnxM4eyjMLVrIl9ovgZ/MDJDxUc6IXhmOTSIgW6heE8a3CX2bY8YIy541LmIVIx/9sFr8jRVNtaavHUnu+7DX26fWtek8T9WagLCAF4Jq3P3Zchw1f685Jh4UiwMNqp8N/Prau7JTgXoz/7SeNZp1S8WH7Oj2o=,iv:01KqA7jNGgMREbNxBJwTxkjwm775yTiRhWwvsXhhN1Q=,tag:PD74ltT/0bObZjIvJWzYvw==,type:str]
+    lastmodified: "2025-11-02T15:09:48Z"
+    mac: ENC[AES256_GCM,data:KeBYatjHGzm7EUV4ilZsfkjWb5WYsTX3LtM9VUJDFgY7rdMVUzZW04M9wwHeocthlfcsTgVYIBbECC6hx+BKS8TBcgh8fF+viHpMJViPW59jjKPfhg9Yn5qIcO4gyD2ohQ6GNQ9TpRxblqWIikCcPKeeZBbR3vlA0PGiOyBWfmQ=,iv:uF7JmTWkSDHnCaBEXNSr9VMa56QCg+JTUOI4URHpfmo=,tag:x08RIC2nX7E6lF3U444X6g==,type:str]
     pgp:
         - created_at: "2025-11-02T09:54:24Z"
           enc: |-

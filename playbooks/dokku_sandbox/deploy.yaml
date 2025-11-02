@@ -47,3 +47,11 @@
         domain: "{{ vms.dokku_sandbox.domain }}"
         lets_encrypt_email: "{{ admin.lets_encrypt_email }}"
     - role: dokku/github_deploy
+    - role: mail/postfix_relay
+      vars:
+        relay_host: "smtp.gmail.com"
+        relay_port: 587
+        relay_username: "{{ vms.dokku_sandbox.email.gmail_app_username }}"
+        relay_password: "{{ vms.dokku_sandbox.email.gmail_app_password }}"
+        postfix_hostname: dokku-sandbox
+        root_alias: "{{ vms.dokku_sandbox.email.root_alias }}"

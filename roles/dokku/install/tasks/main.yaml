@@ -83,3 +83,8 @@
     content: |
       %dokku ALL=(ALL:ALL) NOPASSWD:SETENV: /usr/bin/dokku
     validate: "/usr/sbin/visudo -cf %s"
+
+- name: Start vector logs
+  become: true
+  ansible.builtin.command:
+    cmd: "dokku logs:vector-start"

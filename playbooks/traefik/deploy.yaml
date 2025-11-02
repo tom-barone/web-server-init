@@ -16,6 +16,28 @@
     traefik_version: "3.5.3"
     traefik_config_dir: "/etc/traefik"
   become: true
+  roles:
+    - role: system/update
+    - role: user/create_admin
+      vars:
+        username: "{{ admin.username }}"
+        ssh_public_key: "{{ admin.ssh_public_key }}"
+    - role: system/locale
+      vars:
+        locale: "{{ defaults.locale }}"
+    - role: system/harden_ssh
+      vars:
+        ssh_public_key: "{{ admin.ssh_public_key }}"
+        exclusive_access: "no"
+        permit_root_login: "no"
+    - role: system/fail2ban
+    - role: system/unattended_upgrades
+    - role: router_port_forward
+      vars:
+        description: "Traefik SSH"
+        internal_port: "22"
+        external_port: "{{ vms.traefik.ssh_port }}"
+        protocol: "TCP"
   tasks:
     - name: Download Traefik binary
       ansible.builtin.get_url:

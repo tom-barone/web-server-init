@@ -4,12 +4,13 @@ default: help
 deploy:
     @just run-playbook ./playbooks/proxmox/deploy.yaml
     @just run-playbook ./playbooks/traefik/deploy.yaml
+    #@just run-playbook ./playbooks/dokku_sandbox/deploy.yaml
     #ansible-playbook ./playbooks/dokku_sandbox/deploy.yaml
 
 # Destroy everything
 destroy:
     @read -p "Are you sure you want to destroy everything? Press Ctrl+C to cancel or Enter to continue..." _
-    #@just run-playbook ./playbooks/dokku_sandbox/destroy.yaml
+    @just run-playbook ./playbooks/dokku_sandbox/destroy.yaml
     @just run-playbook ./playbooks/traefik/destroy.yaml
 
 # Open all management dashboards

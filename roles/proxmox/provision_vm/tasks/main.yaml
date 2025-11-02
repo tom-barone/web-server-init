@@ -81,7 +81,6 @@
 #    name: "router_port_forward"
 #  vars:
 #    description: "Proxmox-VM-{{ vm_id }} SSH"
-#    ip_address: "{{ vm_ip_address }}"
 #    internal_port: 22
 #    external_port: "{{ external_ssh_port }}"
 #    protocol: "TCP"

@@ -76,16 +76,17 @@
   when:
     - "'stopped' in vm_status.stdout"
 
-- name: Forward port to allow external SSH access to the new VM
-  ansible.builtin.include_role:
-    name: "router_port_forward"
-  vars:
-    description: "Proxmox-VM-{{ vm_id }} SSH"
-    ip_address: "{{ vm_ip_address }}"
-    internal_port: 22
-    external_port: "{{ external_ssh_port }}"
-    protocol: "TCP"
+#- name: Forward port to allow external SSH access to the new VM
+#  ansible.builtin.include_role:
+#    name: "router_port_forward"
+#  vars:
+#    description: "Proxmox-VM-{{ vm_id }} SSH"
+#    ip_address: "{{ vm_ip_address }}"
+#    internal_port: 22
+#    external_port: "{{ external_ssh_port }}"
+#    protocol: "TCP"
 
-- name: Wait for 10 seconds for the VM to boot
+# Let's the VM have some time to boot and fetch a DHCP lease
+- name: Wait for 30 seconds for the VM to boot
   ansible.builtin.pause:
-    seconds: 10
+    seconds: 30

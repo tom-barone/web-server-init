@@ -8,7 +8,6 @@
   ansible.builtin.assert:
     that:
       - description is defined
-      - ip_address is defined
       - internal_port is defined
       - external_port is defined
       - protocol is defined
@@ -19,14 +18,17 @@
     name: miniupnpc
     state: present
 
-- name: Add port redirect to router for external SSH access
+# Note that machines can only create port forwards for themselves
+# on compatible routers that support UPnP. Can't create port forwards
+# for other machines on the network :(
+- name: Add port redirect to router
   ansible.builtin.command:
     argv:
       - upnpc
       - -e
       - "{{ description }}"
       - -a
-      - "{{ ip_address }}"
+      - "@"
       - "{{ internal_port }}"
       - "{{ external_port }}"
       - "{{ protocol }}"

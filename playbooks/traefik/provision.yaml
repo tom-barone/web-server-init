@@ -3,9 +3,9 @@
   roles:
     - role: proxmox/provision_vm
       vars:
-        vm_id: "{{ traefik.vm_id }}"
-        template_id: "{{ traefik.template_id }}"
+        vm_id: "{{ vms.traefik.vm_id }}"
+        template_id: "{{ vms.traefik.template_id }}"
         vm_name: traefik
-        vm_ip_address: "{{ traefik.ip_address }}"
-        external_ssh_port: "{{ traefik.ssh_port }}"
+        vm_ip_address: "{{ vms.traefik.ip_address }}"
+        external_ssh_port: "{{ vms.traefik.ssh_port }}"
         gateway_ip_address: "{{ router.ip_address }}"

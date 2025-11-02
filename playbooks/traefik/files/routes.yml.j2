@@ -1,6 +1,6 @@
 http:
   routers:
-{% for route in traefik.routes %}
+{% for route in vms.traefik.routes %}
     {{ route.domain | replace('.', '-') }}-router:
       rule: "Host(`{{ route.domain }}`)"
       service: {{ route.domain | replace('.', '-') }}-service
@@ -10,7 +10,7 @@ http:
 {% endfor %}
 
   services:
-{% for route in traefik.routes %}
+{% for route in vms.traefik.routes %}
     {{ route.domain | replace('.', '-') }}-service:
       loadBalancer:
         servers:

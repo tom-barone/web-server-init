@@ -1,4 +1,0 @@
-ansible_host: au-adelaide.tombarone.net
-ansible_user: cloudinit
-ansible_port: 9049
-ansible_python_interpreter: /usr/bin/python3

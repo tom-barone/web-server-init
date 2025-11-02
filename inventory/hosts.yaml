@@ -1,5 +1,0 @@
-all:
-  hosts:
-    proxmox:
-    traefik:
-    dokku_sandbox:

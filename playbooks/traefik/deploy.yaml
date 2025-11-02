@@ -65,25 +65,27 @@
         state: started
         enabled: yes
 
-    - name: Claim port 80 for Traefik
-      ansible.builtin.include_role:
-        name: "router_port_forward"
-      vars:
-        description: "Traefik-VM HTTP"
-        ip_address: "{{ traefik.ip_address }}"
-        internal_port: "80"
-        external_port: "80"
-        protocol: "TCP"
+    # NOTE: Unfortunately these port forward rules don't always work,
+    # the router may need to be configured manually at this point.
+    #- name: Claim port 80 for Traefik
+    #  ansible.builtin.include_role:
+    #    name: "router_port_forward"
+    #  vars:
+    #    description: "Traefik-VM HTTP"
+    #    ip_address: "{{ vms.traefik.ip_address }}"
+    #    internal_port: "80"
+    #    external_port: "80"
+    #    protocol: "TCP"
 
-    - name: Claim port 443 for Traefik
-      ansible.builtin.include_role:
-        name: "router_port_forward"
-      vars:
-        description: "Traefik-VM HTTPS"
-        ip_address: "{{ traefik.ip_address }}"
-        internal_port: "443"
-        external_port: "443"
-        protocol: "TCP"
+    #- name: Claim port 443 for Traefik
+    #  ansible.builtin.include_role:
+    #    name: "router_port_forward"
+    #  vars:
+    #    description: "Traefik-VM HTTPS"
+    #    ip_address: "{{ vms.traefik.ip_address }}"
+    #    internal_port: "443"
+    #    external_port: "443"
+    #    protocol: "TCP"
 
     - name: Wait for Traefik to be ready
       ansible.builtin.wait_for:

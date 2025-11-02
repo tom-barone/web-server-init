@@ -2,6 +2,19 @@
 #  Playbook to deploy a sandbox VM with dokku
 #  that can be used to test out web applications.
 
+- name: Provision the Dokku Sandbox VM
+  hosts: proxmox
+  roles:
+    - role: proxmox/provision_vm
+      vars:
+        vm_id: "{{ vms.dokku_sandbox.vm_id }}"
+        template_id: "{{ vms.dokku_sandbox.template_id }}"
+        vm_name: dokku_sandbox
+        vm_ip_address: "{{ vms.dokku_sandbox.ip_address }}"
+        external_ssh_port: "{{ vms.dokku_sandbox.ssh_port }}"
+        gateway_ip_address: "{{ router.ip_address }}"
+
+
 - name: Deploy the dokku sandbox webserver
   hosts: dokku_sandbox
   become: true

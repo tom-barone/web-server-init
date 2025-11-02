@@ -1,0 +1,7 @@
+- name: Destroy the Traefik VM
+  hosts: proxmox
+  roles:
+    - role: system/update
+    - role: proxmox/destroy_vm
+      vars:
+        vm_id: "{{ vms.traefik.vm_id }}"

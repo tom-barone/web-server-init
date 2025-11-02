@@ -4,7 +4,9 @@ all:
         ansible_python_interpreter: ENC[AES256_GCM,data:8XziaPAWnUVwlljrSCmBUw==,iv:TceGeV29iHLJTh7tqA7KUqNqwMdHDxDrGfxYfOhmM6Q=,tag:PxwhSLiMHKw3eWpJzIzNfg==,type:str]
         #ENC[AES256_GCM,data:1EOfzL0+YlVjmAq2Rh+dJcRwL95s1La25x+qV/d5WlFzVOVdKS3a2EHZqIeHibXL20HQZJYebPS8tAgma+3l7A8BAGky+TIbzYY=,iv:imMpFTFmfeiK7Q0oXCFr5lno5HwID2Zgo8vznBVkgmI=,tag:E+fzwSA4zV0MSS72ZffKMg==,type:comment]
         router:
+            #ENC[AES256_GCM,data:0o2a5+vM+hMCg7wroeqEEjHHPfpYI8qkPw8Zb2HwIw==,iv:oqW5UbI3tPdbNs0KZN/ShLqFX88pPO6CzSn0nofnSHA=,tag:D0n/XNgrgZ9dC6WLQuYd6A==,type:comment]
             ip_address: ENC[AES256_GCM,data:4ybhWLWK7E7CcZqz,iv:lDpnTeQZttKqSW6jCN9+Go1AScJATa2Z/m2u4CqlPp4=,tag:Qn/GGQQthRNAr5ZaKcBspQ==,type:str]
+            settings_url: ENC[AES256_GCM,data:wLWTtVXdHy/YFpV1bC90Sv/DQH1+yjktJcdFnvOGDA6QDZU=,iv:wosvEfRDLuXiWtdQmepdIVp4AdzV1V/w3epPwX9jtRw=,tag:Kq0P9UPUhMJt8xfFIhyXvQ==,type:str]
         #ENC[AES256_GCM,data:mhzLtMZ2ublogGOkQu2rAJfEXnh6UEY=,iv:of2XxexIKwN9U/0Xvui81ZjMmtfCjTgBQp7PkMW0n5E=,tag:Sd41a6QtarROVLEgHHA6Fw==,type:comment]
         proxmox:
             ip_address: ENC[AES256_GCM,data:6RJu8nZETgDFahtyxQ==,iv:llVzsi/Js9nG5XvC9UqhAkG06/A9dg8SV9dQXwBgCUo=,tag:GmxKaSGnIzsiS1ncjp32/g==,type:str]
@@ -63,8 +65,8 @@ all:
             domain: ENC[AES256_GCM,data:Ee2GIiUHyT15BQcATRKRkwS+0j41,iv:0UJAb1KPNP9E/JvT3d4cn6lt0B99w3Ss2SW0XDUys0A=,tag:NRP6ERCd3Xp1cIuLamIO1w==,type:str]
             lets_encrypt_email: ENC[AES256_GCM,data:P6trKCBxAXufTPhMK5jE9sT1,iv:7uIiMZLEqFIx09Ju76FRvJ1HgSca9kF1ZVQO9zi4hH0=,tag:qVReWHDfG/0Vbeu3cZMjHw==,type:str]
 sops:
-    lastmodified: "2025-11-02T13:21:01Z"
-    mac: ENC[AES256_GCM,data:jfcx7pJXA8kzBt8Ct/UJEg7SZIVnT+4wEgGwzpJxOzMtXR4VnF07VNsb35AayE55S//LOjcpMIp+UzUncmSgigdb8EZJ3X9/NsK/zWtX6AoLX1rNbjAlVgJmxipO6nRb0JrtFt605zArNi9mLKeI786UI+VmFxVe6BpVGEXETF8=,iv:3cg5kl5sDrFPq8r055B3pEu6W0eY3BADKlQJOaCyi+g=,tag:oRuaOyxDWprpaoNdz+wqtg==,type:str]
+    lastmodified: "2025-11-02T13:42:14Z"
+    mac: ENC[AES256_GCM,data:vnhPLs8wDkFSJg+ls9RmfvdDbKBvmOjIsOsvVvgHT07YuFmIxu4gL3M4axjPwmQCnLiqSsJZ16lCcAu5SBW46n/Pt+qlV0v08gtlVojY1qfrtJYCjj8VqJ7iH1OqNHEikZOjxpNEdmIIp4ZYoDBJPKNo3iD/wVqSHpl0D8/y0Gs=,iv:giMPDoBwJlHFczNV7pokbhyDiVpr0xSAEjRA6MHvnSw=,tag:y2T2XAxgVZXCcn8ewH+MFw==,type:str]
     pgp:
         - created_at: "2025-11-02T09:54:24Z"
           enc: |-

@@ -158,9 +158,8 @@ sudo cp /etc/logcheck/logcheck.conf /etc/logcheck/logcheck.conf.bak
 # $ sudo -u logcheck logcheck -o -t
 # Send email to root user (and therefore us) with:
 # $ sudo -u logcheck logcheck
-# To add some random logs that will flag, you can do
-# $ sudo -k && sudo doesnotexist
-# 	- and fail the password prompt
+# To add a test log that will flag
+# $ logger -p kern.error This is a test
 
 ## Postfix
 

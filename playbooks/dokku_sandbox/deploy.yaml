@@ -48,6 +48,7 @@
         relay_password: "{{ vms.dokku_sandbox.email.gmail_app_password }}"
         postfix_hostname: dokku-sandbox
         root_alias: "{{ vms.dokku_sandbox.email.root_alias }}"
+    - role: system/logcheck
     - role: docker/install
       vars:
         # Currently an issue with dokku ambassador docker v29

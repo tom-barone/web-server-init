@@ -31,3 +31,6 @@ smtp_sasl_password_maps = hash:/etc/postfix/sasl/sasl_passwd
 smtp_tls_security_level = encrypt
 # Location of CA certificates
 smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+
+# Don't use IPv6 for now, as it can cause issues
+inet_protocols = ipv4

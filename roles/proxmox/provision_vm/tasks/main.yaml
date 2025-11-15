@@ -21,6 +21,7 @@
       # Gateway internal address (usually the router IP so we can get to the internet)
       # do `ip route show` on the proxmox host to find out
       - gateway_ip_address is defined
+      - disk_size is defined
     msg: "Missing a required variable"
 
 - name: Clone the cloud-init template into a new VM
@@ -38,6 +39,10 @@
       - "true"
   args:
     creates: "/etc/pve/qemu-server/{{ vm_id }}.conf"
+
+- name: Resize the VM disk
+  ansible.builtin.include_role:
+    name: proxmox/resize_disk
 
 - name: Update cloudinit settings
   ansible.builtin.command:

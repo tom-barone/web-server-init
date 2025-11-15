@@ -1,0 +1,6 @@
+- name: Destroy the VM
+  hosts: proxmox
+  roles:
+    - role: proxmox/destroy_vm
+      vars:
+        vm_id: "{{ vms.jqc_staging.vm_id }}"

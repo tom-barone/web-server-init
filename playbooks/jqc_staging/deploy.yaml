@@ -1,20 +1,20 @@
 ---
-- name: Provision the Dokku Sandbox VM
+- name: Provision the VM
   hosts: proxmox
   roles:
     - role: proxmox/provision_vm
       vars:
-        vm_id: "{{ vms.dokku_sandbox.vm_id }}"
-        template_id: "{{ vms.dokku_sandbox.template_id }}"
-        vm_name: dokku-sandbox
-        vm_ip_address: "{{ vms.dokku_sandbox.ip_address }}"
-        external_ssh_port: "{{ vms.dokku_sandbox.ssh_port }}"
+        vm_id: "{{ vms.jqc_staging.vm_id }}"
+        template_id: "{{ vms.jqc_staging.template_id }}"
+        vm_name: jqc-staging
+        vm_ip_address: "{{ vms.jqc_staging.ip_address }}"
+        external_ssh_port: "{{ vms.jqc_staging.ssh_port }}"
         gateway_ip_address: "{{ router.ip_address }}"
         # Need more space for dokku / docker apps
         disk_size: "30G"
 
-- name: Deploy the dokku sandbox webserver
-  hosts: dokku_sandbox
+- name: Deploy the webserver
+  hosts: jqc_staging
   become: true
   roles:
     - role: system/update
@@ -38,18 +38,18 @@
     - role: system/unattended_upgrades
     - role: router_port_forward
       vars:
-        description: "Dokku Sandbox SSH"
+        description: "JQC Staging SSH"
         internal_port: "22"
-        external_port: "{{ vms.dokku_sandbox.ssh_port }}"
+        external_port: "{{ vms.jqc_staging.ssh_port }}"
         protocol: "TCP"
     - role: mail/postfix_relay
       vars:
         relay_host: "smtp.gmail.com"
         relay_port: 587
-        relay_username: "{{ vms.dokku_sandbox.email.gmail_app_username }}"
-        relay_password: "{{ vms.dokku_sandbox.email.gmail_app_password }}"
-        postfix_hostname: dokku-sandbox
-        root_alias: "{{ vms.dokku_sandbox.email.root_alias }}"
+        relay_username: "{{ vms.jqc_staging.email.gmail_app_username }}"
+        relay_password: "{{ vms.jqc_staging.email.gmail_app_password }}"
+        postfix_hostname: jqc-staging
+        root_alias: "{{ vms.jqc_staging.email.root_alias }}"
     - role: system/logcheck
     - role: docker/install
       vars:
@@ -58,14 +58,14 @@
         docker_version: "5:28.5.2-1~debian.13~trixie"
     - role: dokku/install
       vars:
-        dokku_version: "{{ vms.dokku_sandbox.dokku_version }}"
-        domain: "{{ vms.dokku_sandbox.domain }}"
+        dokku_version: "{{ vms.jqc_staging.dokku_version }}"
+        domain: "{{ vms.jqc_staging.domain }}"
         lets_encrypt_email: "{{ admin.lets_encrypt_email }}"
     - role: dokku/github_deploy
     - role: dokku/graphite
       vars:
-        monitoring_domain: "{{ vms.dokku_sandbox.monitoring.domain }}"
-        monitoring_username: "{{ vms.dokku_sandbox.monitoring.username }}"
-        monitoring_password: "{{ vms.dokku_sandbox.monitoring.password }}"
-        gmail_app_username: "{{ vms.dokku_sandbox.email.gmail_app_username }}"
-        gmail_app_password: "{{ vms.dokku_sandbox.email.gmail_app_password }}"
+        monitoring_domain: "{{ vms.jqc_staging.monitoring.domain }}"
+        monitoring_username: "{{ vms.jqc_staging.monitoring.username }}"
+        monitoring_password: "{{ vms.jqc_staging.monitoring.password }}"
+        gmail_app_username: "{{ vms.jqc_staging.email.gmail_app_username }}"
+        gmail_app_password: "{{ vms.jqc_staging.email.gmail_app_password }}"

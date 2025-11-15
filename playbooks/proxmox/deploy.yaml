@@ -36,6 +36,6 @@
       loop_control:
         loop_var: vm_template
       vars:
-        template_name: "{{ vm_template.key }}"
+        template_name: "{{ vm_template.key | replace('_', '-') }}"
         image_url: "{{ vm_template.value.image_url }}"
         template_id: "{{ vm_template.value.template_id }}"

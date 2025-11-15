@@ -43,9 +43,12 @@
     creates: /etc/pve/qemu-server/{{ template_id }}.conf
   when: not vm_exists
 
-- name: Resize the hard disk
-  ansible.builtin.command: >
-    qm disk resize {{ template_id }} scsi0 15G
+- ansible.builtin.include_role:
+    name: "proxmox/resize_disk"
+  vars:
+    vm_id: "{{ template_id }}"
+    # Can increase this later if needed
+    disk_size: "5G"
   when: not is_template
 
 - name: "Set cloudinit settings"

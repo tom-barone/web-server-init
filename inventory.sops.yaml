@@ -34,8 +34,10 @@ all:
                 template_id: ENC[AES256_GCM,data:1yCUZZGIy20RpIhCZVg9K/cJaBs1jsp+XLYqvBV56IkaZusDvm+qiqQYWHK5dVdjoE28qSaDRA==,iv:nuxp59+LAYlHwbNqtotVpwoXvTWx49+tfWj7sggBY8Y=,tag:TVJaEoDHGlG4A0OR9CPgGg==,type:str]
                 ssh_port: ENC[AES256_GCM,data:gvvVWw==,iv:Ff19R59DZgSqWhvNX1IJL5Lf6okay5KBM8G5qLZYRH0=,tag:NqForfAl/GSXf6bFBM5xlA==,type:int]
                 routes:
-                    - domain: ENC[AES256_GCM,data:gqgic9SXzvKNx3aQrWh/NPvVqCH490MzIA==,iv:+cS3zyCxdh6pWRloueCo9DZrZff+ilWjYMO67GsEu4k=,tag:RxC7oXJ+nq+cpGUCm83H7A==,type:str]
-                      destination: ENC[AES256_GCM,data:ef7UvDl1Pgzc4QsV,iv:8HDi8zOqoReEBnVfhGedNhnirICi0kopD6sXuEcL8aw=,tag:CzcHwZyesOIDHGjd4i7ocQ==,type:str]
+                    - domain: ENC[AES256_GCM,data:O+i8co77btdgmP1F1OKfuAaNUYXUmE5FOPBL,iv:IGXigaYCNm9bS5eOlFT9b8i8WXRblcl4Q7gKdPo8BDA=,tag:6yfoGgVTJmHajkyBW7F2Uw==,type:str]
+                      destination: ENC[AES256_GCM,data:9JG3eiSozW421CH1c1TgzH7FaGb+2Wr9+2sCsQAxg+4WdgFpdF8X,iv:1UFVVSENR0jUNcQ8I+kjOtHNOKV0FWDRXB8T/Ut/koU=,tag:0hOYanuwKX8fz+BK2vP+Cg==,type:str]
+                    - domain: ENC[AES256_GCM,data:f6sUcWwIl4XEMg/p9PbrSBTxToKepDyso1HKYtRmxWbW/DMSzFM=,iv://MbYCLTwsaA6QX0IHjMtCjopZpDU/LTiABr2KOkwuQ=,tag:KwbdWBIKahWhQs9PX7zYWw==,type:str]
+                      destination: ENC[AES256_GCM,data:AyZ5O4HLmRbQqIka+EC3LNC1swC8o+VKzeRGgYlcnUVVOzDa5kGn,iv:zWFyKTbuU77N7M144B5FNKJccnHHfv1BX1mPSaDaUNE=,tag:GvUqjN0SJOuOPrDMWcGPPQ==,type:str]
             dokku_sandbox:
                 ip_address: ENC[AES256_GCM,data:mNOo5/ZoxpwugYDR+l8=,iv:4vOi2LuDHwQcgbqEFAkubTIyyQbfs2GyqlxBFJp3CgI=,tag:EWpFHNoRi7ZJKkCCLHLJlA==,type:str]
                 vm_id: ENC[AES256_GCM,data:5XI4,iv:siJI0uobfEnho8zuQUSvp4isEvKIli4Vf0jTtLR0FME=,tag:I53vxINOgzRlDVUhkHDw9w==,type:int]
@@ -47,6 +49,10 @@ all:
                     gmail_app_username: ENC[AES256_GCM,data:3cYzsWRcUTHXtjsF36HGWfP0,iv:gGxx2oQEgYGGRFtLZYyJCIjFOAezu1GWbo2lh9XX1z0=,tag:/ObMtOss/yQ2Sp7FxNWvRA==,type:str]
                     gmail_app_password: ENC[AES256_GCM,data:rxTr15ZNrbZ0rNDqzxWl5w==,iv:zQnYZJ8HHGAZjQYwD5GWQAxQFe6+dj9RGClNhk2vgoA=,tag:c67pYvDgaAG7rWGnNtaIUQ==,type:str]
                     root_alias: ENC[AES256_GCM,data:TxnRDX1dTm5SJOL1LQLkPgaz5+OptOoZX8yK/5C6ug0=,iv:hKW9kGD60ahBXWeB7UW3AOY/NjDprzZAMNIlSqgsfaY=,tag:fctYKkYAxGJ4PokzUlwCOA==,type:str]
+                monitoring:
+                    domain: ENC[AES256_GCM,data:CnS+h7BuE2096fGMi2mSgNYtynXnegPmLawtKwrB0e3wbeVAa2c=,iv:V6dP7GjV1BFhNSKjIXhdUYbByYmTUVwSSjhZweYUBnI=,tag:m57kZfxHo4EJo28BsFBf3g==,type:str]
+                    username: ENC[AES256_GCM,data:OVa1WSm5Fm8++w==,iv:wIfG3KLb57065gAgg8DJiRjXMYi8oEhvr2vq7XjliZs=,tag:5IeGEFC2WsayFZ1lplWpEw==,type:str]
+                    password: ENC[AES256_GCM,data:SuVQGnRbr/COJeRhPcko+g==,iv:+kjikUJbcuFvNT6nJAYOpFKuQCVmWKHc5nGvbHFOH7A=,tag:7rLgR9L+Y2u4vJ+2H6R7jg==,type:str]
         admin:
             #ENC[AES256_GCM,data:8XPsO/RDxFfTJs4Txr+zqyXLn/WrMrGJw6AOWDEnKwqMZ4F6VPvxCZ5WFg==,iv:2bfnkMtnh0t2wzFizzIyo6QCrUWln8VQJX/rriktCNA=,tag:69uLcCUPmwq0JbuDqSt6jw==,type:comment]
             username: ENC[AES256_GCM,data:nN6BPtU=,iv:6SvjGRcYjKnbg60cWsmnQuUOAHHIzg5bQSrH8uCvzBI=,tag:UAzfAMf6bG9RVbJf8zzh8A==,type:str]
@@ -67,8 +73,8 @@ all:
             ansible_host: ENC[AES256_GCM,data:SmPV080wTQ6mA2bKpf09Ppn9C5tqi6ghbBv/El+JaNJGvxGK6+uj,iv:WatwWVoc6Fd9LqE7DzUoMfV+KJRyXcUk88ABxVirunQ=,tag:g/N3QZ8pB8AvnaN8GhjUEA==,type:str]
             ansible_user: ENC[AES256_GCM,data:++P9qWR9kihe,iv:QUDyNahtu0HADxLVKVsJRDu6Ks0mJxOdLP2o4oBOTrQ=,tag:tUif8Ex1FszTkjgLRlrf7Q==,type:str]
 sops:
-    lastmodified: "2025-11-02T15:09:48Z"
-    mac: ENC[AES256_GCM,data:KeBYatjHGzm7EUV4ilZsfkjWb5WYsTX3LtM9VUJDFgY7rdMVUzZW04M9wwHeocthlfcsTgVYIBbECC6hx+BKS8TBcgh8fF+viHpMJViPW59jjKPfhg9Yn5qIcO4gyD2ohQ6GNQ9TpRxblqWIikCcPKeeZBbR3vlA0PGiOyBWfmQ=,iv:uF7JmTWkSDHnCaBEXNSr9VMa56QCg+JTUOI4URHpfmo=,tag:x08RIC2nX7E6lF3U444X6g==,type:str]
+    lastmodified: "2025-11-02T15:36:33Z"
+    mac: ENC[AES256_GCM,data:9GRW/QgCAiMu6T5LmzSlimoFncJ75CSUH+l4CA6XNO3pFk2HO8AYa3nISutSxYE7T4YF9QHwk0SARYSEMJrrkdp6WzWozFf3zRz5Rgthm4PS/SDb4l6qt/Jb7Q/i49Owc7ZbY+8IOmsLjfXk5jiyXSYANbO1ryx6mDPVcuyL1f0=,iv:4w1Xpt+Zsa2sGJdG3o032pS5GYYaZzfYId8XqqF0qJ8=,tag:2r0evMICVIhCLN1OAWKOzg==,type:str]
     pgp:
         - created_at: "2025-11-02T09:54:24Z"
           enc: |-

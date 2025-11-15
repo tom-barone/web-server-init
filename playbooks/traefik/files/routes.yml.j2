@@ -1,18 +1,38 @@
 http:
   routers:
 {% for route in vms.traefik.routes %}
-    {{ route.domain | replace('.', '-') }}-router:
+    {{ route.domain | replace('.', '-') }}-http-router:
       rule: "Host(`{{ route.domain }}`)"
-      service: {{ route.domain | replace('.', '-') }}-service
       entryPoints:
         - web
-        - websecure
+      service: {{ route.domain | replace('.', '-') }}-http-service
 {% endfor %}
 
   services:
 {% for route in vms.traefik.routes %}
-    {{ route.domain | replace('.', '-') }}-service:
+    {{ route.domain | replace('.', '-') }}-http-service:
       loadBalancer:
         servers:
-          - url: "http://{{ route.destination }}"
+          - url: "http://{{ route.destination }}:80"
 {% endfor %}
+
+tcp:
+  routers:
+{% for route in vms.traefik.routes %}
+    {{ route.domain | replace('.', '-') }}-tcp-router:
+      entryPoints:
+        - websecure
+      rule: "HostSNI(`{{ route.domain }}`)"
+      service: {{ route.domain | replace('.', '-') }}-tcp-service
+      tls:
+        passthrough: true
+{% endfor %}
+
+  services:
+{% for route in vms.traefik.routes %}
+    {{ route.domain | replace('.', '-') }}-tcp-service:
+      loadBalancer:
+        servers:
+          - address: "{{ route.destination }}:443"
+{% endfor %}
+

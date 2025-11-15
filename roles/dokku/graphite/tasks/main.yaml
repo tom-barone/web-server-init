@@ -1,0 +1,80 @@
+---
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - monitoring_domain is defined
+      - monitoring_username is defined
+      - monitoring_password is defined
+      - gmail_app_username is defined
+      - gmail_app_password is defined
+    msg: "Missing a required variable"
+
+- name: Ensure graphite service exists
+  ansible.builtin.shell: |
+    dokku graphite:info graphite >/dev/null 2>&1 || \
+    dokku graphite:create graphite \
+      --image tombarone/docker-grafana-graphite \
+      --image-version latest \
+      --custom-env "GF_SECURITY_ADMIN_USER={{ monitoring_username }};GF_SECURITY_ADMIN_PASSWORD={{ monitoring_password }};GF_SMTP_ENABLED=true;GF_SMTP_HOST=smtp.gmail.com:587;GF_SMTP_USER={{ gmail_app_username }};GF_SMTP_PASSWORD={{ gmail_app_password }};GF_SMTP_FROM_NAME=GrafanaAlerts"
+  args:
+    executable: /bin/bash
+
+- name: Expose graphite ports
+  ansible.builtin.shell: |
+    dokku graphite:info graphite | grep -q "8125.*8126.*8084.*8081.*2003" || \
+    dokku graphite:expose graphite 8125 8126 8084 8081 2003
+  args:
+    executable: /bin/bash
+
+- name: Ensure monitoring app exists
+  ansible.builtin.shell: |
+    dokku apps:report "{{ monitoring_domain }}" >/dev/null 2>&1 || \
+    dokku apps:create "{{ monitoring_domain }}"
+  args:
+    executable: /bin/bash
+
+- name: Set monitoring app config
+  ansible.builtin.command:
+    cmd: >
+      dokku config:set --no-restart "{{ monitoring_domain }}"
+      SERVICE_NAME=graphite
+      SERVICE_TYPE=graphite
+      SERVICE_PORT=80
+
+- name: Link graphite to monitoring app
+  ansible.builtin.shell: |
+    dokku graphite:links graphite | grep -q "{{ monitoring_domain }}" || \
+    dokku graphite:link graphite "{{ monitoring_domain }}"
+  args:
+    executable: /bin/bash
+
+- name: Deploy service-proxy image to monitoring app
+  ansible.builtin.shell: |
+    dokku git:from-image "{{ monitoring_domain }}" dokku/service-proxy:latest
+  failed_when: false
+  args:
+    executable: /bin/bash
+
+- name: Get LetsEncrypt status
+  ansible.builtin.shell: |
+    dokku letsencrypt:active "{{ monitoring_domain }}"
+  args:
+    executable: /bin/bash
+  # returns "true" or "false" strings
+  register: letsencrypt_status
+
+- name: Enable letsencrypt
+  ansible.builtin.command:
+    cmd: dokku letsencrypt:enable "{{ monitoring_domain }}"
+  when: letsencrypt_status.stdout == "false"
+
+- name: Show graphite storage schema
+  ansible.builtin.shell: |
+    dokku graphite:enter graphite cat /opt/graphite/conf/storage-schemas.conf
+  args:
+    executable: /bin/bash
+  register: graphite_storage_schema
+
+- name: Print graphite storage schema
+  ansible.builtin.debug:
+    msg: "{{ graphite_storage_schema.stdout }}"

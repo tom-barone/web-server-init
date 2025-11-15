@@ -40,13 +40,6 @@
         internal_port: "22"
         external_port: "{{ vms.dokku_sandbox.ssh_port }}"
         protocol: "TCP"
-    - role: docker/install
-    - role: dokku/install
-      vars:
-        dokku_version: "{{ vms.dokku_sandbox.dokku_version }}"
-        domain: "{{ vms.dokku_sandbox.domain }}"
-        lets_encrypt_email: "{{ admin.lets_encrypt_email }}"
-    - role: dokku/github_deploy
     - role: mail/postfix_relay
       vars:
         relay_host: "smtp.gmail.com"
@@ -55,3 +48,17 @@
         relay_password: "{{ vms.dokku_sandbox.email.gmail_app_password }}"
         postfix_hostname: dokku-sandbox
         root_alias: "{{ vms.dokku_sandbox.email.root_alias }}"
+    - role: docker/install
+    - role: dokku/install
+      vars:
+        dokku_version: "{{ vms.dokku_sandbox.dokku_version }}"
+        domain: "{{ vms.dokku_sandbox.domain }}"
+        lets_encrypt_email: "{{ admin.lets_encrypt_email }}"
+    - role: dokku/github_deploy
+    - role: dokku/graphite
+      vars:
+        monitoring_domain: "{{ vms.dokku_sandbox.monitoring.domain }}"
+        monitoring_username: "{{ vms.dokku_sandbox.monitoring.username }}"
+        monitoring_password: "{{ vms.dokku_sandbox.monitoring.password }}"
+        gmail_app_username: "{{ vms.dokku_sandbox.email.gmail_app_username }}"
+        gmail_app_password: "{{ vms.dokku_sandbox.email.gmail_app_password }}"

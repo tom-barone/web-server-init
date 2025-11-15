@@ -1,9 +1,9 @@
 ---
-#- name: Validate required variables
-#  ansible.builtin.assert:
-#    that:
-#      - docker_version is defined
-#    msg: "Missing a required variable"
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - docker_version is defined
+    msg: "Missing a required variable"
 
 - name: Install dependencies
   ansible.builtin.apt:
@@ -32,8 +32,8 @@
 - name: Install Docker
   ansible.builtin.apt:
     name:
-      - docker-ce
-      - docker-ce-cli
+      - docker-ce={{ docker_version }}
+      - docker-ce-cli={{ docker_version }}
       - containerd.io
       - docker-buildx-plugin
       - docker-compose-plugin

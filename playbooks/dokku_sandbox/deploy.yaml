@@ -49,6 +49,10 @@
         postfix_hostname: dokku-sandbox
         root_alias: "{{ vms.dokku_sandbox.email.root_alias }}"
     - role: docker/install
+      vars:
+        # Currently an issue with dokku ambassador docker v29
+        # https://github.com/dokku/docker-ambassador/issues/98
+        docker_version: "5:28.5.2-1~debian.13~trixie"
     - role: dokku/install
       vars:
         dokku_version: "{{ vms.dokku_sandbox.dokku_version }}"

@@ -2,9 +2,9 @@ default: help
 
 # Provision and deploy everything
 deploy:
-    #@just run-playbook ./playbooks/proxmox/deploy.yaml
+    @just run-playbook ./playbooks/proxmox/deploy.yaml
     @just run-playbook ./playbooks/traefik/deploy.yaml
-    #@just run-playbook ./playbooks/dokku_sandbox/deploy.yaml
+    @just run-playbook ./playbooks/dokku_sandbox/deploy.yaml
     #ansible-playbook ./playbooks/dokku_sandbox/deploy.yaml
 
 # Destroy everything

@@ -1,4 +1,10 @@
 ---
+# If there's an issue with starting / stopping / restarting the graphite or graphite.ambassador images
+# you can try removing the docker images and starting again
+#
+# $ docker ps -a
+# $ docker rm <container_id>
+
 - name: Validate required variables
   ansible.builtin.assert:
     that:
@@ -78,3 +84,37 @@
 - name: Print graphite storage schema
   ansible.builtin.debug:
     msg: "{{ graphite_storage_schema.stdout }}"
+
+- name: Install collectd
+  ansible.builtin.apt:
+    name: collectd
+    state: present
+
+- name: Configure collectd for Graphite
+  ansible.builtin.template:
+    src: files/graphite.conf.j2
+    dest: /etc/collectd/collectd.conf.d/graphite.conf
+
+- name: Restart collectd
+  ansible.builtin.systemd:
+    name: collectd
+    state: restarted
+    enabled: yes
+
+- name: List datasources in Grafana
+  ansible.builtin.shell: |
+    curl https://{{ monitoring_domain }}/api/datasources \
+      -H "Accept: application/json" \
+      -u "{{ monitoring_username }}:{{ monitoring_password }}"
+  register: grafana_datasources
+
+- name: Create the graphite datasource in Grafana
+  ansible.builtin.shell: |
+    curl https://{{ monitoring_domain }}/api/datasources \
+      --fail \
+      -X POST \
+      -H "Accept: application/json" \
+      -H "Content-Type: application/json" \
+      -u "{{ monitoring_username }}:{{ monitoring_password }}" \
+      -d '{"name":"Graphite","type":"graphite","url":"http://localhost:81","access":"proxy","isDefault":true}'
+  when: '"Graphite" not in grafana_datasources.stdout'

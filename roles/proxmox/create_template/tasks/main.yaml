@@ -37,6 +37,7 @@
     --memory 2048
     --scsi0 local-lvm:0,format=raw,import-from=/root/{{ image_url | basename }}
     --ide2 local-lvm:cloudinit
+    --cpu cputype=host
     --boot order=scsi0
   args:
     creates: /etc/pve/qemu-server/{{ template_id }}.conf

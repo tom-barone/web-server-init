@@ -5,7 +5,7 @@
   ansible.builtin.apt:
     update_cache: yes
 
-- name: Ensure all packages have latest versions
-  ansible.builtin.apt:
-    name: "*"
-    state: latest
+#- name: Ensure all packages have latest versions
+#  ansible.builtin.apt:
+#    name: "*"
+#    state: latest

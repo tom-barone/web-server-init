@@ -118,3 +118,39 @@
       -u "{{ monitoring_username }}:{{ monitoring_password }}" \
       -d '{"name":"Graphite","type":"graphite","url":"http://localhost:81","access":"proxy","isDefault":true}'
   when: '"Graphite" not in grafana_datasources.stdout'
+
+- name: Create cadvisor app in Dokku if it doesn't exist
+  ansible.builtin.shell: |
+    dokku apps:report cadvisor >/dev/null 2>&1 || \
+    dokku apps:create cadvisor
+  args:
+    executable: /bin/bash
+
+- name: Link to graphite if not already linked
+  ansible.builtin.shell: |
+    dokku graphite:links graphite | grep -q "cadvisor" || \
+    dokku graphite:link graphite cadvisor
+  args:
+    executable: /bin/bash
+
+- name: Setup cadvisor
+  ansible.builtin.shell: |
+    dokku docker-options:add cadvisor deploy "--privileged"
+    dokku docker-options:add cadvisor deploy "--device=/dev/kmsg"
+    dokku config:set --no-restart cadvisor DOKKU_DOCKERFILE_START_CMD="--storage_driver=statsd --storage_driver_host=dokku-graphite-graphite:8125 --port 8082"
+    dokku storage:mount cadvisor /:/rootfs:ro
+    dokku storage:mount cadvisor /var/run:/var/run:ro
+    dokku storage:mount cadvisor /sys:/sys:ro
+    dokku storage:mount cadvisor /var/lib/docker:/var/lib/docker:ro
+    dokku storage:mount cadvisor /dev/disk:/dev/disk:ro
+    docker image pull gcr.io/cadvisor/cadvisor:v0.49.1
+    dokku git:from-image cadvisor gcr.io/cadvisor/cadvisor:v0.49.1
+
+# When a Dokku app is deployed, cadvisor loses track of the container metrics and needs to be restarted
+# This cron job will restart cadvisor every day at 3am, which is a bit of a hack.
+# A better solution is to have cadvisor restart automatically when a new container is deployed.
+# Can also do it manually with:
+# $ dokku ps:restart cadvisor
+- name: Set up cadvisor cron restart
+  ansible.builtin.shell: |
+    dokku cron-restart:set cadvisor schedule '0 3 * * *'

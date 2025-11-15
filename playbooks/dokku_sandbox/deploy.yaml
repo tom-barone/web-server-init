@@ -10,6 +10,11 @@
         vm_ip_address: "{{ vms.dokku_sandbox.ip_address }}"
         external_ssh_port: "{{ vms.dokku_sandbox.ssh_port }}"
         gateway_ip_address: "{{ router.ip_address }}"
+    - role: proxmox/resize_disk
+      vars:
+        vm_id: "{{ vms.traefik.vm_id }}"
+        # Need more space for dokku / docker apps
+        disk_size: "30G"
 
 - name: Deploy the dokku sandbox webserver
   hosts: dokku_sandbox

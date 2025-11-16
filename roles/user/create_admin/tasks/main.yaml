@@ -29,4 +29,3 @@
     line: "{{ username }} ALL=(ALL) NOPASSWD:ALL"
     create: yes
     mode: "0440"
-    validate: "visudo -cf %s"

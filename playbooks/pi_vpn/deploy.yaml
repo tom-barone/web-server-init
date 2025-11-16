@@ -1,0 +1,43 @@
+---
+- name: Provision the VM
+  hosts: proxmox
+  roles:
+    - role: proxmox/provision_vm
+      vars:
+        vm_id: "{{ vms.pi_vpn.vm_id }}"
+        template_id: "{{ vms.pi_vpn.template_id }}"
+        vm_name: pi-vpn
+        vm_ip_address: "{{ vms.pi_vpn.ip_address }}"
+        external_ssh_port: "{{ vms.pi_vpn.ssh_port }}"
+        gateway_ip_address: "{{ router.ip_address }}"
+        # Don't need much space for a VPN server
+        disk_size: "2G"
+
+- name: Deploy the VM
+  hosts: pi_vpn
+  become: true
+  roles:
+    - role: system/update
+    - role: user/create_admin
+      vars:
+        username: "{{ admin.username }}"
+        ssh_public_key: "{{ admin.ssh_public_key }}"
+    - role: system/locale
+      vars:
+        locale: "{{ defaults.locale }}"
+    - role: system/harden_ssh
+      vars:
+        ssh_public_key: "{{ admin.ssh_public_key }}"
+        exclusive_access: "no"
+        permit_root_login: "no"
+    - role: system/fail2ban
+    - role: router_port_forward
+      vars:
+        description: "Pi VPN SSH"
+        internal_port: "22"
+        external_port: "{{ vms.pi_vpn.ssh_port }}"
+        protocol: "TCP"
+    - role: pi_vpn/install
+      vars:
+        backup_tgz: "{{ vms.pi_vpn.backup_tgz }}"
+        vpn_hostname: "{{ vms.pi_vpn.domain }}"

@@ -92,7 +92,7 @@ all:
             locale: ENC[AES256_GCM,data:neUt8TvUw30vHFw=,iv:B7QJVr2bbFiSiKosPeHOeiSxO+JDVbhQfC7QldxrU6U=,tag:81l4Ytrte6qWFbPTwvLLCg==,type:str]
     hosts:
         proxmox:
-            ansible_host: ENC[AES256_GCM,data:vmOakb8KblEuTMqJ0VhS9jnP+rmoC2hy6Q==,iv:vnMGFe59u4oqz239DLEa/D34JPHMLQU4/TxIVsT0WrY=,tag:zQ7pYR/e9FV43G3SqwbjrQ==,type:str]
+            ansible_host: ENC[AES256_GCM,data:ROgCWgDz8QlKeQkUjUh7iFxmkQXtC76yJYVM/x8=,iv:aRr7LB9fxmv2cs1ifWxYxDmtoneiZW2PQiYbZZCNRv4=,tag:/eDxFjOaTNCcEy3cKx37NA==,type:str]
             ansible_user: ENC[AES256_GCM,data:9hdBtA==,iv:Dz88FD58UNlI5LnhGJEZ/MhxFVFU/dzvn+sXNLQqvTQ=,tag:sC5rOf/LqmTb4WxzYvePNQ==,type:str]
         traefik:
             ansible_host: ENC[AES256_GCM,data:R5R3j42Vz3z+SgYsfkPXGk49OCXDbatXx9QOMcoQDSk3,iv:qX4MJMMwVlzr2IPJu+AoMUyGkfoLpjdI48jZ05DUTDE=,tag:ITPKWEjOqm8L3A/Q67A1mg==,type:str]
@@ -116,8 +116,8 @@ all:
             ansible_user: ENC[AES256_GCM,data:X388Muo7BubL,iv:jRB6qDNsUfdBYQ+KFqdoppYqn7FmSifC77ERZLyNHBc=,tag:2ykMc7UVQcLTqaGWHys87w==,type:str]
             #ENC[AES256_GCM,data:UYHI2r8SuWMLTeIZrAel5BD+tg==,iv:n2IKRw2Nn7vsr+2u3u/94o7H0BRh8B6W1Bq45UCcDdk=,tag:MTzzyLhlYADMw190sn9oPw==,type:comment]
 sops:
-    lastmodified: "2025-11-16T06:06:37Z"
-    mac: ENC[AES256_GCM,data:qqZW9G4DYCRA29NuRTS0VPj+hJzsdUqkxeOFn/NyqBatEnfyLADySLpfw3OUqURX5mrjw2VFN6O8UkJtNAnCn6lVfot03daHnO/HbTiVDRPpSe4aZfZ6ozqYWPXlm6QF31S2Km/5dcd2AgvkJlb2rInMA97Dsc1qMNiReX2HIug=,iv:VUAJ892SX98njms0NQEL1YXmhup1RkKGyXDbEOGHdlk=,tag:+6iilHU6EJ5y78GdhXAIAw==,type:str]
+    lastmodified: "2025-11-23T13:02:20Z"
+    mac: ENC[AES256_GCM,data:0apii95LYaE0/sj1KnbpJLtRodj1cKv3Z0eEHmzLEH1eo5A3Tsbyb88eMivfRLfsocBon5F+ZCWk5nb7ev/AjpW0ZYG7a/TYjbXDfdzBNU/Te/tsEYCTxrDJq+9gM7lwvSOM21ySmkEC+gsmuxS3n+R1V6xS+6h6XKywbC1V2FY=,iv:RaugfPxza/1DusRsmBUjHxxTHG6SV7u+G+aQ4HuA8YY=,tag:TZRrCVWb9iGP+oj8RK3MYQ==,type:str]
     pgp:
         - created_at: "2025-11-02T09:54:24Z"
           enc: |-

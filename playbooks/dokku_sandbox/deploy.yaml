@@ -61,6 +61,7 @@
         dokku_version: "{{ vms.dokku_sandbox.dokku_version }}"
         domain: "{{ vms.dokku_sandbox.domain }}"
         lets_encrypt_email: "{{ admin.lets_encrypt_email }}"
+        admin_ssh_key: "{{ admin.ssh_public_key }}"
     - role: dokku/github_deploy
     - role: dokku/graphite
       vars:

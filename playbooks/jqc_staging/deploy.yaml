@@ -61,6 +61,7 @@
         dokku_version: "{{ vms.jqc_staging.dokku_version }}"
         domain: "{{ vms.jqc_staging.domain }}"
         lets_encrypt_email: "{{ admin.lets_encrypt_email }}"
+        admin_ssh_key: "{{ admin.ssh_public_key }}"
     - role: dokku/github_deploy
     - role: dokku/graphite
       vars:

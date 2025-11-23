@@ -55,4 +55,4 @@
 - name: Add deploy key to dokku
   become: true
   ansible.builtin.command: dokku ssh-keys:add github /home/github/.ssh/github_deploy_key.pub
-  when: dokku_keys.stdout is not search('github')
+  when: dokku_keys.stdout is not search('NAME="github"')

@@ -6,6 +6,7 @@ deploy:
     @just run-playbook ./playbooks/traefik/deploy.yaml
     @just run-playbook ./playbooks/pi_vpn/deploy.yaml
     @just run-playbook ./playbooks/dokku_sandbox/deploy.yaml
+    @just run-playbook ./playbooks/jqc_staging/deploy.yaml
 
 # Destroy everything
 destroy:
@@ -32,6 +33,9 @@ ssh-traefik:
 ssh-proxmox:
     ssh root@$(just proxmox_ip)
 
+ssh-dokku-sandbox:
+    ssh $(just dokku_sandbox_ip)
+
 # ------ Secondary Recipes ------
 
 # Extract the proxmox IP address from the encrypted inventory
@@ -43,6 +47,10 @@ proxmox_ip:
 [private]
 traefik_ip:
     sops exec-file inventory.sops.yaml 'yq ".all.vars.vms.traefik.ip_address" {}'
+
+[private]
+dokku_sandbox_ip:
+    sops exec-file inventory.sops.yaml 'yq ".all.vars.vms.dokku_sandbox.ip_address" {}'
 
 [private]
 router_settings_url:

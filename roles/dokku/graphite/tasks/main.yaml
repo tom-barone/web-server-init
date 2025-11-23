@@ -133,6 +133,14 @@
   args:
     executable: /bin/bash
 
+- name: Check if cadvisor is already set up
+  ansible.builtin.shell: |
+    dokku ps:report cadvisor
+  args:
+    executable: /bin/bash
+  register: cadvisor_check
+  failed_when: false
+
 - name: Setup cadvisor
   ansible.builtin.shell: |
     dokku docker-options:add cadvisor deploy "--privileged"
@@ -145,6 +153,7 @@
     dokku storage:mount cadvisor /dev/disk:/dev/disk:ro
     docker image pull gcr.io/cadvisor/cadvisor:v0.49.1
     dokku git:from-image cadvisor gcr.io/cadvisor/cadvisor:v0.49.1
+  when: cadvisor_check.rc != 0
 
 # When a Dokku app is deployed, cadvisor loses track of the container metrics and needs to be restarted
 # This cron job will restart cadvisor every day at 3am, which is a bit of a hack.

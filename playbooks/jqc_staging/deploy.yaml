@@ -12,6 +12,8 @@
         gateway_ip_address: "{{ router.ip_address }}"
         # Need more space for dokku / docker apps
         disk_size: "30G"
+        cpu_cores: 2
+        ram: "4096" # in MB
 
 - name: Deploy the webserver
   hosts: jqc_staging

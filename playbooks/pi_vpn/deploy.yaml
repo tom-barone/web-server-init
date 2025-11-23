@@ -12,6 +12,8 @@
         gateway_ip_address: "{{ router.ip_address }}"
         # Don't need much space for a VPN server
         disk_size: "2G"
+        cpu_cores: 1
+        ram: "2048" # in MB
 
 - name: Deploy the VM
   hosts: pi_vpn

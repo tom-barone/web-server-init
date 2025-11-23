@@ -12,6 +12,8 @@
         gateway_ip_address: "{{ router.ip_address }}"
         # Need more space for dokku / docker apps
         disk_size: "30G"
+        cpu_cores: 1
+        ram: "2048" # in MB
 
 - name: Deploy the dokku sandbox webserver
   hosts: dokku_sandbox

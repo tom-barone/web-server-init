@@ -22,6 +22,8 @@
       # do `ip route show` on the proxmox host to find out
       - gateway_ip_address is defined
       - disk_size is defined
+      - cpu_cores is defined
+      - ram is defined
     msg: "Missing a required variable"
 
 - name: Clone the cloud-init template into a new VM
@@ -39,6 +41,19 @@
       - "true"
   args:
     creates: "/etc/pve/qemu-server/{{ vm_id }}.conf"
+
+- name: Set VM CPU and RAM
+  ansible.builtin.command:
+    argv:
+      - qm
+      - set
+      - "{{ vm_id }}"
+      - --sockets
+      - "1"
+      - --cores
+      - "{{ cpu_cores }}"
+      - --memory
+      - "{{ ram }}"
 
 - name: Resize the VM disk
   ansible.builtin.include_role:

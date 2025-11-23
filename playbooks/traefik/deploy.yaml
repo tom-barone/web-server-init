@@ -11,6 +11,8 @@
         external_ssh_port: "{{ vms.traefik.ssh_port }}"
         gateway_ip_address: "{{ router.ip_address }}"
         disk_size: "5G"
+        cpu_cores: 1
+        ram: "2048" # in MB
 
 - name: Deploy the Traefik VM
   hosts: traefik

@@ -16,9 +16,9 @@ destroy:
 
 # Open all management dashboards
 open-dashboards:
-    python3 -m webbrowser https://$(just proxmox_ip):8006 # Proxmox
-    python3 -m webbrowser http://$(just traefik_ip):8080/dashboard/ # Traefik
-    python3 -m webbrowser $(just router_settings_url) # Router Settings
+    python3 -m webbrowser https://$(just get proxmox.ip_address):8006 # Proxmox
+    python3 -m webbrowser http://$(just get vms.traefik.ip_address):8080/dashboard/ # Traefik
+    python3 -m webbrowser $(just get router.settings_url) # Router Settings
 
 # Edit the SOPS encrypted inventory file
 edit-inventory:
@@ -27,34 +27,23 @@ edit-inventory:
 help:
     @just --list
 
-ssh-traefik:
-    ssh $(just traefik_ip)
-
 ssh-proxmox:
-    ssh root@$(just proxmox_ip)
+    ssh root@$(just get proxmox.ip_address)
+
+ssh-traefik:
+    ssh $(just get vms.traefik.ip_address)
 
 ssh-dokku-sandbox:
-    ssh $(just dokku_sandbox_ip)
+    ssh $(just get vms.dokku_sandbox.ip_address)
+
+ssh-vpn:
+    ssh $(just get vms.pi_vpn.ip_address)
 
 # ------ Secondary Recipes ------
 
-# Extract the proxmox IP address from the encrypted inventory
 [private]
-proxmox_ip:
-    sops exec-file inventory.sops.yaml 'yq ".all.vars.proxmox.ip_address" {}'
-
-# Extract the traefik IP address from the encrypted inventory
-[private]
-traefik_ip:
-    sops exec-file inventory.sops.yaml 'yq ".all.vars.vms.traefik.ip_address" {}'
-
-[private]
-dokku_sandbox_ip:
-    sops exec-file inventory.sops.yaml 'yq ".all.vars.vms.dokku_sandbox.ip_address" {}'
-
-[private]
-router_settings_url:
-    sops exec-file inventory.sops.yaml 'yq ".all.vars.router.settings_url" {}'
+get KEY:
+    sops exec-file inventory.sops.yaml 'yq ".all.vars.{{ KEY }}" {}'
 
 # Run a playbook with the decrypted inventory
 [private]

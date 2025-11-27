@@ -3,6 +3,7 @@
     that:
       - vpn_hostname is defined
       - backup_tgz is defined
+      - dns_server is defined
     msg: "Missing a required variable"
 
 - name: Check if the wireguard service exists
@@ -60,13 +61,6 @@
   when: not wireguard_installed
 
 - name: Restore PiVPN wireguard config
-  ansible.builtin.copy:
-    src: /tmp/pivpn_restore/etc/wireguard
-    dest: /etc
-    remote_src: yes
-  when: not wireguard_installed
-
-- name: Restore PiVPN configuration
   ansible.builtin.copy:
     src: /tmp/pivpn_restore/etc/wireguard
     dest: /etc

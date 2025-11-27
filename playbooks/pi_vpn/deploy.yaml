@@ -43,3 +43,4 @@
       vars:
         backup_tgz: "{{ vms.pi_vpn.backup_tgz }}"
         vpn_hostname: "{{ vms.pi_vpn.domain }}"
+        dns_server: "{{ router.ip_address }}"

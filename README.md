@@ -1,10 +1,19 @@
-# Tbone Web Services (TWS)
+# TWS
 
-Virtual machines on your own hardware, connected to the internet.
+Tbone web services. Virtual machines on your own hardware, connected to the internet.
 
-# Installation
+- Single node Proxmox VE host.
+- Single public IP address with Traefik for reverse proxying web apps on different VMs.
+- Wireguard via piVPN for remote access to everything.
+- Ansible to automate setup and configuration.
 
-## Proxmox VE
+What would be cool to add:
+
+- Proxmox clustering with multiple nodes.
+
+## Installation
+
+### Proxmox VE
 
 Current version: 9.0
 
@@ -13,7 +22,7 @@ Follow the instructions on the [Proxmox website](https://pve.proxmox.com/pve-doc
 Settings:
 
 - Email: I like using a gmail alias to my own address `...+<server_name>@gmail.com`.
-- Hostname (FQDN): This will be used down the line for SSH access, so something like `<server_name>.<your_domain>`.
+- Hostname (FQDN): This will be used down the line for SSH access, so something like `<server_name>.local`.
 
 Once installed, run this [post install script](https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install):
 
@@ -42,7 +51,7 @@ Current best practices:
 - unattended-upgrades for automatic security updates.
 - [Uptime Robot](https://uptimerobot.com) to monitor the server every 5 minutes and alert if it goes down.
 
-## Getting started
+### Getting started
 
 Create a user account:
 
@@ -75,7 +84,7 @@ scp init.sh tbone@<server>:~
 
 Run `push.sh` to push new logcheck rules to a server.
 
-## Linode
+### Linode
 
 Update locales if needed, for example Linode sets Aussie servers with en_AU locales which aren't always available:
 
@@ -84,7 +93,7 @@ sudo dpkg-reconfigure locales
 # Select en_AU.UTF-8
 ```
 
-## Installing on own hardware via USB
+### Installing on own hardware via USB
 
 Follow whatever is recommended on the [Debian website](https://www.debian.org/CD/netinst).
 
@@ -149,7 +158,7 @@ iface wlp0s20f3 inet dhcp
 
 Run the regular setup scripts as above.
 
-## Dead battery on an old laptop
+### Dead battery on an old laptop
 
 An old laptop with a dead battery can cause annoying cycling between `AC Power` and `0% Battery` states.
 
